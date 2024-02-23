@@ -1,0 +1,120 @@
+.agenda-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+  }
+  .agenda-header {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0%;
+    padding-bottom: 1.0rem;
+  }
+  
+  .agenda-date {
+    display: flex;
+    flex: 1 1 0%;
+  }
+  .agenda-date span {
+    font-weight: 500;
+    padding-right: 4px;
+  }
+  .filters-container {
+    display: flex;
+  }
+  .filters-button {
+    display: flex;
+    border-radius: 1rem;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 0.5rem 0.6rem;
+    background-color: #f9f9f9;
+  }
+  .filters-button svg {
+    margin-right: 4px;
+  }
+  
+  .filters-button:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  .agenda-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0%;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition-duration :300ms;
+    cursor: pointer;
+  }
+  .agenda-navigation {
+    padding: 0.5rem 1rem 0.5rem 0.2rem;
+    cursor: pointer;
+  }
+  
+  .agenda-item {
+    display: flex;
+    padding: 0.5rem;
+    flex-direction: column;
+    flex: 1 1 0%;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    transition-duration: 300ms;
+    cursor: pointer;
+  }
+  
+   .agenda-item:hover {
+     background-color: #fff;
+   }
+  
+  .agenda-item-active {
+    background-color: #FF620A;
+  }
+  
+  .agenda-item-active:hover {
+    background-color: #FF620A;
+    filter: brightness(125%);
+  }
+  
+  .agenda-item-inactive-today {
+    background-color: #9BCFFF;
+  }
+  
+  .agenda-item-inactive-today:hover {
+    background-color: #E1F5FE;
+    filter: brightness(95%);
+  }
+  
+  .agenda-item-day {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  
+  .agenda-item-month {
+    font-size: 0.75rem;
+  }
+  
+  .agenda-month {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0%;
+    padding-top: 1.0rem;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #cdcdcdc8;
+  }
+  
+  .agenda-month-name {
+    display: flex;
+    margin: 1rem;
+  }
+  
+  .agenda-month-navigation {
+    padding: 0.5rem 1rem 0.5rem 0.2rem;
+    cursor: pointer;
+  }
+  

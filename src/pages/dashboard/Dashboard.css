@@ -1,0 +1,23 @@
+.dashboard-container {
+    padding: 2rem;
+  }
+
+.sections-container {
+  display: flex;
+  padding-top: 2rem;
+  flex-direction: row;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  gap: 0.5rem;
+  border-right: 2px solid #ECECEC;
+  padding-right: 0.35rem;
+  padding-left: 0.35rem;
+}
+
+.section:last-child {
+  border-right: none;
+}
