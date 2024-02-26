@@ -6,7 +6,7 @@
     padding: 20px;
     max-width: 750px;
     margin: auto;
-    border-radius: 0px;
+    border-radius: 10px;
   }
   
   .booking-form-header h2 {
@@ -30,7 +30,7 @@
     margin-bottom: 15px;
     border-radius: 3rem;
     padding: 8px;
-    background-color: #3797f1;
+    background-color: #9BCFFF;
     width: 300px;
     color: #000;
     font-size: 0.75rem;
@@ -41,7 +41,7 @@
     padding: 10px;
     margin: 5px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 0.75rem;
   }
   
@@ -70,15 +70,31 @@
     align-items: center;
     justify-content: space-around;
   }
+
   .booking-form-cancel {
-
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e9e9e9e9;
+    color: #000;
+    cursor: pointer;
   }
+
   .booking-form-cancel:hover {
-
+    filter: brightness(1.25);
   }
+
   .booking-form-submit {
-
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e74c3c;
+    color: #000;
+    cursor: pointer;
   }
-  .booking-form-submit:hover {
 
+  .booking-form-submit:hover {
+  filter: brightness(1.25);
   }
