@@ -15,7 +15,7 @@ function App() {
           <Route element = {<Map />} path = "map" />
         </Route>
         <Route element = {<BookingLayout />} path = "/">
-          <Route element = {<Booking authed = {true} />} path = "booking" />
+          <Route element = {<Booking />} path = "booking" />
         </Route>
       </Routes>
     </BrowserRouter>
