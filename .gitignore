@@ -1,0 +1,12 @@
+.DS_*
+*.log
+logs
+
+node_modules
+build
+
+.env.local
+.env.*.local
+.env
+
+.idea
