@@ -55,7 +55,7 @@ function AgendaItem({ day, date, active, onClick }) {
         </div>
         <div className = "agenda-month">
            <div className = "agenda-month-navigation"><IconChevronLeft /></div>
-           <div className = "agenda-month-name">{selectedDate?.toLocaleString('default', { month: 'long' }) ?? "None"}</div>
+           <div className = "agenda-month-name">{selectedDate?.toLocaleString('default', { month: 'long', year: 'numeric' }) ?? "None"}</div>
            <div className = "agenda-month-navigation"><IconChevronRight /></div>
         </div>
       </div>
