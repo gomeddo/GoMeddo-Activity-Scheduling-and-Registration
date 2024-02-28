@@ -15,6 +15,8 @@ function useAgendaItems() {
         location: "Amsterdam Platnium",
         instructor: "Paul M",
         time: "6:15 am - 7:00 am",
+        attendees: 15,
+        spaces: 15,
       })),
     },
     {
@@ -25,6 +27,8 @@ function useAgendaItems() {
         location: "Amsterdam Gold",
         instructor: "Jim G",
         time: "1:15 pm - 2:00 pm",
+        attendees: 5,
+        spaces: 10,
       })),
     },
     {
@@ -35,6 +39,8 @@ function useAgendaItems() {
         location: "Amsterdam Gold",
         instructor: "Elliot M",
         time: "6:15 pm - 7:00 pm",
+        attendees: 2,
+        spaces: 18,
       })),
     },
   ];

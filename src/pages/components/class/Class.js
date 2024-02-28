@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import './Class.css';
 
 
-function Class({ id, name, time, location, instructor, active, onClick, selectedDate }) {
+function Class({ id, name, time, location, instructor, attendees, spaces, active, onClick, selectedDate }) {
   
   const navigate = useNavigate();
   const routeChange = () => {
     const path = `/booking`;
     navigate(path, { state: { name: name, time: time, date: selectedDate } });
   }
+  const classFull = attendees === spaces;
 
   return (
     <div
@@ -26,14 +27,23 @@ function Class({ id, name, time, location, instructor, active, onClick, selected
             <span> • </span>
             <span>{instructor}</span>
           </div>
+          <div className = "class-location-size">
+            <span>Capacity:&nbsp;</span>
+            <span> {attendees}</span>
+            <span>/</span>
+            <span>{spaces}</span>
+          </div>
         </div>
         <div className = "class-time">{time}</div>
       </div>
-      {active && (
+      {active && !classFull && ( //Conditonally render the book button if the class is active
         <div className = "book-button-container">
           <Button onClick = {routeChange}>Book Class</Button>
         </div>
       )}
+      {active && classFull && <div className = "book-button-container">
+        <span className = "class-full">Class Full</span>
+        </div>}
     </div>
   );
 }
