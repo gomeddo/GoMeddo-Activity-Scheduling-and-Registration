@@ -1,27 +1,8 @@
 import React, {useState} from 'react';
 import './WeeklyAgenda.css';
-import IconFilter from '../icons/IconFilter';
-import IconChevronRight from '../icons/IconChevronRight';
-import IconChevronLeft from '../icons/IconChevronLeft';
-
-function AgendaItem({ day, date, active, onClick }) {
-
-    return (
-    <div
-    onClick={onClick}
-    className = {`agenda-item ${
-        active ? "agenda-item-active" : ""
-    } ${
-        !active && date.toLocaleString('default', { month: 'numeric', day: 'numeric', year: 'numeric' }) === new Date().toLocaleString('default', { month: 'numeric', day: 'numeric', year: 'numeric' })
-        ? "agenda-item-inactive-today"
-        : ""
-    }`}
-    >
-        <span className = "agenda-item-day">{day}</span>
-        <span className = "agenda-item-month">{date.getDate()}</span>
-        </div>
-    );
-}
+import FiltersButton from './FiltersButton';
+import DaySelector from './DaySelector';
+import MonthSelector from './MonthSelector';
 
   function WeeklyAgenda({ selectedDate, onSelectDate }) {
 
@@ -88,39 +69,30 @@ function AgendaItem({ day, date, active, onClick }) {
 
       const currentMonth = currentMonthFirstDay.toLocaleString('default', { month: 'long', year: 'numeric'});
 
-
     return (
       <div className = "agenda-wrapper">
         <div className = "agenda-header">
-        <div className = "agenda-date">
-          <span>Date Selected:</span> {selectedDate?.toLocaleString('default', {  weekday: 'long',  day: 'numeric', month: 'long' }) ?? "None"}
+          <div className = "agenda-date">
+            <span>Date Selected: </span> {selectedDate?.toLocaleString('default', { weekday: 'long', day: 'numeric', month: 'long'}) ?? "None"}
+          </div>
+          <FiltersButton />
         </div>
-        <div className = "filters-container">
-          <button type = "button" className = "filters-button"><IconFilter />Filters</button>
-        </div>
-        </div>
-        <div className = "agenda-container">
-           <div className = "agenda-navigation" onClick = {subDay}><IconChevronLeft /></div>
-           {dates.map((date, i) => (
-           <AgendaItem
-           key = {i}
-           day = {date.toLocaleString("en-us", { weekday: "short" })}
-           date = {date}
-           active = { date.toLocaleString('default', { month: 'numeric', day: 'numeric', year: 'numeric' } ) === selectedDate?.toLocaleString('default', { month: 'numeric', day: 'numeric', year: 'numeric' })}
-           onClick = {() => onSelectDate?.(date)}
-           />
-           ))}
-          
-  
-           <div className = "agenda-navigation" onClick = {addDay}><IconChevronRight /></div>
-        </div>
-        <div className = "agenda-month">
-           <div className = "agenda-month-navigation" onClick = {previousMonth}><IconChevronLeft /></div>
-           <div className = "agenda-month-name">{currentMonth}</div>
-           <div className = "agenda-month-navigation" onClick = {nextMonth}><IconChevronRight /></div>
-        </div>
+        <DaySelector
+        dates = {dates}
+        selectedDate = {selectedDate}
+        onDaySelected = {(date) => onSelectDate?.(date)}
+        onPreviousDay = {subDay}
+        onNextDay = {addDay}
+        />
+        <MonthSelector
+        currentMonth = {currentMonth}
+        onPreviousMonth = {previousMonth}
+        onNextMonth = {nextMonth}
+        />
       </div>
     );
+    
   }
+
 
   export default WeeklyAgenda;

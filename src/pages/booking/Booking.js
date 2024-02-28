@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import './Booking.css';
 
 function Booking() {
+    
 const location = useLocation();
 const { name, time, date} = location.state || {};
 
