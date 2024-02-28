@@ -52,22 +52,22 @@ function Dashboard() {
   const sections = useAgendaItems();
 
   return (
-    <div className = "dashboard-container">
+    <div className="dashboard-container">
       <WeeklyAgenda
-        selectedDate = {selectedDate}
-        onSelectDate = {(date) => setSelectedDate(date)}
+        selectedDate={selectedDate}
+        onSelectDate={(date) => setSelectedDate(date)}
       />
-      <div className = "sections-container">
+      <div className="sections-container">
         {sections.map((item, i) => (
-          <div key = {i} className="section">
+          <div key={i} className="section">
             <Header>{item.header}</Header>
             {item.items.map((item) => (
               <Class
-                key = {item.id}
+                key={item.id}
                 {...item}
-                active = {selectedClass === item.id}
-                selectedDate = {selectedDate}
-                onClick = {(id) =>
+                active={selectedClass === item.id}
+                selectedDate={selectedDate}
+                onClick={(id) =>
                   setSelectedClass((state) => (state === id ? undefined : id))
                 }
               />

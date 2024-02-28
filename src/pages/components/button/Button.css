@@ -1,21 +1,21 @@
 .button {
-    background-color: #FF620A;
-    font-weight: 700;
-    padding: 0.5rem 0.75rem;
-    border-radius: 1.0rem;
-    font-size: 0.875rem;
-    transition: all 0.3s;
-    color: black;
-    font-size: 11;
-    word-wrap: break-word;
-    border-color: #FF620A;
-    border-width: 0px;
-  }
+  background-color: #FF620A;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1.0rem;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+  color: black;
+  font-size: 11;
+  word-wrap: break-word;
+  border-color: #FF620A;
+  border-width: 0px;
+}
 
-  .button:hover {
-    filter: brightness(1.25);
-  }
+.button:hover {
+  filter: brightness(1.25);
+}
 
-  .button.disabled {
-    filter: none;
-  }
+.button.disabled {
+  filter: none;
+}

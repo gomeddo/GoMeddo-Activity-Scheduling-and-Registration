@@ -5,6 +5,7 @@
 ::after {
   box-sizing: border-box;
 }
+
 html,
 body,
 div,
@@ -89,11 +90,13 @@ video {
   margin: 0;
   padding: 0;
 }
+
 html {
   line-height: 1.5;
   color: #333;
-    font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
 }
+
 body {
   background-color: #16072d;
 }

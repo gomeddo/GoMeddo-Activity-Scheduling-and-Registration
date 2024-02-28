@@ -7,11 +7,11 @@ function FiltersButton() {
   };
 
   return (
-    <div className = "filters-container">
-      <button type = "button" className = "filters-button" onClick = {handleFilters}><IconFilter />Filters</button>
+    <div className="filters-container">
+      <button type="button" className="filters-button" onClick={handleFilters}><IconFilter />Filters</button>
     </div>
   );
-  
+
 }
 
 export default FiltersButton;

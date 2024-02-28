@@ -8,7 +8,7 @@ function Button(props) {
   return (
     <button
       {...props}
-      className = {buttonClasses}
+      className={buttonClasses}
     />
   );
 }

@@ -5,7 +5,7 @@ import './Class.css';
 
 
 function Class({ id, name, time, location, instructor, attendees, spaces, active, onClick, selectedDate }) {
-  
+
   const navigate = useNavigate();
   const routeChange = () => {
     const path = `/booking`;
@@ -15,35 +15,35 @@ function Class({ id, name, time, location, instructor, attendees, spaces, active
 
   return (
     <div
-      onClick = {() => onClick?.(id)}
+      onClick={() => onClick?.(id)}
       id={id}
-      className = {`class-container ${active ? 'active' : ''}`}
+      className={`class-container ${active ? 'active' : ''}`}
     >
-      <div className = "class-info">
-        <div className = "class-details">
-          <div className = "class-name">{name}</div>
-          <div className = "class-location-instructor">
+      <div className="class-info">
+        <div className="class-details">
+          <div className="class-name">{name}</div>
+          <div className="class-location-instructor">
             <span>{location}</span>
             <span> • </span>
             <span>{instructor}</span>
           </div>
-          <div className = "class-location-size">
+          <div className="class-location-size">
             <span>Capacity:&nbsp;</span>
             <span> {attendees}</span>
             <span>/</span>
             <span>{spaces}</span>
           </div>
         </div>
-        <div className = "class-time">{time}</div>
+        <div className="class-time">{time}</div>
       </div>
       {active && !classFull && ( //Conditonally render the book button if the class is active
-        <div className = "book-button-container">
-          <Button onClick = {routeChange}>Book Class</Button>
+        <div className="book-button-container">
+          <Button onClick={routeChange}>Book Class</Button>
         </div>
       )}
-      {active && classFull && <div className = "book-button-container">
-        <span className = "class-full">Class Full</span>
-        </div>}
+      {active && classFull && <div className="book-button-container">
+        <span className="class-full">Class Full</span>
+      </div>}
     </div>
   );
 }
