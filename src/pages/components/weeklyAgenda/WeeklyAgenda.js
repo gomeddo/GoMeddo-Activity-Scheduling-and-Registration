@@ -18,7 +18,7 @@ function AgendaItem({ day, date, active, onClick }) {
     }`}
     >
         <span className = "agenda-item-day">{day}</span>
-        <span className = "agenda-item-month">{date.getDate}</span>
+        <span className = "agenda-item-month">{date.getDate()}</span>
         </div>
     );
 }
@@ -26,7 +26,7 @@ function AgendaItem({ day, date, active, onClick }) {
   function WeeklyAgenda({ selectedDate, onSelectDate }) {
 
     // State to keep track of the current month's first day
-    const [currentMonthFirstDay, setCurrentMonthFirstDay] = useState(newDate());
+    const [currentMonthFirstDay, setCurrentMonthFirstDay] = useState(new Date());
 
     // Function to subtract a day
     const subDay = () => {
@@ -91,7 +91,6 @@ function AgendaItem({ day, date, active, onClick }) {
 
     return (
       <div className = "agenda-wrapper">
-  
         <div className = "agenda-header">
         <div className = "agenda-date">
           <span>Date Selected:</span> {selectedDate?.toLocaleString('default', {  weekday: 'long',  day: 'numeric', month: 'long' }) ?? "None"}
@@ -118,7 +117,7 @@ function AgendaItem({ day, date, active, onClick }) {
         <div className = "agenda-month">
            <div className = "agenda-month-navigation" onClick = {previousMonth}><IconChevronLeft /></div>
            <div className = "agenda-month-name">{currentMonth}</div>
-           <div className = "agenda-month-navigation"><IconChevronRight /></div>
+           <div className = "agenda-month-navigation" onClick = {nextMonth}><IconChevronRight /></div>
         </div>
       </div>
     );
