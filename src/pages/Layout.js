@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Logo from '../assets/GoMeddoLogo.png';
-import IconMapFill from './components/icons/IconMapFill';
-import IconCalendar from './components/icons/IconCalendar';
+import IconMapFill from '../components/icons/IconMapFill';
+import IconCalendar from '../components/icons/IconCalendar';
 import './Layout.css';
 
 function Layout() {

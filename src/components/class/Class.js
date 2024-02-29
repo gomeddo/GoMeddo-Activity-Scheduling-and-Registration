@@ -28,15 +28,14 @@ function Class({ id, name, time, location, instructor, attendees, spaces, active
             <span>{instructor}</span>
           </div>
           <div className="class-location-size">
-            <span>Capacity:&nbsp;</span>
-            <span> {attendees}</span>
+            Capacity:&nbsp;<span> {attendees}</span>
             <span>/</span>
             <span>{spaces}</span>
           </div>
         </div>
         <div className="class-time">{time}</div>
       </div>
-      {active && !classFull && ( //Conditonally render the book button if the class is active
+      {active && !classFull && ( //Conditionally render the book button if the class is active
         <div className="book-button-container">
           <Button onClick={routeChange}>Book Class</Button>
         </div>

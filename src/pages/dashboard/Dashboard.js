@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Class from '../components/class/Class';
-import Header from '../components/header/Header';
-import WeeklyAgenda from '../components/weeklyAgenda/WeeklyAgenda';
+import Class from '../../components/class/Class';
+import Header from '../../components/header/Header';
+import WeeklyAgenda from '../../components/weeklyAgenda/WeeklyAgenda';
 import './Dashboard.css';
 
 function useAgendaItems() {
