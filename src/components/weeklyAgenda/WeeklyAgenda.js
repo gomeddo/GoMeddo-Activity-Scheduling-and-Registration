@@ -5,7 +5,6 @@ import DaySelector from './DaySelector';
 import MonthSelector from './MonthSelector';
 
 function WeeklyAgenda({ selectedDate, onSelectDate }) {
-
   // State to keep track of the current month's first day
   const [currentMonthFirstDay, setCurrentMonthFirstDay] = useState(new Date());
 
@@ -32,7 +31,11 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
 
   // Function to go to the next month
   const nextMonth = () => {
-    const newDate = new Date(currentMonthFirstDay.getFullYear(), currentMonthFirstDay.getMonth() + 1, 1);
+    const newDate = new Date(
+      currentMonthFirstDay.getFullYear(),
+      currentMonthFirstDay.getMonth() + 1,
+      1,
+    );
     setCurrentMonthFirstDay(newDate);
   };
 
@@ -46,12 +49,18 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
     today.setHours(0, 0, 0, 0);
 
     // Prevent going back past the current month
-    if (newDate.getMonth() < today.getMonth() && newDate.getFullYear() === today.getFullYear()) {
+    if (
+      newDate.getMonth() < today.getMonth() &&
+      newDate.getFullYear() === today.getFullYear()
+    ) {
       return;
     }
 
     // Check if the newDate is in the current month and year
-    if (newDate.getMonth() === today.getMonth() && newDate.getFullYear() === today.getFullYear()) {
+    if (
+      newDate.getMonth() === today.getMonth() &&
+      newDate.getFullYear() === today.getFullYear()
+    ) {
       // If we are navigating back to the current month, set the date to today's date
       setCurrentMonthFirstDay(today);
     } else {
@@ -67,13 +76,21 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
     return date;
   });
 
-  const currentMonth = currentMonthFirstDay.toLocaleString('default', { month: 'long', year: 'numeric' });
+  const currentMonth = currentMonthFirstDay.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <div className="agenda-wrapper">
       <div className="agenda-header">
         <div className="agenda-date">
-          <span>Date Selected: </span> {selectedDate?.toLocaleString('default', { weekday: 'long', day: 'numeric', month: 'long' }) ?? "None"}
+          <span>Date Selected:</span>{" "}
+          {selectedDate?.toLocaleString("default", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+          }) ?? "None"}
         </div>
         <FiltersButton />
       </div>
@@ -91,8 +108,6 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
       />
     </div>
   );
-
 }
-
 
 export default WeeklyAgenda;

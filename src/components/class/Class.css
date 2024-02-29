@@ -7,15 +7,15 @@
 }
 
 .class-container.active {
-  background-color: #9BCFFF;
+  background-color: #9bcfff;
 }
 
 .class-container:hover {
-  background-color: #ECECEC;
+  background-color: #ececec;
 }
 
 .class-container:not(.active):hover {
-  background-color: #9BCFFF;
+  background-color: #9bcfff;
 }
 
 .class-info {
@@ -45,7 +45,6 @@
   color: #00000066;
 }
 
-
 .book-button-container {
   padding-top: 0.75rem;
   flex: 1 1 0%;
@@ -63,5 +62,5 @@
 .class-full {
   font-weight: 500;
   color: red;
-  font-size: .85rem;
+  font-size: 0.85rem;
 }

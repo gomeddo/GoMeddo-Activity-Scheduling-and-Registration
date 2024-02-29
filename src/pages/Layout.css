@@ -18,7 +18,7 @@
   height: 2.5rem;
   flex-grow: 0;
   text-align: center;
-  color: #fff
+  color: #fff;
 }
 
 .content-container {
@@ -42,7 +42,6 @@
 }
 
 .header-placeholder {
-  /* This is just to take up space equivalent to the toggle button, for centering the title */
   width: 105px;
   height: 20px;
 }
@@ -55,7 +54,7 @@
   padding: 0.5rem 0.6rem;
   background-color: #f9f9f9;
   cursor: pointer;
-  width: 105px;
+  width: 90px;
   justify-content: center;
 }
 
@@ -75,7 +74,6 @@
   background-color: #16072d;
   border-radius: 5rem;
 }
-
 .toggle-active svg {
-  color: #9BCFFF;
+  color: #9bcfff;
 }

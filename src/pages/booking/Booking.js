@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Booking.css';
 
 function Booking() {
@@ -11,16 +10,14 @@ function Booking() {
     const handleSubmit = (event) => {
         event.preventDefault();
         // Form submission logic
-        const path = '/dashboard';
+        const path = `/dashboard`;
         navigate(path);
     };
-
     const navigate = useNavigate();
     const cancel = () => {
-        const path = '/dashboard';
+        const path = `/dashboard`;
         navigate(path);
-    }
-
+    };
     return (
         <div className="booking-form-container">
             <div className="booking-form-header">
@@ -30,7 +27,12 @@ function Booking() {
                 {/* Embed map component or image here */}
             </div>
             <div className="booking-form-time">
-                {date?.toLocaleString('default', { year: 'numeric', month: 'numeric', day: 'numeric' })} - {time}
+                {date?.toLocaleString("default", {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                })}{" "}
+                - {time}
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="booking-form-inputs">
@@ -42,13 +44,17 @@ function Booking() {
                 <div className="booking-form-consent">
                     <input type="checkbox" id="consentCheckbox" required />
                     <label htmlFor="consentCheckbox">
-                        I give permission to save the data I have entered here and use this data to contact me.
-                        More information in our privacy statement.
+                        I give permission to save the data I have entered here and use this
+                        data to contact me. More information in our privacy statement.
                     </label>
                 </div>
 
                 <div className="booking-form-actions">
-                    <button type="button" className="booking-form-cancel" onClick={cancel}>
+                    <button
+                        type="button"
+                        className="booking-form-cancel"
+                        onClick={cancel}
+                    >
                         Cancel
                     </button>
                     <button type="submit" className="booking-form-submit">
@@ -60,4 +66,4 @@ function Booking() {
     );
 }
 
-export default Booking;
+export default Booking;  

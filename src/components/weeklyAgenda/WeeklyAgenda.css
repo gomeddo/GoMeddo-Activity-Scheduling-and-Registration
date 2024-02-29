@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: row;
   flex: 1 1 0%;
-  padding-bottom: 1.0rem;
+  padding-bottom: 1rem;
 }
 
 .agenda-date {
@@ -28,7 +28,7 @@
 .filters-button {
   display: flex;
   border-radius: 1rem;
-  border: 1px solid #7e7e7e;
+  border: 1px solid #ececec;
   padding: 0.5rem 0.6rem;
   background-color: #f9f9f9;
 }
@@ -76,20 +76,20 @@
 }
 
 .agenda-item-active {
-  background-color: #FF620A;
+  background-color: #ff620a;
 }
 
 .agenda-item-active:hover {
-  background-color: #FF620A;
+  background-color: #ff620a;
   filter: brightness(125%);
 }
 
 .agenda-item-inactive-today {
-  background-color: #9BCFFF;
+  background-color: #9bcfff;
 }
 
 .agenda-item-inactive-today:hover {
-  background-color: #E1F5FE;
+  background-color: #e1f5fe;
   filter: brightness(95%);
 }
 
@@ -106,20 +106,19 @@
   display: flex;
   flex-direction: row;
   flex: 1 1 0%;
-  padding-top: 1.0rem;
+  padding-top: 1rem;
   justify-content: center;
   align-items: center;
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid #ECECEC;
+  border-bottom: 1px solid #ececec;
 }
 
 .agenda-month-name {
   display: flex;
-  margin: 1rem;
   justify-content: center;
   align-items: center;
+  margin: 1rem;
   width: 130px;
-
 }
 
 .agenda-month-navigation {

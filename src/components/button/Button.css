@@ -1,14 +1,14 @@
 .button {
-  background-color: #FF620A;
+  background-color: #ff620a;
   font-weight: 700;
   padding: 0.5rem 0.75rem;
-  border-radius: 1.0rem;
+  border-radius: 1rem;
   font-size: 0.875rem;
   transition: all 0.3s;
-  color: black;
+  color: 'black';
   font-size: 11;
-  word-wrap: break-word;
-  border-color: #FF620A;
+  word-wrap: 'break-word';
+  border-color: #ff620a;
   border-width: 0px;
 }
 

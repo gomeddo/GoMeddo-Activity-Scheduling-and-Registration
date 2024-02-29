@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Map from "./pages/map/Map"
-import Dashboard from "./pages/dashboard/Dashboard";
-import Booking from "./pages/booking/Booking";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './pages/Layout';
+import Map from './pages/map/Map';
+import Dashboard from './pages/dashboard/Dashboard';
+import Booking from './pages/booking/Booking';
 
 function App() {
   return (
