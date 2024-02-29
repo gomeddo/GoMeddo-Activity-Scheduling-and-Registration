@@ -6,7 +6,7 @@ import './BookingLayout.css';
 function Layout() {
 
     return (
-        <div className="booking-layout-conatiner">
+        <div className="booking-layout-container">
             <div className="booking-header-container">
                 <div className="logo-container">
                     <img src={Logo} alt="GoMeddo Logo" />

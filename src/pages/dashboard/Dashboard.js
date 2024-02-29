@@ -12,7 +12,7 @@ function useAgendaItems() {
       items: Array.from(Array(4).keys()).map((i) => ({
         id: `morning_${i}`,
         name: "Pilates",
-        location: "Amsterdam Platnium",
+        location: "Amsterdam Platinum",
         instructor: "Paul M",
         time: "6:15 am - 7:00 am",
         attendees: 15,

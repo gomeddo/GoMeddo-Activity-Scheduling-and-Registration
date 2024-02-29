@@ -7,18 +7,18 @@ import './Layout.css';
 
 function Layout() {
 
-    const handleToogle = () => {
+    const handleToggle = () => {
         console.log('Toggle button clicked');
     }
 
     return (
         <div className="layout-container">
             <div className="header-container">
-                <div className="header-placegolder"></div>
+                <div className="header-placeholder"></div>
                 <div className="logo-container">
                     <img src={Logo} alt="GoMeddo Logo" />
                 </div>
-                <button className="toggle-button" onClick={handleToogle}>
+                <button className="toggle-button" onClick={handleToggle}>
                     <span className="toggle-active"><IconCalendar /></span><span className="toggle-inactive"><IconMapFill /></span>
                 </button>
             </div>
