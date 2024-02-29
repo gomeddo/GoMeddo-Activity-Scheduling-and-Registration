@@ -8,9 +8,15 @@
   gap: 1rem;
 }
 
+.logo-container {
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: center;
+}
+
 .logo-container img {
   height: 2.5rem;
-  flex-grow: 1;
+  flex-grow: 0;
   text-align: center;
   color: #fff
 }
@@ -21,9 +27,15 @@
   background-color: #f9f9f9;
 }
 
+.booking-content-container {
+  padding-top: 2rem;
+  flex: 1 1 0%;
+  border-radius: 0.5rem;
+}
+
 .header-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0 1rem;
   height: 3.5rem;
@@ -43,8 +55,7 @@
   padding: 0.5rem 0.6rem;
   background-color: #f9f9f9;
   cursor: pointer;
-
-  width: 90px;
+  width: 105px;
   justify-content: center;
 }
 
