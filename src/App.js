@@ -1,20 +1,21 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { MapViewProvider } from "./providers/MapViewContext";
 import Layout from './pages/Layout';
-import Map from './pages/map/Map';
 import Dashboard from './pages/dashboard/Dashboard';
 import Booking from './pages/booking/Booking';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />} path="/">
-          <Route element={<Navigate to="dashboard" replace />} index />
-          <Route element={<Dashboard />} path="dashboard" />
-          <Route element={<Map />} path="map" />
-          <Route element={<Booking />} path="booking" />
-        </Route>
-      </Routes>
+      <MapViewProvider>
+        <Routes>
+          <Route element={<Layout />} path="/">
+            <Route element={<Navigate to="dashboard" replace />} index />
+            <Route element={<Dashboard />} path="dashboard" />
+            <Route element={<Booking />} path="booking" />
+          </Route>
+        </Routes>
+      </MapViewProvider>
     </BrowserRouter>
   );
 }

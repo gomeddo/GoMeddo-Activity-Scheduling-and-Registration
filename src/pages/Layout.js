@@ -1,18 +1,19 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useMapView } from '../providers/MapViewContext';
 import Logo from '../assets/GoMeddoLogo.png';
 import IconMapFill from '../components/icons/IconMapFill';
 import IconCalendar from '../components/icons/IconCalendar';
 import './Layout.css';
 
 function Layout() {
-    
+    const { isMapView, toggleMap } = useMapView();
+
     const location = useLocation();
+
     const { pathname } = location;
+
     const isBooking = pathname === '/booking';
-    const handleToggle = () => {
-        console.log('Toggle button clicked');
-    };
 
     return (
         <div className="layout-container">
@@ -20,18 +21,23 @@ function Layout() {
                 {/* Placeholder div to keep the title centered */}
                 {!isBooking && <div className="header-placeholder" />}
                 <div className="logo-container">
-                    {/* Image for the logo */}
                     <img src={Logo} alt="Logo" />
                 </div>
                 {!isBooking && (
-                    <button className="toggle-button" onClick={handleToggle}>
-                        <span className="toggle-active">
+                    <div className="toggle-container">
+                        <span
+                            className={isMapView ? "toggle-inactive" : "toggle-active"}
+                            onClick={() => toggleMap(false)}
+                        >
                             <IconCalendar />
                         </span>
-                        <span className="toggle-inactive">
+                        <span
+                            className={isMapView ? "toggle-active" : "toggle-inactive"}
+                            onClick={() => toggleMap(true)}
+                        >
                             <IconMapFill />
                         </span>
-                    </button>
+                    </div>
                 )}
             </div>
             {/* Content container where nested routes will be rendered */}
