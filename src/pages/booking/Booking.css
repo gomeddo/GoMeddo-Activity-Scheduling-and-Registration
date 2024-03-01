@@ -3,15 +3,19 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  padding: 20px;
   max-width: 750px;
   margin: auto;
-  border-radius: 10px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .booking-form-header h2 {
   text-align: center;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .booking-form-map {
@@ -96,5 +100,27 @@
 }
 
 .booking-form-submit:hover {
+  filter: brightness(1.25);
+}
+
+.booking-form-confirmation-content {
+  text-align: center;
+}
+
+.booking-form-confirmation-content p {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.booking-form-back-button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #e74c3c;
+  color: #000;
+  cursor: pointer;
+}
+
+.booking-form-back-button:hover {
   filter: brightness(1.25);
 }
