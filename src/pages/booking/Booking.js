@@ -37,7 +37,7 @@ function Booking() {
                     <div className="booking-form-confirmation-content">
                         <p>Thank you for your booking.</p>
                         <p>You are now confirmed for the class below:</p>
-                        <p>
+                        <p className="booking-form-confirmed-class">
                             {name} on{" "}
                             {date?.toLocaleString("default", {
                                 weekday: "long",
@@ -52,7 +52,7 @@ function Booking() {
                     <div className="booking-form-actions">
                         <button
                             type="button"
-                            className="booking-form-back-button"
+                            className="booking-form-button booking-form-back-button"
                             onClick={backToDashboard}
                         >
                             Back to classes schedule
@@ -94,12 +94,14 @@ function Booking() {
                         <div className="booking-form-actions">
                             <button
                                 type="button"
-                                className="booking-form-cancel"
+                                className="booking-form-button booking-form-cancel"
                                 onClick={cancel}
                             >
                                 Cancel
                             </button>
-                            <button type="submit" className="booking-form-submit">
+                            <button
+                                type="submit"
+                                className="booking-form-button booking-form-su">
                                 Confirm
                             </button>
                         </div>

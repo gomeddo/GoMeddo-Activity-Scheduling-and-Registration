@@ -46,7 +46,7 @@
   margin: 5px;
   border: none;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .booking-form-consent {
@@ -62,7 +62,7 @@
 
 .booking-form-consent label {
   padding-left: 10px;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 .booking-form-consent input[type="checkbox"] {
@@ -75,36 +75,33 @@
   justify-content: space-around;
 }
 
-.booking-form-cancel {
-  width: 150px;
+.booking-form-button {
   padding: 10px;
   border: none;
   border-radius: 20px;
-  background-color: #e9e9e9e9;
-  color: #000;
   cursor: pointer;
+  font-weight: 700;
 }
 
-.booking-form-cancel:hover {
+.booking-form-button:hover {
   filter: brightness(1.25);
+}
+
+.booking-form-cancel {
+  width: 150px;
+  background-color: #e9e9e9e9;
+  color: #000;
 }
 
 .booking-form-submit {
   width: 150px;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
   background-color: #e74c3c;
   color: #000;
-  cursor: pointer;
-}
-
-.booking-form-submit:hover {
-  filter: brightness(1.25);
 }
 
 .booking-form-confirmation-content {
   text-align: center;
+  padding-bottom: 1rem;
 }
 
 .booking-form-confirmation-content p {
@@ -112,15 +109,13 @@
   padding-bottom: 1rem;
 }
 
+.booking-form-confirmed-class {
+  text-decoration: underline;
+}
+
 .booking-form-back-button {
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
+  width: 200px;
   background-color: #e74c3c;
   color: #000;
   cursor: pointer;
-}
-
-.booking-form-back-button:hover {
-  filter: brightness(1.25);
 }
