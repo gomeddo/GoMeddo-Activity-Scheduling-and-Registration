@@ -99,4 +99,12 @@ html {
 
 body {
   background-color: #16072d;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+input,
+button,
+input[type="submit"],
+input[type="rest"] {
+  font-family: 'Red Hat Display', sans-serif;
 }
