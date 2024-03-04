@@ -1,4 +1,11 @@
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 .dashboard-container {
+  flex: 1;
+  overflow: auto;
   padding: 2rem;
 }
 
@@ -6,6 +13,12 @@
   display: flex;
   padding-top: 2rem;
   flex-direction: row;
+}
+
+.sections-container-stacked {
+  display: flex;
+  padding-top: 0.5rem;
+  flex-direction: column;
 }
 
 .section {
@@ -18,6 +31,24 @@
   padding-left: 0.35rem;
 }
 
+.section-stacked {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .section:last-child {
   border-right: none;
+}
+
+.dashboard-map {
+  border-radius: 0.5rem 0rem 0rem 0.5rem;
+  min-width: 60%;
+  display: flex;
+  flex-direction: column;
+
+  background-image: url('../../assets/map.png');
+  background-size: cover;
 }

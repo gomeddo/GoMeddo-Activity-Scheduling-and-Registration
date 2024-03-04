@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useMapView } from '../../providers/MapViewContext';
 import Class from '../../components/class/Class';
 import Header from '../../components/header/Header';
 import WeeklyAgenda from '../../components/weeklyAgenda/WeeklyAgenda';
@@ -47,33 +48,48 @@ function useAgendaItems() {
 }
 
 function Dashboard() {
+  const { isMapView } = useMapView;
+
   const [selectedDate, setSelectedDate] = useState(new Date());
+
   const [selectedClass, setSelectedClass] = useState(undefined);
+
   const sections = useAgendaItems();
 
   return (
-    <div className="dashboard-container">
-      <WeeklyAgenda
-        selectedDate={selectedDate}
-        onSelectDate={(date) => setSelectedDate(date)}
-      />
-      <div className="sections-container">
-        {sections.map((item, i) => (
-          <div key={i} className="section">
-            <Header>{item.header}</Header>
-            {item.items.map((item) => (
-              <Class
-                key={item.id}
-                {...item}
-                active={selectedClass === item.id}
-                selectedDate={selectedDate}
-                onClick={(id) =>
-                  setSelectedClass((state) => (state === id ? undefined : id))
-                }
-              />
-            ))}
-          </div>
-        ))}
+    <div className="dashboard-wrapper">
+      {isMapView && <div className="dashboard-map" />}
+      <div className="dashboard-container">
+        {/* Weekly agenda selector */}
+        <WeeklyAgenda
+          selectedDate={selectedDate}
+          onSelectDate={(date) => setSelectedDate(date)}
+        />
+        {/* Container for each time section (Morning, Afternoon, Evening) */}
+        <div
+          className={
+            isMapView ? "sections-container-stacked" : "sections-container"
+          }
+        >
+          {sections.map((item, i) => (
+            <div key={i} className={isMapView ? "section-stacked" : "section"}>
+              {/* Section header (e.g., "Morning - 6:00am to 12:00pm") */}
+              <Header>{item.header}</Header>
+              {/* List of classes within the section */}
+              {item.items.map((item) => (
+                <Class
+                  key={item.id} // Added key prop for item mapping
+                  {...item}
+                  active={selectedClass === item.id}
+                  selectedDate={selectedDate}
+                  onClick={(id) =>
+                    setSelectedClass((state) => (state === id ? undefined : id))
+                  }
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

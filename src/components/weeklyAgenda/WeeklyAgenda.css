@@ -9,6 +9,7 @@
   flex-direction: row;
   flex: 1 1 0%;
   padding-bottom: 1rem;
+  align-items: center;
 }
 
 .agenda-date {
