@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './WeeklyAgenda.css';
-import FiltersButton from './FiltersButton';
-import DaySelector from './DaySelector';
-import MonthSelector from './MonthSelector';
+import React, { useState } from "react";
+import "./WeeklyAgenda.css"; // Import the CSS file for styles
+import FiltersButton from "./FiltersButton";
+import MonthSelector from "./MonthSelector";
+import DaySelector from "./DaySelector";
 
 function WeeklyAgenda({ selectedDate, onSelectDate }) {
   // State to keep track of the current month's first day
@@ -34,7 +34,7 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
     const newDate = new Date(
       currentMonthFirstDay.getFullYear(),
       currentMonthFirstDay.getMonth() + 1,
-      1,
+      1
     );
     setCurrentMonthFirstDay(newDate);
   };

@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { MapViewProvider } from "./providers/MapViewContext";
-import Layout from './pages/Layout';
-import Dashboard from './pages/dashboard/Dashboard';
-import Booking from './pages/booking/Booking';
+import Dashboard from "./pages/dashboard/Dashboard";
+import Booking from "./pages/booking/Booking";
+import Layout from "./pages/Layout";
 
 function App() {
   return (

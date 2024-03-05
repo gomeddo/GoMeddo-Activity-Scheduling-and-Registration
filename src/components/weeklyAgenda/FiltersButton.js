@@ -1,8 +1,8 @@
-import IconFilter from '../icons/IconFilter';
+import IconFilter from "../icons/IconFilter";
 
 function FiltersButton() {
   const handleFilters = () => {
-    console.log('Filters clicked');
+    console.log("Filters clicked");
   };
 
   return (
