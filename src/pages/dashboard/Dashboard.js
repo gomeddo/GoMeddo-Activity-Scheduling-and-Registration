@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMapView } from '../../providers/MapViewContext';
-import Class from '../../components/class/Class';
+import Activity from '../../components/activity/Activity';
 import Header from '../../components/header/Header';
 import WeeklyAgenda from '../../components/weeklyAgenda/WeeklyAgenda';
 import './Dashboard.css';
@@ -77,7 +77,7 @@ function Dashboard() {
               <Header>{item.header}</Header>
               {/* List of classes within the section */}
               {item.items.map((item) => (
-                <Class
+                <Activity
                   key={item.id} // Added key prop for item mapping
                   {...item}
                   active={selectedClass === item.id}

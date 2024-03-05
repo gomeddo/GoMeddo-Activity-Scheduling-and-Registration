@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '../button/Button';
 import { useNavigate } from 'react-router-dom';
-import './Class.css';
+import './Activity.css';
 
 
-function Class({
+function Activity({
   id,
   name,
   time,
@@ -60,4 +60,4 @@ function Class({
   );
 }
 
-export default Class;
+export default Activity;
