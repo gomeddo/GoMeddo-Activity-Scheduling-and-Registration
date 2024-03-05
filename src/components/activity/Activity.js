@@ -27,7 +27,7 @@ function Activity({
     <div
       onClick={() => onClick?.(id)}
       id={id}
-      className={`class-container ${active ? 'active' : ''}`}
+      className={`${classFull ? 'class-container-full' : 'class-container '} ${active ? 'active' : ''}`}
     >
       <div className="class-info">
         <div className="class-details">
@@ -37,11 +37,18 @@ function Activity({
             <span> • </span>
             <span>{instructor}</span>
           </div>
-          <div className="class-location-size">
-            Capacity:&nbsp;<span> {attendees}</span>
-            <span>/</span>
-            <span>{spaces}</span>
-          </div>
+          {!classFull && (
+            <div className="class-location-size">
+              Capacity:&nbsp;<span> {attendees}</span>
+              <span>/</span>
+              <span>{spaces}</span>
+            </div>)
+          }
+          {classFull && (
+            <div className="class-location-size">
+              <span className="class-full">Class Full</span>
+            </div>)
+          }
         </div>
         <div className="class-time">{time}</div>
       </div>
@@ -51,11 +58,6 @@ function Activity({
             <Button onClick={routeChange}>Book Class</Button>
           </div>
         )}
-      {active && classFull && (
-        <div className="book-button-container">
-          <span className="class-full">Class Full</span>
-        </div>
-      )}
     </div>
   );
 }

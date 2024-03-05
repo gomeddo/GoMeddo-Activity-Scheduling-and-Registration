@@ -10,8 +10,15 @@
   background-color: #9bcfff;
 }
 
+.class-container-full {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  background-color: #d2d1d1;
+}
+
 .class-container:hover {
-  background-color: #ececec;
+  background-color: #adabab;
 }
 
 .class-container:not(.active):hover {
@@ -60,7 +67,9 @@
 }
 
 .class-full {
-  font-weight: 500;
-  color: red;
+  display: flex;
+  gap: 0.2rem;
   font-size: 0.85rem;
+  line-height: 1.25rem;
+  color: red;
 }
