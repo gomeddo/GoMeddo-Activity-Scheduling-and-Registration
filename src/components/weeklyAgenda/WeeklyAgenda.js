@@ -4,12 +4,12 @@ import FiltersButton from "./FiltersButton";
 import MonthSelector from "./MonthSelector";
 import DaySelector from "./DaySelector";
 
-function WeeklyAgenda({ selectedDate, onSelectDate }) {
+function WeeklyAgenda({ selectedDate, handleDaySelected }) {
   // State to keep track of the current month's first day
   const [currentMonthFirstDay, setCurrentMonthFirstDay] = useState(new Date());
 
   // Function to subtract a day
-  const subDay = () => {
+  const handlePreviousDay = () => {
     const newDate = new Date(currentMonthFirstDay);
     newDate.setDate(newDate.getDate() - 1);
 
@@ -23,14 +23,14 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
   };
 
   // Function to add a day
-  const addDay = () => {
+  const handleNextDay = () => {
     const newDate = new Date(currentMonthFirstDay);
     newDate.setDate(newDate.getDate() + 1);
     setCurrentMonthFirstDay(newDate);
   };
 
   // Function to go to the next month
-  const nextMonth = () => {
+  const handleNextMonth = () => {
     const newDate = new Date(
       currentMonthFirstDay.getFullYear(),
       currentMonthFirstDay.getMonth() + 1,
@@ -40,7 +40,7 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
   };
 
   // Function to go to the previous month, but not before the current month
-  const previousMonth = () => {
+  const handlePreviousMonth = () => {
     const newDate = new Date(currentMonthFirstDay);
     newDate.setMonth(newDate.getMonth() - 1);
     newDate.setDate(1);
@@ -97,14 +97,14 @@ function WeeklyAgenda({ selectedDate, onSelectDate }) {
       <DaySelector
         dates={dates}
         selectedDate={selectedDate}
-        onDaySelected={(date) => onSelectDate?.(date)}
-        onPreviousDay={subDay}
-        onNextDay={addDay}
+        handleDaySelected={(date) => handleDaySelected?.(date)}
+        handlePreviousDay={handlePreviousDay}
+        handleNextDay={handleNextDay}
       />
       <MonthSelector
         currentMonth={currentMonth}
-        onPreviousMonth={previousMonth}
-        onNextMonth={nextMonth}
+        handlePreviousMonth={handlePreviousMonth}
+        handleNextMonth={handleNextMonth}
       />
     </div>
   );

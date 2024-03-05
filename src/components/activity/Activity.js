@@ -17,7 +17,7 @@ function Activity({
   selectedDate,
 }) {
   const navigate = useNavigate();
-  const routeChange = () => {
+  const handleRouteChange = () => {
     const path = `/booking`;
     navigate(path, { state: { name: name, time: time, date: selectedDate } });
   };
@@ -55,7 +55,7 @@ function Activity({
       {active &&
         !classFull && ( // Conditionally render the book button if the class is active
           <div className="book-button-container">
-            <Button onClick={routeChange}>Book Class</Button>
+            <Button onClick={handleRouteChange}>Book Class</Button>
           </div>
         )}
     </div>

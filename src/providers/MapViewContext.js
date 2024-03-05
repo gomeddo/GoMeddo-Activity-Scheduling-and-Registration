@@ -9,12 +9,12 @@ export function useMapView() {
 export const MapViewProvider = ({ children }) => {
     const [isMapView, setIsMapView] = useState(false);
 
-    const toggleMap = (value) => {
+    const handleToggleMap = (value) => {
         setIsMapView(value);
     };
 
     return (
-        <MapViewContext.Provider value={{ isMapView, toggleMap }}>
+        <MapViewContext.Provider value={{ isMapView, handleToggleMap }}>
             {children}
         </MapViewContext.Provider>
     );

@@ -51,7 +51,7 @@ function useAgendaItems() {
 function Dashboard() {
   const { isMapView } = useMapView();
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedClass, setSelectedClass] = useState(undefined);
+  const [selectedClass, handleSetSelectedClass] = useState(undefined);
   const sections = useAgendaItems();
 
   return (
@@ -61,7 +61,7 @@ function Dashboard() {
         {/* Weekly agenda selector */}
         <WeeklyAgenda
           selectedDate={selectedDate}
-          onSelectDate={(date) => setSelectedDate(date)}
+          handleDaySelected={(date) => setSelectedDate(date)}
         />
         {/* Container for each time section (Morning, Afternoon, Evening) */}
         <div
@@ -81,7 +81,7 @@ function Dashboard() {
                   active={selectedClass === item.id}
                   selectedDate={selectedDate}
                   onClick={(id) =>
-                    setSelectedClass((state) => (state === id ? undefined : id))
+                    handleSetSelectedClass((state) => (state === id ? undefined : id))
                   }
                 />
               ))}

@@ -1,13 +1,13 @@
 import IconChevronRight from "../icons/IconChevronRight";
 import IconChevronLeft from "../icons/IconChevronLeft";
 
-function MonthSelector({ currentMonth, onPreviousMonth, onNextMonth }) {
+function MonthSelector({ currentMonth, handlePreviousMonth, handleNextMonth }) {
   return (
     <div className="agenda-month">
       <div
         type="button"
         className="agenda-month-navigation"
-        onClick={onPreviousMonth}
+        onClick={handlePreviousMonth}
       >
         <IconChevronLeft />
       </div>
@@ -15,7 +15,7 @@ function MonthSelector({ currentMonth, onPreviousMonth, onNextMonth }) {
       <div
         type="button"
         className="agenda-month-navigation"
-        onClick={onNextMonth}
+        onClick={handleNextMonth}
       >
         <IconChevronRight />
       </div>

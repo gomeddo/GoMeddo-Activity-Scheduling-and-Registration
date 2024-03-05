@@ -3,15 +3,15 @@ import IconChevronLeft from "../icons/IconChevronLeft";
 import AgendaItem from "./AgendaItem";
 
 function DaySelector({
-  onPreviousDay,
-  onNextDay,
-  onDaySelected,
+  handlePreviousDay,
+  handleNextDay,
+  handleDaySelected,
   dates,
   selectedDate,
 }) {
   return (
     <div className="agenda-container">
-      <div className="agenda-navigation" onClick={onPreviousDay}>
+      <div className="agenda-navigation" onClick={handlePreviousDay}>
         <IconChevronLeft />
       </div>
       {dates?.map((date, i) => (
@@ -31,10 +31,10 @@ function DaySelector({
               year: "numeric",
             })
           }
-          onClick={() => onDaySelected(date)}
+          onClick={() => handleDaySelected(date)}
         />
       ))}
-      <div className="agenda-navigation" onClick={onNextDay}>
+      <div className="agenda-navigation" onClick={handleNextDay}>
         <IconChevronRight />
       </div>
     </div>

@@ -7,7 +7,7 @@ import IconCalendar from "../components/icons/IconCalendar";
 import "./Layout.css";
 
 function Layout() {
-    const { isMapView, toggleMap } = useMapView();
+    const { isMapView, handleToggleMap } = useMapView();
 
     const location = useLocation();
     const { pathname } = location;
@@ -26,13 +26,13 @@ function Layout() {
                     <div className="toggle-container">
                         <span
                             className={isMapView ? "toggle-inactive" : "toggle-active"}
-                            onClick={() => toggleMap(false)}
+                            onClick={() => handleToggleMap(false)}
                         >
                             <IconCalendar />
                         </span>
                         <span
                             className={isMapView ? "toggle-active" : "toggle-inactive"}
-                            onClick={() => toggleMap(true)}
+                            onClick={() => handleToggleMap(true)}
                         >
                             <IconMapFill />
                         </span>

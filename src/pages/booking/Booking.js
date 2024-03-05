@@ -13,11 +13,11 @@ function Booking() {
         setHasConfirmed(true);
     };
     const navigate = useNavigate();
-    const cancel = () => {
+    const handleCancel = () => {
         const path = `/dashboard`;
         navigate(path);
     };
-    const backToDashboard = () => {
+    const handleBackToDashboard = () => {
         const path = `/dashboard`;
         navigate(path);
     };
@@ -48,7 +48,7 @@ function Booking() {
                         <button
                             type="button"
                             className="booking-form-button booking-form-back-button"
-                            onClick={backToDashboard}
+                            onClick={handleBackToDashboard}
                         >
                             Back to classes schedule
                         </button>
@@ -89,7 +89,7 @@ function Booking() {
                             <button
                                 type="button"
                                 className="booking-form-button booking-form-cancel"
-                                onClick={cancel}
+                                onClick={handleCancel}
                             >
                                 Cancel
                             </button>
