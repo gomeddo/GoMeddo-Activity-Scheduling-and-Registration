@@ -12,6 +12,21 @@
   align-items: center;
 }
 
+.agenda-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0%;
+  align-items: center;
+  border-radius: 0.5rem;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+
+.agenda-navigation {
+  padding: 0.5rem 1rem 0.5rem 0.2rem;
+  cursor: pointer;
+}
+
 .agenda-date {
   display: flex;
   flex: 1 1 0%;
@@ -40,21 +55,6 @@
 
 .filters-button:hover {
   background-color: #eee;
-  cursor: pointer;
-}
-
-.agenda-container {
-  display: flex;
-  flex-direction: row;
-  flex: 1 1 0%;
-  align-items: center;
-  border-radius: 0.5rem;
-  transition-duration: 300ms;
-  cursor: pointer;
-}
-
-.agenda-navigation {
-  padding: 0.5rem 1rem 0.5rem 0.2rem;
   cursor: pointer;
 }
 

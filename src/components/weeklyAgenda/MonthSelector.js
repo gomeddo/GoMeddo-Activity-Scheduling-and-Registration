@@ -1,5 +1,5 @@
-import IconChevronRight from '../icons/IconChevronRight';
-import IconChevronLeft from '../icons/IconChevronLeft';
+import IconChevronRight from "../icons/IconChevronRight";
+import IconChevronLeft from "../icons/IconChevronLeft";
 
 function MonthSelector({ currentMonth, onPreviousMonth, onNextMonth }) {
   return (

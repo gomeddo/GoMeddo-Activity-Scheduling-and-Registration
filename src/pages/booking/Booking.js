@@ -4,29 +4,23 @@ import './Booking.css';
 
 function Booking() {
     const location = useLocation();
-
-    const { name, time, date } = location.state || {};
-
+    const { name, time, date } = location.state || {}; // Default to empty object if state is undefined
     const [hasConfirmed, setHasConfirmed] = useState(false);
-
     // Add form submission handling logic
     const handleSubmit = (event) => {
         event.preventDefault();
+        // Form submission logic
         setHasConfirmed(true);
     };
-
     const navigate = useNavigate();
-
     const cancel = () => {
         const path = `/dashboard`;
         navigate(path);
     };
-
     const backToDashboard = () => {
         const path = `/dashboard`;
         navigate(path);
     };
-
     return (
         <div className="booking-form-container">
             {hasConfirmed ? (
@@ -47,6 +41,7 @@ function Booking() {
                             })}{" "}
                             at {time}.
                         </p>
+
                         <p>You will receive an email confirmation shortly.</p>
                     </div>
                     <div className="booking-form-actions">
@@ -68,7 +63,6 @@ function Booking() {
                         {/* Embed map component or image here */}
                     </div>
                     <div className="booking-form-time">
-                        {/* Displaying booking date and time */}
                         {date?.toLocaleString("default", {
                             year: "numeric",
                             month: "numeric",
@@ -101,7 +95,8 @@ function Booking() {
                             </button>
                             <button
                                 type="submit"
-                                className="booking-form-button booking-form-su">
+                                className="booking-form-button booking-form-submit"
+                            >
                                 Confirm
                             </button>
                         </div>

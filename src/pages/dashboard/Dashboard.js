@@ -6,7 +6,8 @@ import WeeklyAgenda from '../../components/weeklyAgenda/WeeklyAgenda';
 import './Dashboard.css';
 
 function useAgendaItems() {
-
+  // Hook to simulate fetching agenda items
+  // Returns a structured list of agenda items divided into time sections
   return [
     {
       header: "Morning - 6:00am to 12:00pm",
@@ -48,12 +49,9 @@ function useAgendaItems() {
 }
 
 function Dashboard() {
-  const { isMapView } = useMapView;
-
+  const { isMapView } = useMapView();
   const [selectedDate, setSelectedDate] = useState(new Date());
-
   const [selectedClass, setSelectedClass] = useState(undefined);
-
   const sections = useAgendaItems();
 
   return (

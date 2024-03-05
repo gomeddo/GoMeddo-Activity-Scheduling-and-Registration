@@ -1,6 +1,6 @@
-import IconChevronRight from '../icons/IconChevronRight';
-import IconChevronLeft from '../icons/IconChevronLeft';
-import AgendaItem from './AgendaItem';
+import IconChevronRight from "../icons/IconChevronRight";
+import IconChevronLeft from "../icons/IconChevronLeft";
+import AgendaItem from "./AgendaItem";
 
 function DaySelector({
   onPreviousDay,

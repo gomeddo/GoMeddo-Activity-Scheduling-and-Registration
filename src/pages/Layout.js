@@ -1,19 +1,17 @@
-import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import { useMapView } from '../providers/MapViewContext';
-import Logo from '../assets/GoMeddoLogo.png';
-import IconMapFill from '../components/icons/IconMapFill';
-import IconCalendar from '../components/icons/IconCalendar';
-import './Layout.css';
+import React from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { useMapView } from "../providers/MapViewContext";
+import Logo from "../assets/GoMeddoLogo.png";
+import IconMapFill from "../components/icons/IconMapFill";
+import IconCalendar from "../components/icons/IconCalendar";
+import "./Layout.css";
 
 function Layout() {
     const { isMapView, toggleMap } = useMapView();
 
     const location = useLocation();
-
     const { pathname } = location;
-
-    const isBooking = pathname === '/booking';
+    const isBooking = pathname === "/booking";
 
     return (
         <div className="layout-container">
@@ -21,6 +19,7 @@ function Layout() {
                 {/* Placeholder div to keep the title centered */}
                 {!isBooking && <div className="header-placeholder" />}
                 <div className="logo-container">
+                    {/* Image for the logo */}
                     <img src={Logo} alt="Logo" />
                 </div>
                 {!isBooking && (
@@ -52,4 +51,4 @@ function Layout() {
     );
 }
 
-export default Layout;  
+export default Layout;

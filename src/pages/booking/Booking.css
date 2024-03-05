@@ -19,7 +19,7 @@
 }
 
 .booking-form-map {
-  background-image: url('../../assets/map.png');
+  background-image: url("../../assets/map.png");
   background-size: cover;
   border-radius: 10px;
   height: 200px;
