@@ -8,10 +8,15 @@ function DaySelector({
   handleDaySelected,
   dates,
   selectedDate,
+  canSelectPreviousDay,
 }) {
   return (
     <div className="agenda-container">
-      <div className="agenda-navigation" onClick={handlePreviousDay}>
+      <div
+        className={`agenda-navigation ${canSelectPreviousDay() ? "" : "disabled"
+          }`}
+        onClick={handlePreviousDay}
+      >
         <IconChevronLeft />
       </div>
       {dates?.map((date, i) => (

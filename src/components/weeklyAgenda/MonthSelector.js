@@ -1,12 +1,12 @@
 import IconChevronRight from "../icons/IconChevronRight";
 import IconChevronLeft from "../icons/IconChevronLeft";
 
-function MonthSelector({ currentMonth, handlePreviousMonth, handleNextMonth }) {
+function MonthSelector({ currentMonth, canSelectPreviousMonth, handlePreviousMonth, handleNextMonth }) {
   return (
     <div className="agenda-month">
       <div
         type="button"
-        className="agenda-month-navigation"
+        className={`agenda-month-navigation ${canSelectPreviousMonth() ? '' : 'disabled'}`}
         onClick={handlePreviousMonth}
       >
         <IconChevronLeft />

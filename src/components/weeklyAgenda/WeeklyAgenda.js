@@ -69,6 +69,30 @@ function WeeklyAgenda({ selectedDate, handleDaySelected }) {
     }
   };
 
+  const canSelectPreviousDay = () => {
+    const newDate = new Date(currentMonthFirstDay);
+    newDate.setDate(newDate.getDate() - 1);
+
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+
+    return newDate >= currentDate;
+  };
+
+  const canSelectPreviousMonth = () => {
+    const newDate = new Date(currentMonthFirstDay);
+    newDate.setMonth(newDate.getMonth() - 1);
+    newDate.setDate(1);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return (
+      newDate.getMonth() > today.getMonth() &&
+      newDate.getFullYear() >= today.getFullYear()
+    );
+  };
+
   // Create an array of dates for the week
   const dates = Array.from({ length: 7 }, (_, i) => {
     const date = new Date(currentMonthFirstDay);
@@ -97,12 +121,14 @@ function WeeklyAgenda({ selectedDate, handleDaySelected }) {
       <DaySelector
         dates={dates}
         selectedDate={selectedDate}
+        canSelectPreviousDay={canSelectPreviousDay}
         handleDaySelected={(date) => handleDaySelected?.(date)}
         handlePreviousDay={handlePreviousDay}
         handleNextDay={handleNextDay}
       />
       <MonthSelector
         currentMonth={currentMonth}
+        canSelectPreviousMonth={canSelectPreviousMonth}
         handlePreviousMonth={handlePreviousMonth}
         handleNextMonth={handleNextMonth}
       />
