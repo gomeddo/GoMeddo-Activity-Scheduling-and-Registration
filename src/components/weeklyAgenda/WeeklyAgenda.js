@@ -38,9 +38,7 @@ function WeeklyAgenda({ selectedDate, handleDaySelected }) {
   const formattedSelectedMonth = formatMonth(currentMonthFirstDay);
 
   // Format the selected date for display
-  const formattedSelectedDate = !!selectedDate
-    ? formatLongDate(selectedDate)
-    : "None";
+  const formattedSelectedDate = formatLongDate(selectedDate) ?? "None";
 
   // Render the WeeklyAgenda component
   return (

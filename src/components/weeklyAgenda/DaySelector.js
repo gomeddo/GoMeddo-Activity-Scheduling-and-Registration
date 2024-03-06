@@ -1,6 +1,7 @@
 import IconChevronRight from "../icons/IconChevronRight";
 import IconChevronLeft from "../icons/IconChevronLeft";
 import AgendaItem from "./AgendaItem";
+import { formatDate } from "./utils";
 
 function DaySelector({
   handlePreviousDay,
@@ -13,8 +14,9 @@ function DaySelector({
   return (
     <div className="agenda-container">
       <div
-        className={`agenda-navigation ${canSelectPreviousDay() ? "" : "disabled"
-          }`}
+        className={`agenda-navigation ${
+          canSelectPreviousDay() ? "" : "disabled"
+        }`}
         onClick={handlePreviousDay}
       >
         <IconChevronLeft />
@@ -24,18 +26,8 @@ function DaySelector({
           key={i}
           day={date.toLocaleString("en-us", { weekday: "short" })}
           date={date}
-          active={
-            date.toLocaleString("default", {
-              month: "numeric",
-              day: "numeric",
-              year: "numeric",
-            }) ===
-            selectedDate?.toLocaleString("default", {
-              month: "numeric",
-              day: "numeric",
-              year: "numeric",
-            })
-          }
+          // Checking if the current date is the selected date
+          active={formatDate(date) === formatDate(selectedDate)}
           onClick={() => handleDaySelected(date)}
         />
       ))}
