@@ -3,121 +3,58 @@ import "./WeeklyAgenda.css"; // Import the CSS file for styles
 import FiltersButton from "./FiltersButton";
 import MonthSelector from "./MonthSelector";
 import DaySelector from "./DaySelector";
+// Import custom hooks and utility functions
+import {
+  usePreviousDay,
+  useNextDay,
+  useNextMonth,
+  usePreviousMonth,
+  useCanSelectPreviousDay,
+  useCanSelectPreviousMonth,
+  useCurrentWeekDate,
+} from "./hooks";
+import { formatLongDate, formatMonth } from "./utils";
 
+// WeeklyAgenda component definition
 function WeeklyAgenda({ selectedDate, handleDaySelected }) {
   // State to keep track of the current month's first day
   const [currentMonthFirstDay, setCurrentMonthFirstDay] = useState(new Date());
 
-  // Function to subtract a day
-  const handlePreviousDay = () => {
-    const newDate = new Date(currentMonthFirstDay);
-    newDate.setDate(newDate.getDate() - 1);
+  // Functions to handle navigation between days and months
+  const handlePreviousDay = usePreviousDay(setCurrentMonthFirstDay);
+  const handleNextDay = useNextDay(setCurrentMonthFirstDay);
+  const handleNextMonth = useNextMonth(setCurrentMonthFirstDay);
+  const handlePreviousMonth = usePreviousMonth(setCurrentMonthFirstDay);
 
-    // Prevent going back past the current date
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
+  // Check if it's possible to select the previous day and month
+  const canSelectPreviousDay = useCanSelectPreviousDay(currentMonthFirstDay);
+  const canSelectPreviousMonth =
+    useCanSelectPreviousMonth(currentMonthFirstDay);
 
-    if (newDate >= currentDate) {
-      setCurrentMonthFirstDay(newDate);
-    }
-  };
+  // Generate an array of dates representing the current week
+  const dates = useCurrentWeekDate(currentMonthFirstDay);
 
-  // Function to add a day
-  const handleNextDay = () => {
-    const newDate = new Date(currentMonthFirstDay);
-    newDate.setDate(newDate.getDate() + 1);
-    setCurrentMonthFirstDay(newDate);
-  };
+  // Format the selected month for display
+  const formattedSelectedMonth = formatMonth(currentMonthFirstDay);
 
-  // Function to go to the next month
-  const handleNextMonth = () => {
-    const newDate = new Date(
-      currentMonthFirstDay.getFullYear(),
-      currentMonthFirstDay.getMonth() + 1,
-      1
-    );
-    setCurrentMonthFirstDay(newDate);
-  };
+  // Format the selected date for display
+  const formattedSelectedDate = !!selectedDate
+    ? formatLongDate(selectedDate)
+    : "None";
 
-  // Function to go to the previous month, but not before the current month
-  const handlePreviousMonth = () => {
-    const newDate = new Date(currentMonthFirstDay);
-    newDate.setMonth(newDate.getMonth() - 1);
-    newDate.setDate(1);
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    // Prevent going back past the current month
-    if (
-      newDate.getMonth() < today.getMonth() &&
-      newDate.getFullYear() === today.getFullYear()
-    ) {
-      return;
-    }
-
-    // Check if the newDate is in the current month and year
-    if (
-      newDate.getMonth() === today.getMonth() &&
-      newDate.getFullYear() === today.getFullYear()
-    ) {
-      // If we are navigating back to the current month, set the date to today's date
-      setCurrentMonthFirstDay(today);
-    } else {
-      // Otherwise, just update the month
-      setCurrentMonthFirstDay(newDate);
-    }
-  };
-
-  const canSelectPreviousDay = () => {
-    const newDate = new Date(currentMonthFirstDay);
-    newDate.setDate(newDate.getDate() - 1);
-
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
-
-    return newDate >= currentDate;
-  };
-
-  const canSelectPreviousMonth = () => {
-    const newDate = new Date(currentMonthFirstDay);
-    newDate.setMonth(newDate.getMonth() - 1);
-    newDate.setDate(1);
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    return (
-      newDate.getMonth() > today.getMonth() &&
-      newDate.getFullYear() >= today.getFullYear()
-    );
-  };
-
-  // Create an array of dates for the week
-  const dates = Array.from({ length: 7 }, (_, i) => {
-    const date = new Date(currentMonthFirstDay);
-    date.setDate(currentMonthFirstDay.getDate() + i);
-    return date;
-  });
-
-  const currentMonth = currentMonthFirstDay.toLocaleString("default", {
-    month: "long",
-    year: "numeric",
-  });
-
+  // Render the WeeklyAgenda component
   return (
     <div className="agenda-wrapper">
+      {/* Render the header section */}
       <div className="agenda-header">
+        {/* Display the selected date */}
         <div className="agenda-date">
-          <span>Date Selected:</span>{" "}
-          {selectedDate?.toLocaleString("default", {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-          }) ?? "None"}
+          <span>Date Selected:</span> {formattedSelectedDate}
         </div>
+        {/* Render the filters button */}
         <FiltersButton />
       </div>
+      {/* Render the DaySelector component */}
       <DaySelector
         dates={dates}
         selectedDate={selectedDate}
@@ -126,8 +63,9 @@ function WeeklyAgenda({ selectedDate, handleDaySelected }) {
         handlePreviousDay={handlePreviousDay}
         handleNextDay={handleNextDay}
       />
+      {/* Render the MonthSelector component */}
       <MonthSelector
-        currentMonth={currentMonth}
+        currentMonth={formattedSelectedMonth}
         canSelectPreviousMonth={canSelectPreviousMonth}
         handlePreviousMonth={handlePreviousMonth}
         handleNextMonth={handleNextMonth}
