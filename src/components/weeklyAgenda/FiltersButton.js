@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import IconFilter from "../icons/IconFilter";
+import resources from "../../i18n/resources";
 
 function FiltersButton() {
+  const { t } = useTranslation();
   const handleFilters = () => {
     console.log("Filters clicked");
   };
@@ -9,7 +12,7 @@ function FiltersButton() {
     <div className="filters-container">
       <button type="button" className="filters-button" onClick={handleFilters}>
         <IconFilter />
-        Filters
+        {t(resources.button_filters)}
       </button>
     </div>
   );

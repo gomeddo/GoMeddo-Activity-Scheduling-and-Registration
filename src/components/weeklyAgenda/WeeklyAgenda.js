@@ -14,9 +14,14 @@ import {
   useCurrentWeekDate,
 } from "./hooks";
 import { formatLongDate, formatMonth } from "./utils";
+import { useTranslation } from "react-i18next";
+import resources from "../../i18n/resources";
+
 
 // WeeklyAgenda component definition
 function WeeklyAgenda({ selectedDate, handleDaySelected }) {
+  const { t } = useTranslation();
+
   // State to keep track of the current month's first day
   const [currentMonthFirstDay, setCurrentMonthFirstDay] = useState(new Date());
 
@@ -47,7 +52,8 @@ function WeeklyAgenda({ selectedDate, handleDaySelected }) {
       <div className="agenda-header">
         {/* Display the selected date */}
         <div className="agenda-date">
-          <span>Date Selected:</span> {formattedSelectedDate}
+          <span>{t(resources.label_date_selected)}:</span>{" "}
+          {formattedSelectedDate}
         </div>
         {/* Render the filters button */}
         <FiltersButton />

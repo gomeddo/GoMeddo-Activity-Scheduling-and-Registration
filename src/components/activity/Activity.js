@@ -30,9 +30,8 @@ function Activity({
     <div
       onClick={() => onClick?.(id)}
       id={id}
-      className={`${classFull ? "class-container-full" : "class-container "} ${
-        active ? "active" : ""
-      }`}
+      className={`${classFull ? "class-container-full" : "class-container "} ${active ? "active" : ""
+        }`}
     >
       <div className="class-info">
         <div className="class-details">
@@ -62,7 +61,7 @@ function Activity({
       {active &&
         !classFull && ( // Conditionally render the book button if the class is active
           <div className="book-button-container">
-            <Button onClick={handleRouteChange}>Book Class</Button>
+            <Button onClick={handleRouteChange}>{t(resources.button_book_class)}</Button>
           </div>
         )}
     </div>
