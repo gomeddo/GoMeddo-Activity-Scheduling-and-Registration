@@ -3,6 +3,7 @@ import { MapViewProvider } from "./providers/MapViewContext";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Booking from "./pages/booking/Booking";
 import Layout from "./pages/Layout";
+import "./i18n/i18n";
 
 function App() {
   return (

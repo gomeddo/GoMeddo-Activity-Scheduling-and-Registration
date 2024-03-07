@@ -1,8 +1,9 @@
-import React from 'react';
-import Button from '../button/Button';
-import { useNavigate } from 'react-router-dom';
-import './Activity.css';
-
+import React from "react";
+import Button from "../button/Button";
+import { useNavigate } from "react-router-dom";
+import "./Activity.css";
+import { useTranslation } from "react-i18next";
+import resources from "../../i18n/resources";
 
 function Activity({
   id,
@@ -22,12 +23,16 @@ function Activity({
     navigate(path, { state: { name: name, time: time, date: selectedDate } });
   };
 
+  const { t } = useTranslation();
+
   const classFull = attendees === spaces;
   return (
     <div
       onClick={() => onClick?.(id)}
       id={id}
-      className={`${classFull ? 'class-container-full' : 'class-container '} ${active ? 'active' : ''}`}
+      className={`${classFull ? "class-container-full" : "class-container "} ${
+        active ? "active" : ""
+      }`}
     >
       <div className="class-info">
         <div className="class-details">
@@ -39,16 +44,18 @@ function Activity({
           </div>
           {!classFull && (
             <div className="class-location-size">
-              Capacity:&nbsp;<span> {attendees}</span>
+              {t(resources.label_capacity)}:&nbsp;<span> {attendees}</span>
               <span>/</span>
               <span>{spaces}</span>
-            </div>)
-          }
+            </div>
+          )}
           {classFull && (
             <div className="class-location-size">
-              <span className="class-full">Class Full</span>
-            </div>)
-          }
+              <span className="class-full">
+                {t(resources.label_class_full)}
+              </span>
+            </div>
+          )}
         </div>
         <div className="class-time">{time}</div>
       </div>
