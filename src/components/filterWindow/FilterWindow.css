@@ -1,0 +1,46 @@
+/* FilterWindow.css */
+.filter-window-container {
+    width: 474px;
+    height: 477px;
+    gap: 16px;
+    position: fixed;
+    left: 57vw;
+    top: 22vh;
+  }
+  
+  .filter-window-header {
+    width: 100%;
+    height: 72px;
+    padding: 24px 32px;
+    gap: 10px;
+    background: #16072d;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .filter-window-body {
+    width: 86%;
+    margin: auto;
+  }
+  
+  .filter-window-body-container {
+    width: 100%;
+    height: 330px;
+    background-color: white;
+    border: 1px solid #ccc;
+  }
+  
+  .filter-window-footer {
+    width: 100%;
+    height: 67px;
+    padding: 16px 32px;
+    gap: 16px;
+    text-align: right;
+    background-color: white;
+    border: 1px solid rgb(136, 136, 136);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
