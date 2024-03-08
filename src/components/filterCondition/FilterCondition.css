@@ -1,0 +1,35 @@
+.filter-condition-container {
+    display: flex;
+    flex-direction: row;
+    /* height: 30px; */
+    gap: 2px;
+}
+
+.cross-icon,
+.plus-icon {
+    width: 12px;
+    /* height: 20px; */
+}
+
+.svg-container {
+    display: flex;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border-radius: 16px;
+    padding: 4px 8px;
+    align-items: center;
+}
+
+div.svg-container svg {
+    margin-right: 2px;
+}
+
+div.cross-box {
+    background-color: #e1f5fe;
+    color: #01579b;
+}
+
+div.plus-box {
+    background-color: #eeeeee;
+    color: #424242;
+}

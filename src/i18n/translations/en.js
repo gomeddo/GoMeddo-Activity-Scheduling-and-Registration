@@ -24,6 +24,8 @@ const en = {
     [resources.button_book_class]: "Book Class",
     [resources.button_cancel]: "Cancel",
     [resources.button_confirm]: "Confirm",
+    [resources.filter_intensity]: "Intensity",
+    [resources.filter_type]: "Type",
 };
 
 export default en;

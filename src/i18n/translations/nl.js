@@ -24,6 +24,8 @@ const nl = {
     [resources.button_book_class]: "Boek klasse",
     [resources.button_cancel]: "Annuleren",
     [resources.button_confirm]: "Bevestigen",
+    [resources.filter_intensity]: "Intensiteit",
+    [resources.filter_type]: "Type",
 };
 
 export default nl;

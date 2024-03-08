@@ -3,6 +3,7 @@ import "./FilterWindow.css";
 import IconFilter from "../icons/IconFilter";
 import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
+import FilterCondition from "./../filterCondition/FilterCondition";
 
 
 const FilterWindow = ({ onClose }) => {
@@ -46,6 +47,28 @@ const FilterWindow = ({ onClose }) => {
                                 <option value="Location2">Location2</option>
                                 <option value="Location3">Location3</option>
                             </select>
+                        </div>
+                        <div className="filter-intensity">
+                            <p className="filter-label">{t(resources.filter_intensity)}</p>
+                            <div className="plus-cross-container">
+                                {severityOptions.map((text, index) => (
+                                    <FilterCondition
+                                        key={index}
+                                        string={text.string}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                        <div className="filter-class-type">
+                            <p className="filter-label">{t(resources.filter_type)}</p>
+                            <div className="plus-cross-container under-plus-cross-container">
+                                {activityOptions.map((text, index) => (
+                                    <FilterCondition
+                                        key={index}
+                                        string={text.string}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </form>
                 </div>

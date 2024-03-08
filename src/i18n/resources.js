@@ -19,6 +19,8 @@ const resources = {
     button_book_class: "button_book_class",
     button_cancel: "button_cancel",
     button_confirm: "button_confirm",
+    filter_intensity: "filter_intensity",
+    filter_type: "filter_type",
 };
 
 export default resources;
