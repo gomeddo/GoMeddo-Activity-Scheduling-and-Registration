@@ -6,6 +6,9 @@
   position: fixed;
   left: 57vw;
   top: 22vh;
+  border: 2px solid rgb(245, 147, 190);
+  border-radius: 10px 10px 16px 16px;
+  padding: 2px;
 }
 
 .filter-window-header {
