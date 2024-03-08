@@ -26,6 +26,8 @@ const nl = {
     [resources.button_confirm]: "Bevestigen",
     [resources.filter_intensity]: "Intensiteit",
     [resources.filter_type]: "Type",
+    [resources.filter_reset]: "Opnieuw instellen",
+    [resources.filter_apply]: "Toepassen",
 };
 
 export default nl;

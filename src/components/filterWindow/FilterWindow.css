@@ -51,6 +51,38 @@ select.filter-dropdown2 {
   margin-top: 16px;
 }
 
+.filter-label {
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.filter-plus-cross-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-window-clickable-text {
+  font-size: 12px;
+}
+
+div.filter-window-intensity {
+  height: 48px;
+  margin-top: 16px;
+}
+
+div.filter-window-types {
+  height: 80px;
+  margin-top: 16px;
+}
+
+.filterIcon {
+  width: 10.67px;
+  height: 12px;
+  margin-right: 5px;
+}
+
 .filter-window-footer {
   width: 100%;
   height: 67px;

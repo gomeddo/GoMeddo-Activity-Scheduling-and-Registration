@@ -26,6 +26,8 @@ const de = {
     [resources.button_confirm]: "Bestätigen",
     [resources.filter_intensity]: "Intensität",
     [resources.filter_type]: "Typ",
+    [resources.filter_reset]: "Zurücksetzen",
+    [resources.filter_apply]: "Anwenden",
 };
 
 export default de;

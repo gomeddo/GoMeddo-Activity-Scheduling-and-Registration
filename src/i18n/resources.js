@@ -21,6 +21,8 @@ const resources = {
     button_confirm: "button_confirm",
     filter_intensity: "filter_intensity",
     filter_type: "filter_type",
+    filter_reset: "filter_reset",
+    filter_apply: "filter_apply",
 };
 
 export default resources;

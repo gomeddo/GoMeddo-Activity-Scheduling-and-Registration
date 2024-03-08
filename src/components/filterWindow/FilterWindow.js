@@ -5,8 +5,24 @@ import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
 import FilterCondition from "./../filterCondition/FilterCondition";
 
-
 const FilterWindow = ({ onClose }) => {
+    const insRef = useRef(null);
+    const locRef = useRef(null);
+
+    const [plusCrossStatusIntensity, setPlusCrossStatusIntensity] = useState([
+        true,
+        true,
+        true,
+    ]);
+
+    const [plusCrossStatusType, setPlusCrossStatusType] = useState([
+        true,
+        true,
+        true,
+        true,
+        true,
+    ]);
+
     const { t } = useTranslation();
 
     const [severityOptions, setSeverityOptions] = useState([
@@ -23,12 +39,18 @@ const FilterWindow = ({ onClose }) => {
         { string: "Zumba" },
     ]);
 
-
     const handleApplyFilters = () => {
         onClose();
     };
 
-    const handleResetFilters = () => { };
+    const handleResetFilters = () => {
+        if (insRef.current && locRef.current) {
+            insRef.current.value = "Instructor1";
+            locRef.current.value = "Location1";
+        }
+        setPlusCrossStatusIntensity([true, true, true]);
+        setPlusCrossStatusType([true, true, true, true, true]);
+    };
 
     return (
         <div className="filter-window-container">
@@ -50,30 +72,39 @@ const FilterWindow = ({ onClose }) => {
                         </div>
                         <div className="filter-intensity">
                             <p className="filter-label">{t(resources.filter_intensity)}</p>
-                            <div className="plus-cross-container">
+                            <div className="filter-plus-cross-container">
                                 {severityOptions.map((text, index) => (
-                                    <FilterCondition
-                                        key={index}
-                                        string={text.string}
-                                    />
+                                    <FilterCondition key={index} string={text.string} />
                                 ))}
                             </div>
                         </div>
                         <div className="filter-class-type">
                             <p className="filter-label">{t(resources.filter_type)}</p>
-                            <div className="plus-cross-container under-plus-cross-container">
+                            <div className="filter-plus-cross-container under-plus-cross-container">
                                 {activityOptions.map((text, index) => (
-                                    <FilterCondition
-                                        key={index}
-                                        string={text.string}
-                                    />
+                                    <FilterCondition key={index} string={text.string} />
                                 ))}
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            <div className="filter-window-footer"></div>
+            <div className="filter-window-footer">
+                <button
+                    className="footer-button button-with-icon"
+                    onClick={handleResetFilters}
+                >
+                    <div className="button-container">
+                        <IconFilter className="filterIcon" />
+                        <span>{t(resources.filter_reset)}</span>
+                    </div>
+                </button>
+                <button
+                    className="footer-button button-without-icon"
+                    onClick={handleApplyFilters}>
+                    {t(resources.filter_apply)}
+                </button>
+            </div>
         </div>
     );
 };
