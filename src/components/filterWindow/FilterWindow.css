@@ -96,3 +96,58 @@ div.filter-window-types {
   display: flex;
   justify-content: flex-end;
 }
+
+.footer-button {
+  /* width: 62px; */
+  height: 35px;
+  background: #ff620a;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.footer-button:hover {
+  background: #ffb488;
+}
+
+.button-with-icon {
+  display: flex;
+  align-items: center;
+  padding: 8px, 12px, 8px, 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  width: 81px;
+  font-weight: 500;
+  /* justify-content: center; */
+}
+
+.button-without-icon {
+  display: flex;
+  align-items: center;
+  /* position: relative; */
+  padding: 8px, 12px, 8px, 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  width: 62px;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  /* Adjust the distance from the right side */
+  transform: translateY(-50%);
+  width: 20px;
+  /* Adjust width of the icon */
+  height: auto;
+}
