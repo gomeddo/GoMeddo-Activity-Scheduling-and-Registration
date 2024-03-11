@@ -22,6 +22,13 @@
   border-top-right-radius: 10px;
 }
 
+.close-icon {
+  width: 24px;
+  height: 24px;
+  float: right;
+  cursor: pointer;
+}
+
 .filter-window-body {
   width: 86%;
   margin: auto;
@@ -32,6 +39,42 @@
   height: 330px;
   background-color: white;
   border: 1px solid #ccc;
+}
+
+.filter-window-clickable-text {
+  font-size: 12px;
+}
+
+.under-plusCross-container {
+  padding-bottom: 30px;
+}
+
+
+div.filter-window-intensity {
+  height: 48px;
+  margin-top: 16px;
+}
+
+div.filter-window-types {
+  height: 80px;
+  margin-top: 16px;
+}
+
+p {
+  padding-bottom: 10px;
+}
+
+.filter-plus-cross-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filterIcon {
+  width: 10.67px;
+  height: 12px;
+  margin-right: 5px;
 }
 
 .filter-dropdown-container {
@@ -57,33 +100,6 @@ select.filter-dropdown2 {
 .filter-label {
   font-size: 12px;
   margin-top: 16px;
-}
-
-.filter-plus-cross-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.filter-window-clickable-text {
-  font-size: 12px;
-}
-
-div.filter-window-intensity {
-  height: 48px;
-  margin-top: 16px;
-}
-
-div.filter-window-types {
-  height: 80px;
-  margin-top: 16px;
-}
-
-.filterIcon {
-  width: 10.67px;
-  height: 12px;
-  margin-right: 5px;
 }
 
 .filter-window-footer {
