@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./FilterWindow.css";
 import IconFilter from "../icons/IconFilter";
 import IconWhiteCross from "../icons/IconWhiteCross";
@@ -69,8 +69,29 @@ const FilterWindow = ({ onClose }) => {
     setPlusCrossStatusType([true, true, true, true, true]);
   };
 
+  // To set the position of the filters below the button, we need to
+  // manually calculate the top/right and set the position of the container.
+  const { top, right } = useMemo(() => {
+    const anchor = document.getElementById("filters-button");
+    if (!anchor) {
+      return {
+        top: undefined,
+        right: undefined,
+      };
+    }
+
+    const rect = anchor.getBoundingClientRect();
+    const windowWidth = window.innerWidth;
+
+    return {
+      top: rect.bottom + 8,
+      right: windowWidth - rect.right,
+    };
+  }, []);
+
   return (
-    <div className="filter-window-container">
+    // <div className="filter-window-container">
+    <div className="filter-window-container" style={{top: top, right: right,}}>
       <div className="filter-window-header">
         {t(resources.button_filters)}
         <IconWhiteCross className="close-icon" onClick={handleExitFilter} />
