@@ -1,35 +1,50 @@
+/* FilterCondition.css */
 .filter-condition-container {
-    display: flex;
-    flex-direction: row;
-    /* height: 30px; */
-    gap: 2px;
+  display: flex;
+  flex-direction: row;
+  /* height: 30px; */
+  gap: 2px;
+  align-items: center;
 }
 
 .cross-icon,
 .plus-icon {
-    width: 12px;
-    /* height: 20px; */
+  width: 12px;
+  /* height: 20px; */
 }
 
 .svg-container {
-    display: flex;
-    cursor: pointer;
-    background-color: #eeeeee;
-    border-radius: 16px;
-    padding: 4px 8px;
-    align-items: center;
+  display: flex;
+  cursor: pointer;
+  background-color: #eeeeee;
+  padding: 4px 8px;
+  align-items: center;
 }
 
 div.svg-container svg {
-    margin-right: 2px;
+  margin-right: 2px;
 }
 
 div.cross-box {
-    background-color: #e1f5fe;
-    color: #01579b;
+  background-color: #e1f5fe;
+  color: #01579b;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  height: 24px;
+  padding: 4px 8px 4px 4px;
+  cursor: pointer;
 }
 
 div.plus-box {
-    background-color: #eeeeee;
-    color: #424242;
+  background-color: #eeeeee;
+  color: #424242;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  height: 24px;
+  padding: 4px 8px 4px 4px;
+  cursor: pointer;
 }

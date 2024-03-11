@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import IconPlus from "../icons/IconPlus";
 import IconCross from "../icons/IconCross";
 import "./FilterCondition.css";
@@ -19,6 +19,6 @@ function FilterCondition({ filterText, handleFilterToggle, showCrossIcon }) {
             </div>
         </div>
     );
-};
+}
 
 export default FilterCondition;

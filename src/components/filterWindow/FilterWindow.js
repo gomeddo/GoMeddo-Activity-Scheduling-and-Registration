@@ -80,9 +80,9 @@ const FilterWindow = ({ onClose }) => {
           <form>
             <div className="filter-dropdown-container">
               <select className="filter-dropdown filter-dropdown1" ref={insRef}>
-                <option value="Instuctors1">Instuctors1</option>
-                <option value="Instuctors2">Instuctors2</option>
-                <option value="Instuctors3">Instuctors3</option>
+                <option value="Instructor1">Instructor1</option>
+                <option value="Instructor2">Instructor2</option>
+                <option value="Instructor3">Instructor3</option>
               </select>
               <select className="filter-dropdown filter-dropdown2" ref={locRef}>
                 <option value="Location1">Location1</option>
@@ -96,9 +96,9 @@ const FilterWindow = ({ onClose }) => {
                 {severityOptions.map((text, index) => (
                   <FilterCondition
                     key={index}
-                    string={text.string}
+                    filterText={text.string}
                     showCrossIcon={plusCrossStatusIntensity[index]}
-                    onClick={() => handleIntensityClick(index)}
+                    handleFilterToggle={() => handleIntensityClick(index)}
                   />
                 ))}
               </div>
@@ -109,9 +109,9 @@ const FilterWindow = ({ onClose }) => {
                 {activityOptions.map((text, index) => (
                   <FilterCondition
                     key={index}
-                    string={text.string}
+                    filterText={text.string}
                     showCrossIcon={plusCrossStatusType[index]}
-                    onClick={() => handleTypeClick(index)}
+                    handleFilterToggle={() => handleTypeClick(index)}
                   />
                 ))}
               </div>
