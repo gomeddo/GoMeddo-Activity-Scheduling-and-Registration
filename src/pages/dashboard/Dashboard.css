@@ -1,3 +1,4 @@
+/* Dashboard.css */
 .dashboard-wrapper {
   display: flex;
   flex-direction: row;
@@ -7,6 +8,61 @@
   flex: 1;
   overflow: auto;
   padding: 2rem;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.dashboard-loading {
+  height: 210px;
+  text-align: center;
+  padding-top: 3rem;
+  animation: pulse 2s infinite;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.dashboard-loading-spinner {
+  margin-top: 2rem;
+  height: 100px;
+  width: 100px;
+  border: 10px solid #ccc;
+  border-right-color: #16072d;
+  border-radius: 50%;
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dashboard-error {
+  height: 100px;
+  text-align: center;
+  padding-top: 3rem;
+  color: #f40404;
+  animation: pulse 1s infinite;
+}
+
+.dashboard-error {
+  height: 100px;
+  text-align: center;
+  padding-top: 3rem;
+  color: #f40404;
 }
 
 .sections-container {
@@ -48,7 +104,6 @@
   min-width: 60%;
   display: flex;
   flex-direction: column;
-
   background-image: url("../../assets/map.png");
   background-size: cover;
 }
