@@ -105,7 +105,7 @@ function Dashboard() {
         {/* Weekly agenda selector */}
         <WeeklyAgenda
           selectedDate={selectedDate}
-          onSelectDate={handleDateChange} // Update the agenda based on the selected date
+          handleDaySelected={handleDateChange} // Update the agenda based on the selected date
         />
         {/* Container for each time section (Morning, Afternoon, Evening) */}
         {loading && (
