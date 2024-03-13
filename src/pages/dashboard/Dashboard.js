@@ -62,18 +62,12 @@ function Dashboard() {
   const gm = useGoMeddo(); // Custom hook to use GoMeddo SDK functionality
 
   useEffect(() => {
-    const formattedStartDate = selectedDate.toISOString().split("T")[0];
-    const endDate = new Date(selectedDate);
-    endDate.setDate(selectedDate.getDate() + 1);
-    const formattedEndDate = endDate.toISOString().split("T")[0];
-
     const fetchData = async () => {
       setLoading(true); // set loading state to true when fetching data
       try {
         //Fetch data logic using GoMeddo SDK and use this data to update the component state
         let reservations = await gm.buildReservationRequest()
           .withStatus("Definite") // Definite
-          // .withAvailableSlotsBetween(formattedStartDate, formattedEndDate)
           .getResults();
         setReservations(reservations);
         console.log(reservations.getReservations());
@@ -84,7 +78,6 @@ function Dashboard() {
         setReservations(null);
       } finally {
         setTimeout(() => setLoading(false), 1000); // Simulate a delay in the loading state
-        // setLoading(true); // Ensure loading is set to false once the operation is complete
       }
     };
 
