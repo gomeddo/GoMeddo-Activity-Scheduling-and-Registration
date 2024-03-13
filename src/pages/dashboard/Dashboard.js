@@ -57,6 +57,7 @@ function Dashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [reservations, setReservations] = useState(null);
 
   const gm = useGoMeddo(); // Custom hook to use GoMeddo SDK functionality
 
@@ -70,25 +71,23 @@ function Dashboard() {
       setLoading(true); // set loading state to true when fetching data
       try {
         //Fetch data logic using GoMeddo SDK and use this data to update the component state
-        let resources = await gm.buildResourceRequest();
-        //.includeAllResourcesAt(process.env.REACT_APP_RESOURCE_ID)
-        //.includeServices(true)
-        //.withAvailableSlotsBetween(formattedStartDate, formattedEndDate)
-        //.getResults()
-        //resources = [];
-        console.log(resources);
-        setData(resources[0]);
-        console.log(data);
+        let reservations = await gm.buildReservationRequest()
+          .withStatus("Definite") // Definite
+          // .withAvailableSlotsBetween(formattedStartDate, formattedEndDate)
+          .getResults();
+        setReservations(reservations);
+        console.log(reservations.getReservations());
         setError(null);
       } catch (error) {
         // Error handling
         setError(error);
-        setData(null);
+        setReservations(null);
       } finally {
         setTimeout(() => setLoading(false), 1000); // Simulate a delay in the loading state
         // setLoading(true); // Ensure loading is set to false once the operation is complete
       }
     };
+
 
     fetchData();
   }, [selectedDate, gm, data]);
@@ -136,6 +135,10 @@ function Dashboard() {
                 {/* Section header (e.g., "Morning - 6:00am to 12:00pm") */}
                 <Header>{item.header}</Header>
                 {/* List of classes within the section */}
+                {/* HERE IS WHERE THE AVAILABLE CLASSES (RESERVATIONS) WE GOT ARE PUT INTO THE PAGE */}
+                {reservations && reservations.getReservations().map((reservation) => (
+                  <h1 key={reservation.id}>{reservation.id}</h1>
+                ))}
                 {item.items.map((item) => (
                   <Activity
                     key={item.id} // Added key prop for item mapping
