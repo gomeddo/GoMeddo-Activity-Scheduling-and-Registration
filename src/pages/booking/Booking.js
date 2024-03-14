@@ -1,11 +1,14 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import './Booking.css';
+import { useTranslation } from "react-i18next";
+import resources from "../../i18n/resources";
 
 function Booking() {
     const location = useLocation();
     const { name, time, date } = location.state || {}; // Default to empty object if state is undefined
     const [hasConfirmed, setHasConfirmed] = useState(false);
+    const { t } = useTranslation();
     // Add form submission handling logic
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,11 +29,11 @@ function Booking() {
             {hasConfirmed ? (
                 <div className="booking-form-confirmation">
                     <div className="booking-form-header">
-                        <h2>Booking Confirmed</h2>
+                        <h2>{t(resources.label_booking_confirmed)}</h2>
                     </div>
                     <div className="booking-form-confirmation-content">
-                        <p>Thank you for your booking.</p>
-                        <p>You are now confirmed for the class below:</p>
+                        <p>{t(resources.message_booking_confirmed_thankyou)}</p>
+                        <p>{t(resources.message_booking_confirmed_confirmed)}</p>
                         <p className="booking-form-confirmed-class">
                             {name} on{" "}
                             {date?.toLocaleString("default", {
@@ -42,7 +45,7 @@ function Booking() {
                             at {time}.
                         </p>
 
-                        <p>You will receive an email confirmation shortly.</p>
+                        <p>{t(resources.message_booking_confirmed_email)}</p>
                     </div>
                     <div className="booking-form-actions">
                         <button
@@ -50,13 +53,14 @@ function Booking() {
                             className="booking-form-button booking-form-back-button"
                             onClick={handleBackToDashboard}
                         >
-                            Back to classes schedule
+                        {t(resources.message_booking_confirmed_back)}
                         </button>
                     </div>
                 </div>
             ) : (
                 <div className="booking-form">
                     <div className="booking-form-header">
+                        {/* <h2>Confirm your {name} Booking</h2> */}
                         <h2>Confirm your {name} Booking</h2>
                     </div>
                     <div className="booking-form-map">
@@ -80,9 +84,7 @@ function Booking() {
                         <div className="booking-form-consent">
                             <input type="checkbox" id="consentCheckbox" required />
                             <label htmlFor="consentCheckbox">
-                                I give permission to save the data I have entered here and use
-                                this data to contact me. More information in our privacy
-                                statement.
+                                {t(resources.message_booking_permission)}
                             </label>
                         </div>
                         <div className="booking-form-actions">
@@ -91,13 +93,13 @@ function Booking() {
                                 className="booking-form-button booking-form-cancel"
                                 onClick={handleCancel}
                             >
-                                Cancel
+                                {t(resources.button_cancel)}
                             </button>
                             <button
                                 type="submit"
                                 className="booking-form-button booking-form-submit"
                             >
-                                Confirm
+                                {t(resources.button_confirm)}
                             </button>
                         </div>
                     </form>
