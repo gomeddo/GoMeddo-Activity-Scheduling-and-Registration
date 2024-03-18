@@ -9,7 +9,10 @@ function Activity({
   id,
   name,
   time,
+  room,
   location,
+  center,
+  staff,
   instructor,
   attendees,
   spaces,
@@ -37,10 +40,11 @@ function Activity({
         <div className="class-details">
           <div className="class-name">{name}</div>
           <div className="class-location-instructor">
-            <span>{location}</span>
+            <span>{room}</span>
             <span> • </span>
             <span>{instructor}</span>
           </div>
+          <div className="class-location-center">{location},{center}</div>
           {!classFull && (
             <div className="class-location-size">
               {t(resources.label_capacity)}:&nbsp;<span> {attendees}</span>

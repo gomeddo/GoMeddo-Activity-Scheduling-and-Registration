@@ -47,7 +47,15 @@
   color: #000000;
 }
 
-.class-location-instructor {
+.class-room-instructor {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: #00000066;
+}
+
+.class-location-center {
   display: flex;
   gap: 0.5rem;
   font-size: 0.75rem;
