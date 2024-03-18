@@ -10,6 +10,9 @@ const de = {
     [resources.label_last_name]: "Familienname, Nachname",
     [resources.label_email_address]: "E-Mail-Adresse",
     [resources.label_mobile_number]: "Handynummer",
+    [resources.label_morning]: "Morgen",
+    [resources.label_afternoon]: "Nachmittag",
+    [resources.label_evening]: "Abend",
     [resources.message_booking_permission]:
         "Ich bin damit einverstanden, dass meine hier eingegebenen Daten gespeichert und zur Kontaktaufnahme mit mir genutzt werden. Weitere Informationen finden Sie in unserer Datenschutzerklärung.",
     [resources.message_booking_confirmed_thankyou]: "Vielen Dank für Ihre Buchung",
@@ -20,6 +23,8 @@ const de = {
     [resources.message_booking_confirmed_class_date]:
         "{{name}} am {{date}} um {{time}}",
     [resources.message_booking_confirmed_back]: "Zurück zum Stundenplan",
+    [resources.message_loading]: "Stundenplan wird geladen für",
+    [resources.message_loading_error]: "Fehler beim Laden des Stundenplans: ",
     [resources.button_filters]: "Filter",
     [resources.button_book_class]: "Buchklasse",
     [resources.button_cancel]: "Stornieren",

@@ -10,6 +10,9 @@ const en = {
     [resources.label_last_name]: "Last Name",
     [resources.label_email_address]: "Email Address",
     [resources.label_mobile_number]: "Mobile Number",
+    [resources.label_morning]: "Morning",
+    [resources.label_afternoon]: "Afternoon",
+    [resources.label_evening]: "Evening",
     [resources.message_booking_permission]:
         "I give permission to save the data I have entered here and use this data to contact me. More information in our privacy statement.",
     [resources.message_booking_confirmed_thankyou]: "Thank you for your booking",
@@ -20,6 +23,8 @@ const en = {
     [resources.message_booking_confirmed_class_date]:
         "{{name}} on {{date}} at {{time}}",
     [resources.message_booking_confirmed_back]: "Back to classes schedule",
+    [resources.message_loading]: "Loading class schedule for",
+    [resources.message_loading_error]: "Error loading class schedule: ",
     [resources.button_filters]: "Filters",
     [resources.button_book_class]: "Book Class",
     [resources.button_cancel]: "Cancel",

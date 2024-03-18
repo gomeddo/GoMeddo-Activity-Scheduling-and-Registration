@@ -35,14 +35,14 @@ function Booking() {
                         <p>{t(resources.message_booking_confirmed_thankyou)}</p>
                         <p>{t(resources.message_booking_confirmed_confirmed)}</p>
                         <p className="booking-form-confirmed-class">
-                            {name} on{" "}
-                            {date?.toLocaleString("default", {
-                                weekday: "long",
-                                day: "numeric",
-                                month: "long",
-                                year: "numeric",
-                            })}{" "}
-                            at {time}.
+                            {t(resources.message_booking_confirmed_class_date, {
+                                name, date: date?.toLocaleString("default", {
+                                    weekday: "long",
+                                    day: "numeric",
+                                    month: "long",
+                                    year: "numeric",
+                                }), time
+                            })}
                         </p>
 
                         <p>{t(resources.message_booking_confirmed_email)}</p>
@@ -53,7 +53,7 @@ function Booking() {
                             className="booking-form-button booking-form-back-button"
                             onClick={handleBackToDashboard}
                         >
-                        {t(resources.message_booking_confirmed_back)}
+                            {t(resources.message_booking_confirmed_back)}
                         </button>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ function Booking() {
                 <div className="booking-form">
                     <div className="booking-form-header">
                         {/* <h2>Confirm your {name} Booking</h2> */}
-                        <h2>Confirm your {name} Booking</h2>
+                        <h2>{t(resources.label_booking_confirm_name, { name })}</h2>
                     </div>
                     <div className="booking-form-map">
                         {/* Embed map component or image here */}
@@ -76,10 +76,10 @@ function Booking() {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="booking-form-inputs">
-                            <input type="text" placeholder="First Name" required />
-                            <input type="text" placeholder="Last Name" required />
-                            <input type="email" placeholder="Email Address" required />
-                            <input type="tel" placeholder="Mobile Number" required />
+                            <input type="text" placeholder={t(resources.label_first_name)} required />
+                            <input type="text" placeholder={t(resources.label_last_name)} required />
+                            <input type="email" placeholder={t(resources.label_email_address)} required />
+                            <input type="tel" placeholder={t(resources.label_mobile_number)} required />
                         </div>
                         <div className="booking-form-consent">
                             <input type="checkbox" id="consentCheckbox" required />
