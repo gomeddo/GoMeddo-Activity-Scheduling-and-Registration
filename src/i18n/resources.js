@@ -11,6 +11,8 @@ const resources = {
     label_morning: "label_morning",
     label_afternoon: "label_afternoon",
     label_evening: "label_evening",
+    label_instructor_selection: "label_instructor_selection",
+    label_location_selection: "label_location_selection",
     message_booking_permission: "message_booking_permission",
     message_booking_confirmed_thankyou: "message_booking_confirmed_thankyou",
     message_booking_confirmed_date: "message_booking_confirmed_date",
