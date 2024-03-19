@@ -176,9 +176,15 @@ export function useAgendaItems(reservations) {
             ).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`,
             attendees: reservation.customProperties.get("Room_Capacity__c"),
             spaces: reservation.customProperties.get("B25LP__Capacity__c"),
+            start: new Date(reservation.customProperties.get("B25__Start_Local_DateTime__c")),
         });
         return acc;
     }, {});
+
+    // Sort reservations within each section based on start time
+    Object.values(sections).forEach(section => {
+        section.items.sort((a, b) => a.start - b.start);
+    });
 
     // Return sections in the desired order
     return [t(resources.label_morning), t(resources.label_afternoon), t(resources.label_evening)]
