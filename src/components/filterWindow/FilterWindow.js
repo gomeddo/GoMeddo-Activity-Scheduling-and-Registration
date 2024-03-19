@@ -21,62 +21,64 @@ const FilterWindow = ({ onClose }) => {
     intensities,
     selectedIntensities,
     setSelectedIntensities,
-  } = useFilters();
-  const { t } = useTranslation();
+  } = useFilters(); // Extracting filter data and setter functions using custom hook
+  const { t } = useTranslation(); // Hook for using translation functionality
 
+  // Initializing state variables for filters
   const [instructorFilter, setInstructorFilter] = useState(selectedInstructor);
   const [locationFilter, setLocationFilter] = useState(selectedLocation);
   const [classesFilter, setClassesFilter] = useState(selectedClasses);
-  const [intensitiesFilter, setIntensitiesFilter] =
-    useState(selectedIntensities);
+  const [intensitiesFilter, setIntensitiesFilter] = useState(selectedIntensities);
 
   // To set the position of the filters below the button, we need to
   // manually calculate the top/right and set the position of the container.
   const { top, right } = useMemo(() => {
-    const anchor = document.getElementById("filters-button");
-    if (!anchor) {
+    const anchor = document.getElementById("filters-button"); // Getting the button element by ID
+    if (!anchor) { // If button element doesn't exist, return default values
       return {
         top: undefined,
         right: undefined,
       };
     }
 
-    const rect = anchor.getBoundingClientRect();
-    const windowWidth = window.innerWidth;
+    const rect = anchor.getBoundingClientRect(); // Getting the position and dimensions of the button
+    const windowWidth = window.innerWidth; // Getting the width of the window
 
     return {
-      top: rect.bottom + 8,
-      right: windowWidth - rect.right,
+      top: rect.bottom + 8, // Setting the top position below the button
+      right: windowWidth - rect.right, // Setting the right position
     };
   }, []);
 
+  // Function to apply selected filters
   const onApplyFilters = () => {
     setSelectedClasses(classesFilter);
     setSelectedInstructor(instructorFilter);
     setSelectedIntensities(intensitiesFilter);
     setSelectedLocation(locationFilter);
-    onClose?.();
+    onClose?.(); // Closing the filter window
   };
 
+  // Function to reset filters
   const onResetFilters = () => {
     setSelectedClasses([]);
     setSelectedInstructor(undefined);
     setSelectedIntensities([]);
     setSelectedLocation(undefined);
-    onClose?.();
+    onClose?.(); // Closing the filter window
   };
 
   return (
-    // <div className="filter-window-container">
-    <div className="filter-window-container" style={{ top: top, right: right }}>
+    <div className="filter-window-container" style={{ top: top, right: right }}> {/* Container for the filter window with dynamic positioning */}
       <div className="filter-window-header">
         {t(resources.button_filters)}
-        <IconWhiteCross className="close-icon" onClick={onClose} />
+        <IconWhiteCross className="close-icon" onClick={onClose} /> {/* Close icon */}
       </div>
       <div className="filter-window-body-container">
         <div className="filter-window-body">
           <form>
             <div className="filter-dropdown-container">
+              {/* Dropdown for selecting instructors */}
               <select
                 className="filter-dropdown filter-dropdown1"
                 value={instructorFilter ?? -1}
@@ -94,6 +96,7 @@ const FilterWindow = ({ onClose }) => {
                   </option>
                 ))}
               </select>
+              {/* Dropdown for selecting locations */}
               <select
                 className="filter-dropdown filter-dropdown2"
                 value={locationFilter ?? -1}
@@ -113,6 +116,7 @@ const FilterWindow = ({ onClose }) => {
               </select>
             </div>
             <div className="filter-intensity">
+              {/* Filter conditions for intensity */}
               <p className="filter-label">{t(resources.filter_intensity)}</p>
               <div className="filter-plus-cross-container">
                 {intensities.map((intensity, index) => (
@@ -134,6 +138,7 @@ const FilterWindow = ({ onClose }) => {
               </div>
             </div>
             <div className="filter-class-type">
+              {/* Filter conditions for class types */}
               <p className="filter-label">{t(resources.filter_type)}</p>
               <div className="filter-plus-cross-container under-plus-cross-container">
                 {classes.map((className, index) => (
@@ -158,15 +163,17 @@ const FilterWindow = ({ onClose }) => {
         </div>
       </div>
       <div className="filter-window-footer">
+        {/* Button to reset filters */}
         <button
           className="footer-button button-with-icon"
           onClick={onResetFilters}
         >
           <div className="button-container">
-            <IconFilter className="filterIcon" />
+            <IconFilter className="filterIcon" /> {/* Icon for filter */}
             <span>{t(resources.filter_reset)}</span>
           </div>
         </button>
+        {/* Button to apply filters */}
         <button
           className="footer-button button-without-icon"
           onClick={onApplyFilters}

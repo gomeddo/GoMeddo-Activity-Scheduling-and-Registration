@@ -5,7 +5,7 @@ function Header({ children }) {
 
   return (
     <div className="header">
-      {children}
+      {children} {/* Rendering children elements passed to the Header component */}
     </div>
   );
 }

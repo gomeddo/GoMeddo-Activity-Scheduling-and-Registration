@@ -5,29 +5,34 @@ import { useTranslation } from "react-i18next";
 import resources from "../../i18n/resources";
 
 function Booking() {
-    const location = useLocation();
+    const location = useLocation(); // Accessing current location
     const { name, time, date } = location.state || {}; // Default to empty object if state is undefined
-    const [hasConfirmed, setHasConfirmed] = useState(false);
+    const [hasConfirmed, setHasConfirmed] = useState(false); // State variable for tracking confirmation status
     const { t } = useTranslation();
+
     // Add form submission handling logic
     const handleSubmit = (event) => {
         event.preventDefault();
         // Form submission logic
         setHasConfirmed(true);
     };
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Hook for navigation
+
+    // Function to navigate to dashboard
     const handleCancel = () => {
         const path = `/dashboard`;
         navigate(path);
     };
+
+    // Function to navigate back to dashboard after confirmation
     const handleBackToDashboard = () => {
         const path = `/dashboard`;
         navigate(path);
     };
     return (
-        <div className="booking-form-container">
-            {hasConfirmed ? (
-                <div className="booking-form-confirmation">
+        <div className="booking-form-container"> {/* Container for booking form */}
+            {hasConfirmed ? ( // Conditional rendering based on confirmation status
+                <div className="booking-form-confirmation"> {/* Confirmation message */}
                     <div className="booking-form-header">
                         <h2>{t(resources.label_booking_confirmed)}</h2>
                     </div>
@@ -60,7 +65,6 @@ function Booking() {
             ) : (
                 <div className="booking-form">
                     <div className="booking-form-header">
-                        {/* <h2>Confirm your {name} Booking</h2> */}
                         <h2>{t(resources.label_booking_confirm_name, { name })}</h2>
                     </div>
                     <div className="booking-form-map">

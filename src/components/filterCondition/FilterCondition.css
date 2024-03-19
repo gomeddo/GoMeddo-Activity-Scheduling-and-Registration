@@ -1,8 +1,8 @@
 /* FilterCondition.css */
+
 .filter-condition-container {
   display: flex;
   flex-direction: row;
-  /* height: 30px; */
   gap: 2px;
   align-items: center;
 }
@@ -10,7 +10,6 @@
 .cross-icon,
 .plus-icon {
   width: 12px;
-  /* height: 20px; */
 }
 
 .svg-container {

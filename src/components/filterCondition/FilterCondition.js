@@ -5,17 +5,17 @@ import "./FilterCondition.css";
 
 function FilterCondition({ filterText, handleFilterToggle, showCrossIcon }) {
     return (
-        <div className="filter-condition-container">
+        <div className="filter-condition-container"> {/* Container for the filter condition */}
             <div
-                className={showCrossIcon ? "plus-box" : "cross-box"}
-                onClick={handleFilterToggle}
+                className={showCrossIcon ? "plus-box" : "cross-box"} // Dynamically applying class based on whether showCrossIcon is true or false
+                onClick={handleFilterToggle} // Event handler for toggling the filter
             >
-                {showCrossIcon ? (
-                    <IconPlus className="plus-icon" />
+                {showCrossIcon ? ( // Conditionally rendering IconPlus or IconCross based on showCrossIcon
+                    <IconPlus className="plus-icon" /> // Rendering IconPlus if showCrossIcon is true
                 ) : (
-                    <IconCross className="cross-icon" />
+                    <IconCross className="cross-icon" /> // Rendering IconCross if showCrossIcon is false
                 )}
-                <div>{filterText}</div>
+                <div>{filterText}</div> {/* Displaying the filter text */}
             </div>
         </div>
     );

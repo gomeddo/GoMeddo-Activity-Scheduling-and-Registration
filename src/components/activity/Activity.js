@@ -12,7 +12,6 @@ function Activity({
   room,
   location,
   center,
-  staff,
   instructor,
   attendees,
   spaces,
@@ -20,52 +19,53 @@ function Activity({
   onClick,
   selectedDate,
 }) {
-  const navigate = useNavigate();
-  const handleRouteChange = () => {
-    const path = `/booking`;
-    navigate(path, { state: { name: name, time: time, date: selectedDate } });
+  const navigate = useNavigate(); // Hook for navigating to different routes
+  const handleRouteChange = () => { // Function to handle route change when booking button is clicked
+    const path = `/booking`; // Constructing the path for booking page
+    navigate(path, { state: { name: name, time: time, date: selectedDate } }); // Navigating to booking page with necessary data
   };
 
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Hook for using translation functionality
 
-  const classFull = attendees === spaces;
+  const classFull = attendees === spaces; // Checking if the class is full
+
   return (
     <div
-      onClick={() => onClick?.(id)}
+      onClick={() => onClick?.(id)} // Handling click event, onClick function is optional
       id={id}
       className={`${classFull ? "class-container-full" : "class-container "} ${active ? "active" : ""
-        }`}
+        }`} // Applying dynamic class names based on conditions
     >
       <div className="class-info">
         <div className="class-details">
-          <div className="class-name">{name}</div>
+          <div className="class-name">{name}</div> {/* Displaying the name of the class */}
           <div className="class-location-instructor">
-            <span>{room}</span>
-            <span> • </span>
-            <span>{instructor}</span>
+            <span>{room}</span> {/* Displaying the room */}
+            <span> • </span> {/* Separator */}
+            <span>{instructor}</span> {/* Displaying the instructor */}
           </div>
-          <div className="class-location-center">{location},{center}</div>
-          {!classFull && (
+          <div className="class-location-center">{location},{center}</div> {/* Displaying location and center */}
+          {!classFull && ( // Displaying capacity information only if the class is not full
             <div className="class-location-size">
-              {t(resources.label_capacity)}:&nbsp;<span> {attendees}</span>
-              <span>/</span>
-              <span>{spaces}</span>
+              {t(resources.label_capacity)}:&nbsp;<span> {attendees}</span> {/* Displaying number of attendees */}
+              <span>/</span> {/* Separator */}
+              <span>{spaces}</span> {/* Displaying total available spaces */}
             </div>
           )}
-          {classFull && (
+          {classFull && ( // Displaying "Class Full" message if the class is full
             <div className="class-location-size">
               <span className="class-full">
-                {t(resources.label_class_full)}
+                {t(resources.label_class_full)} {/* Displaying translated message for class full */}
               </span>
             </div>
           )}
         </div>
-        <div className="class-time">{time}</div>
+        <div className="class-time">{time}</div> {/* Displaying the time of the class */}
       </div>
-      {active &&
-        !classFull && ( // Conditionally render the book button if the class is active
+      {active && // Conditionally rendering book button only if the class is active
+        !classFull && (
           <div className="book-button-container">
-            <Button onClick={handleRouteChange}>{t(resources.button_book_class)}</Button>
+            <Button onClick={handleRouteChange}>{t(resources.button_book_class)}</Button> {/* Rendering Button button with booking functionality */}
           </div>
         )}
     </div>

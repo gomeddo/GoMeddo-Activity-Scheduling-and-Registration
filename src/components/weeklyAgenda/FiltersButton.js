@@ -7,26 +7,28 @@ import React, { useState } from "react";
 function FiltersButton() {
   const { t } = useTranslation();
 
-  const [ isFilterPopupOpen, setFilterPopupOpen ] = useState(false);
+  const [isFilterPopupOpen, setFilterPopupOpen] = useState(false); // State variable for controlling filter window visibility
 
-  const handleClosePopup = () => {
+  const handleClosePopup = () => { // Function to close the filter window
     setFilterPopupOpen(false);
-  }
+  };
 
-  const handleFilters = () => {
+  const handleFilters = () => { // Function to handle filter button click
     console.log("Filters clicked");
-    setFilterPopupOpen(true);
+    setFilterPopupOpen(true); // Opening the filter window
   };
 
   return (
-    <div className="filters-container">
+    <div className="filters-container"> {/* Container for filters button */}
+      {/* Button to open filter window */}
       <button type="button" className="filters-button" onClick={handleFilters}>
         <IconFilter />
         {t(resources.button_filters)}
       </button>
+      {/* Render the filter window if isFilterPopupOpen is true */}
       {isFilterPopupOpen && (
-        <FilterWindow className="filters-window-container" onClose={() => setFilterPopupOpen(false)}>
-          {/* Dropdown */}
+        <FilterWindow className="filters-window-container" onClose={handleClosePopup}>
+          {/* Dropdown or other content */}
         </FilterWindow>
       )}
     </div>
