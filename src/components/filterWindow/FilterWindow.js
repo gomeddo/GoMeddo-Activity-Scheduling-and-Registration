@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
+import { useFilters } from "../../providers/FilterContext";
 import "./FilterWindow.css";
 import IconFilter from "../icons/IconFilter";
 import IconWhiteCross from "../icons/IconWhiteCross";
@@ -7,67 +8,27 @@ import { useTranslation } from "react-i18next";
 import FilterCondition from "./../filterCondition/FilterCondition";
 
 const FilterWindow = ({ onClose }) => {
-  const insRef = useRef(null);
-  const locRef = useRef(null);
-
-  const [plusCrossStatusIntensity, setPlusCrossStatusIntensity] = useState([
-    true,
-    true,
-    true,
-  ]);
-
-  const [plusCrossStatusType, setPlusCrossStatusType] = useState([
-    true,
-    true,
-    true,
-    true,
-    true,
-  ]);
-
+  const {
+    instructors,
+    selectedInstructor,
+    setSelectedInstructor,
+    locations,
+    selectedLocation,
+    setSelectedLocation,
+    classes,
+    selectedClasses,
+    setSelectedClasses,
+    intensities,
+    selectedIntensities,
+    setSelectedIntensities,
+  } = useFilters();
   const { t } = useTranslation();
 
-  const [severityOptions, setSeverityOptions] = useState([
-    { string: "Low" },
-    { string: "Medium" },
-    { string: "High" },
-  ]);
-
-  const [activityOptions, setActivityOptions] = useState([
-    { string: "Hot Yoga" },
-    { string: "BodyStep" },
-    { string: "BodyBalance" },
-    { string: "Pilates" },
-    { string: "Zumba" },
-  ]);
-
-  const handleIntensityClick = (index) => {
-    const newStates = [...plusCrossStatusIntensity];
-    newStates[index] = !newStates[index];
-    setPlusCrossStatusIntensity(newStates);
-  };
-
-  const handleTypeClick = (index) => {
-    const newStates = [...plusCrossStatusType];
-    newStates[index] = !newStates[index];
-    setPlusCrossStatusType(newStates);
-  };
-
-  const handleApplyFilters = () => {
-    onClose();
-  };
-
-  const handleExitFilter = () => {
-    onClose();
-  };
-
-  const handleResetFilters = () => {
-    if (insRef.current && locRef.current) {
-      insRef.current.value = "Instructor1";
-      locRef.current.value = "Location1";
-    }
-    setPlusCrossStatusIntensity([true, true, true]);
-    setPlusCrossStatusType([true, true, true, true, true]);
-  };
+  const [instructorFilter, setInstructorFilter] = useState(selectedInstructor);
+  const [locationFilter, setLocationFilter] = useState(selectedLocation);
+  const [classesFilter, setClassesFilter] = useState(selectedClasses);
+  const [intensitiesFilter, setIntensitiesFilter] =
+    useState(selectedIntensities);
 
   // To set the position of the filters below the button, we need to
   // manually calculate the top/right and set the position of the container.
@@ -89,37 +50,85 @@ const FilterWindow = ({ onClose }) => {
     };
   }, []);
 
+  const onApplyFilters = () => {
+    setSelectedClasses(classesFilter);
+    setSelectedInstructor(instructorFilter);
+    setSelectedIntensities(intensitiesFilter);
+    setSelectedLocation(locationFilter);
+    onClose?.();
+  };
+
+  const onResetFilters = () => {
+    setSelectedClasses([]);
+    setSelectedInstructor(undefined);
+    setSelectedIntensities([]);
+    setSelectedLocation(undefined);
+    onClose?.();
+  };
+
   return (
     // <div className="filter-window-container">
-    <div className="filter-window-container" style={{top: top, right: right,}}>
+    <div className="filter-window-container" style={{ top: top, right: right }}>
       <div className="filter-window-header">
         {t(resources.button_filters)}
-        <IconWhiteCross className="close-icon" onClick={handleExitFilter} />
+        <IconWhiteCross className="close-icon" onClick={onClose} />
       </div>
       <div className="filter-window-body-container">
         <div className="filter-window-body">
           <form>
             <div className="filter-dropdown-container">
-              <select className="filter-dropdown filter-dropdown1" ref={insRef}>
-                <option value="Instructor1">Instructor1</option>
-                <option value="Instructor2">Instructor2</option>
-                <option value="Instructor3">Instructor3</option>
+              <select
+                className="filter-dropdown filter-dropdown1"
+                value={instructorFilter ?? -1}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setInstructorFilter(
+                    typeof value === "string" ? value : undefined
+                  );
+                }}
+              >
+                <option value={-1}>{t(resources.label_instructor_selection)}</option>
+                {instructors.map((instructor) => (
+                  <option key={instructor} value={instructor}>
+                    {instructor}
+                  </option>
+                ))}
               </select>
-              <select className="filter-dropdown filter-dropdown2" ref={locRef}>
-                <option value="Location1">Location1</option>
-                <option value="Location2">Location2</option>
-                <option value="Location3">Location3</option>
+              <select
+                className="filter-dropdown filter-dropdown2"
+                value={locationFilter ?? -1}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setLocationFilter(
+                    typeof value === "string" ? value : undefined
+                  );
+                }}
+              >
+                <option value={-1}>{t(resources.label_location_selection)}</option>
+                {locations.map((location) => (
+                  <option key={location} value={location}>
+                    {location}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="filter-intensity">
               <p className="filter-label">{t(resources.filter_intensity)}</p>
               <div className="filter-plus-cross-container">
-                {severityOptions.map((text, index) => (
+                {intensities.map((intensity, index) => (
                   <FilterCondition
                     key={index}
-                    filterText={text.string}
-                    showCrossIcon={plusCrossStatusIntensity[index]}
-                    handleFilterToggle={() => handleIntensityClick(index)}
+                    filterText={intensity}
+                    showCrossIcon={!intensitiesFilter.includes(intensity)}
+                    handleFilterToggle={() => {
+                      setIntensitiesFilter((state) => {
+                        if (state.includes(intensity)) {
+                          return state.filter((i) => i !== intensity);
+                        }
+
+                        return [...state, intensity];
+                      });
+                    }}
                   />
                 ))}
               </div>
@@ -127,12 +136,20 @@ const FilterWindow = ({ onClose }) => {
             <div className="filter-class-type">
               <p className="filter-label">{t(resources.filter_type)}</p>
               <div className="filter-plus-cross-container under-plus-cross-container">
-                {activityOptions.map((text, index) => (
+                {classes.map((className, index) => (
                   <FilterCondition
                     key={index}
-                    filterText={text.string}
-                    showCrossIcon={plusCrossStatusType[index]}
-                    handleFilterToggle={() => handleTypeClick(index)}
+                    filterText={className}
+                    showCrossIcon={!classesFilter.includes(className)}
+                    handleFilterToggle={() => {
+                      setClassesFilter((state) => {
+                        if (state.includes(className)) {
+                          return state.filter((c) => c !== className);
+                        }
+
+                        return [...state, className];
+                      });
+                    }}
                   />
                 ))}
               </div>
@@ -143,7 +160,7 @@ const FilterWindow = ({ onClose }) => {
       <div className="filter-window-footer">
         <button
           className="footer-button button-with-icon"
-          onClick={handleResetFilters}
+          onClick={onResetFilters}
         >
           <div className="button-container">
             <IconFilter className="filterIcon" />
@@ -152,7 +169,7 @@ const FilterWindow = ({ onClose }) => {
         </button>
         <button
           className="footer-button button-without-icon"
-          onClick={handleApplyFilters}
+          onClick={onApplyFilters}
         >
           {t(resources.filter_apply)}
         </button>

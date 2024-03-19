@@ -13,6 +13,8 @@ const de = {
     [resources.label_morning]: "Morgen",
     [resources.label_afternoon]: "Nachmittag",
     [resources.label_evening]: "Abend",
+    [resources.label_instructor_selection]: "Wählen Sie „Lehrer“....",
+    [resources.label_location_selection]: "Ort auswählen...",
     [resources.message_booking_permission]:
         "Ich bin damit einverstanden, dass meine hier eingegebenen Daten gespeichert und zur Kontaktaufnahme mit mir genutzt werden. Weitere Informationen finden Sie in unserer Datenschutzerklärung.",
     [resources.message_booking_confirmed_thankyou]: "Vielen Dank für Ihre Buchung",

@@ -13,6 +13,8 @@ const nl = {
     [resources.label_morning]: "Ochtend",
     [resources.label_afternoon]: "Middag",
     [resources.label_evening]: "Avond",
+    [resources.label_instructor_selection]: "Selecteer Instructeur...",
+    [resources.label_location_selection]: "Selecteer een locatie...",
     [resources.message_booking_permission]:
         "Ik geef toestemming om de gegevens die ik hier heb ingevuld op te slaan en deze gegevens te gebruiken om contact met mij op te nemen. Meer informatie in onze privacyverklaring.",
     [resources.message_booking_confirmed_thankyou]: "Bedankt voor uw boeking",

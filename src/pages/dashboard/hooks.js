@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
+import { useFilters } from "../../providers/FilterContext";
 import useGoMeddo from "../../hooks/useGoMeddo";
 import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
+import { AndCondition, Condition, Operator } from "@gomeddo/sdk";
 
 export function useReservations(date) {
     // State variables to manage loading, error, and reservations
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(undefined);
     const [reservations, setReservations] = useState([]);
-
     const gm = useGoMeddo();
+
+    const {
+        selectedClasses,
+        selectedInstructor,
+        selectedLocation,
+        selectedIntensities,
+    } = useFilters();
 
     useEffect(() => {
         // Function to fetch reservations
@@ -17,10 +25,26 @@ export function useReservations(date) {
             setLoading(true); // Set loading state to true
 
             try {
-                // Fetch reservations fields
-                const reservationResult = await gm
+                //Temporary workaround to filtering by dates as the locale doesn't seem to work even
+                //thought the SDK implies local time...
+                const startOfDay = new Date(date);
+                startOfDay.setHours(0);
+                startOfDay.setMinutes(0);
+                startOfDay.setSeconds(0);
+                startOfDay.setMilliseconds(0);
+
+                const previousDay = new Date(startOfDay);
+                previousDay.setDate(previousDay.getDate() - 1);
+
+                const nextDay = new Date(startOfDay);
+                nextDay.setDate(nextDay.getDate() + 2);
+
+                // Assuming buildReservationRequest and withStatus methods exist and work as expected
+                let request = gm
                     .buildReservationRequest()
                     .withStatus("Definite")
+                    .withStartDatetimeBefore(nextDay)
+                    .withEndDatetimeAfter(previousDay)
                     .includeAdditionalFields([
                         "B25__Title__c",
                         "B25__Start_Local_DateTime__c",
@@ -31,10 +55,41 @@ export function useReservations(date) {
                         "B25LP__Capacity__c",
                         "City_Location__c",
                         "Center_Name__c",
-                    ])
-                    .getResults();
+                    ]);
 
-                // Filter reservations by the selected date
+                const conditions = [];
+
+                if (!!selectedInstructor) {
+                    conditions.push(
+                        new Condition("Staff_Name__c", Operator.EQUAL, selectedInstructor)
+                    );
+                }
+
+                if (!!selectedLocation) {
+                    conditions.push(
+                        new Condition("City_Location__c", Operator.EQUAL, selectedLocation)
+                    );
+                }
+
+                if (!!selectedClasses && !!selectedClasses.length) {
+                    conditions.push(
+                        new Condition("B25__Title__c", Operator.IN, selectedClasses)
+                    );
+                }
+
+                if (!!selectedIntensities && !!selectedIntensities.length) {
+                    conditions.push(
+                        new Condition("Room_Name__c", Operator.IN, selectedIntensities)
+                    );
+                }
+
+                if (!!conditions.length) {
+                    request = request.withCondition(new AndCondition(conditions));
+                }
+
+                const reservationResult = await request.getResults();
+
+                // Filter reservations manually by selectedDate here
                 const filteredReservations = reservationResult
                     .getReservations()
                     .filter((reservation) => {
@@ -47,17 +102,26 @@ export function useReservations(date) {
                 // Set reservations and clear error on successful fetch
                 setReservations(filteredReservations);
                 setError(undefined);
-            } catch (err) {
-                // Handle errors
-                setError(err);
+            } catch {
+                setError(error);
                 setReservations([]);
             } finally {
                 setLoading(false); // Set loading state to false regardless of success or failure
             }
         };
 
-        fetchData(); // Call fetchData function
-    }, [date, gm, setLoading, setError, setReservations]);
+        fetchData();
+    }, [
+        date,
+        selectedClasses,
+        selectedInstructor,
+        selectedIntensities,
+        selectedLocation,
+        gm,
+        setLoading,
+        setError,
+        setReservations,
+    ]);
 
     return { loading: loading, error: error, reservations: reservations };
 }

@@ -13,6 +13,8 @@ const en = {
     [resources.label_morning]: "Morning",
     [resources.label_afternoon]: "Afternoon",
     [resources.label_evening]: "Evening",
+    [resources.label_instructor_selection]: "Select Instructor...",
+    [resources.label_location_selection]: "Select Location...",
     [resources.message_booking_permission]:
         "I give permission to save the data I have entered here and use this data to contact me. More information in our privacy statement.",
     [resources.message_booking_confirmed_thankyou]: "Thank you for your booking",
