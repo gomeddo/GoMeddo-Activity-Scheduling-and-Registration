@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import useGoMeddo from "../hooks/useGoMeddo";
 
+// Create a context to manage filter-related state and functions
 const FilterContext = createContext({
     instructors: [],
     selectedInstructor: undefined,
@@ -16,10 +17,12 @@ const FilterContext = createContext({
     setSelectedIntensities: (id) => { },
 });
 
+// Custom hook to consume the filter context
 export function useFilters() {
     return useContext(FilterContext);
 }
 
+// Utility function to extract distinct values from reservations
 function getDistinctValues(reservationResult, field) {
     return reservationResult
         .getReservations()
@@ -33,6 +36,7 @@ function getDistinctValues(reservationResult, field) {
         .sort((left, right) => left.localeCompare(right));
 }
 
+// Provider component to manage filter state and fetch data
 export function FilterProvider({ children }) {
     const [instructors, setInstructors] = useState([]);
     const [selectedInstructor, setSelectedInstructor] = useState(undefined);
@@ -43,9 +47,10 @@ export function FilterProvider({ children }) {
     const [intensities, setIntensities] = useState([]);
     const [selectedIntensities, setSelectedIntensities] = useState([]);
 
-    const gm = useGoMeddo();
+    const gm = useGoMeddo(); // Access the Gomeddo SDK
 
     useEffect(() => {
+        // Fetch data from Gomeddo SDK
         const fetchData = async () => {
             try {
                 const reservationResult = await gm
@@ -64,16 +69,22 @@ export function FilterProvider({ children }) {
                     ])
                     .getResults();
 
+                // Extract distinct values for each filter category
                 setIntensities(getDistinctValues(reservationResult, "Room_Name__c"));
                 setInstructors(getDistinctValues(reservationResult, "Staff_Name__c"));
                 setLocations(getDistinctValues(reservationResult, "City_Location__c"));
                 setClasses(getDistinctValues(reservationResult, "B25__Title__c"));
-            } catch { }
+            } catch (error) {
+                // Handle error, if any
+                console.error("Error fetching data:", error);
+            }
         };
 
+        // Execute fetchData function
         fetchData();
-    }, [gm, setInstructors, setLocations, setClasses, setIntensities]);
+    }, [gm, setInstructors, setLocations, setClasses, setIntensities]); // Dependency array includes gm and state setters
 
+    // Provide filter state and functions through context
     return (
         <FilterContext.Provider
             value={{
