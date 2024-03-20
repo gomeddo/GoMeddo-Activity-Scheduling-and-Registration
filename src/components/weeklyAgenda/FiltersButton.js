@@ -27,7 +27,10 @@ function FiltersButton() {
       </button>
       {/* Render the filter window if isFilterPopupOpen is true */}
       {isFilterPopupOpen && (
-        <FilterWindow className="filters-window-container" onClose={handleClosePopup}>
+        <FilterWindow
+          className="filters-window-container"
+          onClose={() => setFilterPopupOpen(false)}
+        >
           {/* Dropdown or other content */}
         </FilterWindow>
       )}
