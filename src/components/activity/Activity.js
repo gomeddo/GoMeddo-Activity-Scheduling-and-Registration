@@ -39,12 +39,16 @@ function Activity({
       <div className="class-info">
         <div className="class-details">
           <div className="class-name">{name}</div> {/* Displaying the name of the class */}
-          <div className="class-location-instructor">
+          <div className="class-room-instructor">
             <span>{room}</span> {/* Displaying the room */}
             <span> • </span> {/* Separator */}
             <span>{instructor}</span> {/* Displaying the instructor */}
           </div>
-          <div className="class-location-center">{location},{center}</div> {/* Displaying location and center */}
+          <div className="class-location-center"> {/* Displaying location and center */}
+            <span>{center}</span>
+            <span> | </span>
+            <span>{location}</span>
+          </div>
           {!classFull && ( // Displaying capacity information only if the class is not full
             <div className="class-location-size">
               {t(resources.label_capacity)}:&nbsp;<span> {attendees}</span> {/* Displaying number of attendees */}
