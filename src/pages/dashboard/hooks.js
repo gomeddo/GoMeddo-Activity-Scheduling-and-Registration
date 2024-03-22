@@ -175,6 +175,8 @@ export function useAgendaItems(reservations) {
                 reservation.customProperties.get("B25__End_Local_DateTime__c")
             ).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`,
             attendees: reservation.customProperties.get("Room_Capacity__c"),
+            location: reservation.customProperties.get("City_Location__c"),
+            center: reservation.customProperties.get("Center_Name__c"),
             spaces: reservation.customProperties.get("B25LP__Capacity__c"),
             start: new Date(reservation.customProperties.get("B25__Start_Local_DateTime__c")),
         });
