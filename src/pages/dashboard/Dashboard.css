@@ -3,12 +3,16 @@
 .dashboard-wrapper {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 .dashboard-container {
   flex: 1;
   overflow: auto;
   padding: 2rem;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 @keyframes pulse {
