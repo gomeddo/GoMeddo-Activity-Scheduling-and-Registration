@@ -55,6 +55,7 @@ export function useReservations(date) {
                         "B25LP__Capacity__c",
                         "City_Location__c",
                         "Center_Name__c",
+                        "Name",
                     ]);
 
                 const conditions = [];
@@ -162,7 +163,7 @@ export function useAgendaItems(reservations) {
         }
         // Add reservation details to the corresponding time slot
         acc[timeOfDay].items.push({
-            id: reservation.id,
+            id: reservation.customProperties.get("Name"),
             name: reservation.customProperties.get("B25__Title__c"),
             room: reservation.customProperties.get("Room_Name__c"),
             instructor: formatName(reservation.customProperties.get("Staff_Name__c")),
