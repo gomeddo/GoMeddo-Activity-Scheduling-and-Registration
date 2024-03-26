@@ -3,28 +3,40 @@ import { useState } from 'react';
 import './Booking.css';
 import { useTranslation } from "react-i18next";
 import resources from "../../i18n/resources";
-import { useReservations } from '../dashboard/hooks';
+import { SObject } from '@gomeddo/sdk';
+import { buildReservationObj } from "./helpers.js"
+import useGoMeddo from '../../hooks/useGoMeddo.js';
 
 function Booking() {
     const location = useLocation(); // Accessing current location
-    const { name, time, date } = location.state || {}; // Default to empty object if state is undefined
+    const { name, time, date } = location.state || {}; // Destructure name, time, and date from location state with fallback to empty object
+    const reservation = buildReservationObj(location.state.reservation); // Build reservation object using data from location state
     const [hasConfirmed, setHasConfirmed] = useState(false); // State variable for tracking confirmation status
     const { t } = useTranslation();
-    const { updateReservationContact, reservations } = useReservations(); // Using the useReservations hook and extracting updateReservationContact function
+    const gm = useGoMeddo();
+
 
     // Add form submission handling logic
     const handleSubmit = async (event) => {
         event.preventDefault();
+        // Extract form input values
         const firstName = event.target.elements.firstName.value;
         const lastName = event.target.elements.lastName.value;
         const email = event.target.elements.email.value;
         const mobileNumber = event.target.elements.mobileNumber.value;
         const contactData = `${firstName}, ${lastName}, ${email}, ${mobileNumber}`;
 
-        // // Update reservation contact with form input data
-        // reservations.forEach(async (reservation) => {
-        //     await updateReservationContact(reservation, contactData);
-        // });
+        //Update reservation contact with form input data
+        const reservationContact = new SObject();
+        reservationContact.setCustomProperty("B25__Notes__c", contactData);
+
+        try {
+            reservation.addReservationContact(reservationContact);
+            await gm.updateReservation(reservation);
+            console.log(reservation);
+        } catch (error) {
+            console.log(error);
+        }
 
         // Set confirmation status to true
         setHasConfirmed(true);
@@ -126,5 +138,4 @@ function Booking() {
         </div>
     );
 }
-
 export default Booking;
