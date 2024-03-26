@@ -3,17 +3,30 @@ import { useState } from 'react';
 import './Booking.css';
 import { useTranslation } from "react-i18next";
 import resources from "../../i18n/resources";
+import { useReservations } from '../dashboard/hooks';
 
 function Booking() {
     const location = useLocation(); // Accessing current location
     const { name, time, date } = location.state || {}; // Default to empty object if state is undefined
     const [hasConfirmed, setHasConfirmed] = useState(false); // State variable for tracking confirmation status
     const { t } = useTranslation();
+    const { updateReservationContact, reservations } = useReservations(); // Using the useReservations hook and extracting updateReservationContact function
 
     // Add form submission handling logic
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Form submission logic
+        const firstName = event.target.elements.firstName.value;
+        const lastName = event.target.elements.lastName.value;
+        const email = event.target.elements.email.value;
+        const mobileNumber = event.target.elements.mobileNumber.value;
+        const contactData = `${firstName}, ${lastName}, ${email}, ${mobileNumber}`;
+
+        // // Update reservation contact with form input data
+        // reservations.forEach(async (reservation) => {
+        //     await updateReservationContact(reservation, contactData);
+        // });
+
+        // Set confirmation status to true
         setHasConfirmed(true);
     };
     const navigate = useNavigate(); // Hook for navigation
@@ -29,6 +42,7 @@ function Booking() {
         const path = `/dashboard`;
         navigate(path);
     };
+
     return (
         <div className="booking-form-container"> {/* Container for booking form */}
             {hasConfirmed ? ( // Conditional rendering based on confirmation status
@@ -80,10 +94,10 @@ function Booking() {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="booking-form-inputs">
-                            <input type="text" placeholder={t(resources.label_first_name)} required />
-                            <input type="text" placeholder={t(resources.label_last_name)} required />
-                            <input type="email" placeholder={t(resources.label_email_address)} required />
-                            <input type="tel" placeholder={t(resources.label_mobile_number)} required />
+                            <input type="text" name="firstName" placeholder={t(resources.label_first_name)} required />
+                            <input type="text" name="lastName" placeholder={t(resources.label_last_name)} required />
+                            <input type="email" name="email" placeholder={t(resources.label_email_address)} required />
+                            <input type="tel" name="mobileNumber" placeholder={t(resources.label_mobile_number)} required />
                         </div>
                         <div className="booking-form-consent">
                             <input type="checkbox" id="consentCheckbox" required />
