@@ -72,6 +72,7 @@ function Dashboard() {
                     spaces={item.spaces}
                     active={selectedClass === item.id}
                     selectedDate={selectedDate}
+                    reservation={item.reservation}
                     onClick={(id) =>
                       handleSetSelectedClass((state) =>
                         state === id ? undefined : id
