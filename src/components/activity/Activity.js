@@ -35,8 +35,8 @@ function Activity({
   };
 
   const { t } = useTranslation(); // Hook for using translation functionality
-
-  const classFull = attendees === spaces; // Checking if the class is full
+  
+  const classFull = attendees >= spaces;  // Checking if the class is full
 
   return (
     <div
