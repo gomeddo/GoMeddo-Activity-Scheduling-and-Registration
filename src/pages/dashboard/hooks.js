@@ -3,7 +3,7 @@ import { useFilters } from "../../providers/FilterContext";
 import useGoMeddo from "../../hooks/useGoMeddo";
 import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
-import { AndCondition, Condition, Operator } from "@gomeddo/sdk";
+import { AndCondition, Condition, Operator, SObject } from "@gomeddo/sdk";
 
 export function useReservations(date) {
     // State variables to manage loading, error, and reservations
@@ -103,7 +103,7 @@ export function useReservations(date) {
                 // Set reservations and clear error on successful fetch
                 setReservations(filteredReservations);
                 setError(undefined);
-            } catch {
+            } catch (error) {
                 setError(error);
                 setReservations([]);
             } finally {
@@ -124,7 +124,20 @@ export function useReservations(date) {
         setReservations,
     ]);
 
-    return { loading: loading, error: error, reservations: reservations };
+    const updateReservationContact = async (reservation, contactData) => {
+        const reservationContact = new SObject();
+        reservationContact.setCustomProperty("B25__Notes__c", contactData);
+
+        try {
+            reservation.addReservationContact(reservationContact);
+            await gm.updateReservation(reservation);
+            console.log(reservation);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    return { loading: loading, error: error, reservations: reservations, updateReservationContact: updateReservationContact };
 }
 
 // Custom hook to organize reservations into agenda items
