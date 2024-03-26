@@ -2,7 +2,6 @@
 
 .filter-window-container {
   width: 474px;
-  height: 477px;
   gap: 16px;
   position: fixed;
   top: 2;
@@ -11,6 +10,7 @@
   border-radius: 10px 10px 16px 16px;
   padding: 2px;
   font-size: 12px;
+  overflow: hidden;
 }
 
 .filter-window-header {
