@@ -22,7 +22,7 @@ function Activity({
   const navigate = useNavigate(); // Hook for navigating to different routes
   const handleRouteChange = () => { // Function to handle route change when booking button is clicked
     const path = `/booking`; // Constructing the path for booking page
-    navigate(path, { state: { name: name, time: time, date: selectedDate } }); // Navigating to booking page with necessary data
+    navigate(path, { state: { name: name, time: time, date: selectedDate, id: id } }); // Navigating to booking page with necessary data
   };
 
   const { t } = useTranslation(); // Hook for using translation functionality
