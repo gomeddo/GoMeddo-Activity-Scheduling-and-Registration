@@ -27,6 +27,7 @@ const en = {
     [resources.message_booking_confirmed_back]: "Back to classes schedule",
     [resources.message_loading]: "Loading class schedule for",
     [resources.message_loading_error]: "Error loading class schedule: ",
+    [resources.message_booking_loading]: "Securing Your Spot...",
     [resources.button_filters]: "Filters",
     [resources.button_book_class]: "Book Class",
     [resources.button_cancel]: "Cancel",

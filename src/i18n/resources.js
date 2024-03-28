@@ -21,6 +21,7 @@ const resources = {
     message_booking_confirmed_class_date: "message_booking_confirmed_class_date",
     message_booking_confirmed_back: "message_booking_confirmed_back",
     message_loading: "message_loading",
+    message_booking_loading: "message_booking_loading",
     message_loading_error: "message_loading_error",
     button_filters: "button_filters",
     button_book_class: "button_book_class",

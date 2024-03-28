@@ -27,6 +27,7 @@ const de = {
     [resources.message_booking_confirmed_back]: "Zurück zum Stundenplan",
     [resources.message_loading]: "Stundenplan wird geladen für",
     [resources.message_loading_error]: "Fehler beim Laden des Stundenplans: ",
+    [resources.message_booking_loading]: "Sichern Sie sich Ihren Platz...",
     [resources.button_filters]: "Filter",
     [resources.button_book_class]: "Buchklasse",
     [resources.button_cancel]: "Stornieren",

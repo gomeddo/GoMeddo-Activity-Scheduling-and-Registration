@@ -27,6 +27,7 @@ const nl = {
     [resources.message_booking_confirmed_back]: "Terug naar het lesrooster",
     [resources.message_loading]: "Lesrooster laden voor",
     [resources.message_loading_error]: "Fout bij laden lesrooster: ",
+    [resources.message_booking_loading]: "Uw plek beveiligen...",
     [resources.button_filters]: "Filters",
     [resources.button_book_class]: "Boek klasse",
     [resources.button_cancel]: "Annuleren",
