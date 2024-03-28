@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
 import "./Booking.css";
 import { useTranslation } from "react-i18next";
 import resources from "../../i18n/resources";
@@ -14,9 +13,16 @@ function Booking() {
     const reservation = buildReservationObj(location.state.reservation); // Build reservation object using data from location state
     const [hasConfirmed, setHasConfirmed] = useState(false); // State variable for tracking confirmation status
     const [isLoading, setIsLoading] = useState(false); // State variable for tracking loading status
+    const [opacity, setOpacity] = useState(0); // New state for controlling opacity
     const { t } = useTranslation();
     const gm = useGoMeddo();
     const navigate = useNavigate(); // Hook for navigation
+
+    // useEffect to handle the transition
+    useEffect(() => {
+        // Start the transition after mounting
+        setOpacity(1);
+    }, []);
 
     // Add form submission handling logic
     const handleSubmit = async (event) => {
@@ -59,8 +65,8 @@ function Booking() {
 
     return (
         <div
-            className={`booking-form-container ${isLoading ? "booking-form-loading" : ""
-                }`}
+            className={`booking-form-container ${isLoading ? "booking-form-loading" : ""} ${opacity === 1 ? "booking-form-container-active" : ""}`}
+            style={{ opacity }} // This controls the fading effect
         >
             <div className="booking-form">
                 {isLoading ? ( // Show loader if isLoading is true
