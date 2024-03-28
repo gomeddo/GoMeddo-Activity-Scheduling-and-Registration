@@ -102,6 +102,7 @@ html {
 body {
   background-color: #16072d;
   font-family: "Red Hat Display", sans-serif;
+  padding-bottom: 2rem;
 }
 
 input,
