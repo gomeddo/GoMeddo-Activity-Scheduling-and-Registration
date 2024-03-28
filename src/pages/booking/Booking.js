@@ -58,12 +58,11 @@ function Booking() {
     };
 
     return (
-        <div className="booking-form-container">
-            {" "}
-            {/* Container for booking form */}
+        <div
+            className={`booking-form-container ${isLoading ? "booking-form-loading" : ""
+                }`}
+        >
             <div className="booking-form">
-                {" "}
-                {/* Booking form */}
                 {isLoading ? ( // Show loader if isLoading is true
                     <div className="booking-form-loading">
                         {t(resources.message_booking_loading)}
