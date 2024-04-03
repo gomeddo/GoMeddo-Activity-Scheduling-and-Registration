@@ -114,28 +114,24 @@ const FilterWindow = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
-            <div className="filter-intensity">
-              {/* Filter conditions for intensity */}
-              <p className="filter-label">{t(resources.filter_intensity)}</p>
-              <div className="filter-plus-cross-container">
-                {intensities.map((intensity, index) => (
-                  <FilterCondition
-                    key={index}
-                    filterText={intensity}
-                    showCrossIcon={!intensitiesFilter.includes(intensity)}
-                    handleFilterToggle={() => {
-                      setIntensitiesFilter((state) => {
-                        if (state.includes(intensity)) {
-                          return state.filter((i) => i !== intensity);
-                        }
-
-                        return [...state, intensity];
-                      });
-                    }}
-                  />
+              {/* Dropdown for intensity */}
+              <select
+                className="filter-dropdown filter-dropdown2"
+                value={intensitiesFilter[0] ?? -1}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setIntensitiesFilter(
+                    typeof value === "string" ? [value] : undefined
+                  );
+                }}
+              >
+                <option value={-1}>{t(resources.filter_intensity)}</option>
+                {intensities.map((intensity) => (
+                  <option key={intensity} value={intensity}>
+                    {intensity}
+                  </option>
                 ))}
-              </div>
+              </select>
             </div>
             <div className="filter-class-type">
               {/* Filter conditions for class types */}

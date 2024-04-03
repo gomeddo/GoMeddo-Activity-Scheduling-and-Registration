@@ -32,7 +32,7 @@ const de = {
     [resources.button_book_class]: "Buchklasse",
     [resources.button_cancel]: "Stornieren",
     [resources.button_confirm]: "Bestätigen",
-    [resources.filter_intensity]: "Intensität",
+    [resources.filter_intensity]: "Wählen Sie Intensität...",
     [resources.filter_type]: "Typ",
     [resources.filter_reset]: "Zurücksetzen",
     [resources.filter_apply]: "Anwenden",

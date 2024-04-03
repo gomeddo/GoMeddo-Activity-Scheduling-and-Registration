@@ -32,7 +32,7 @@ const en = {
     [resources.button_book_class]: "Book Class",
     [resources.button_cancel]: "Cancel",
     [resources.button_confirm]: "Confirm",
-    [resources.filter_intensity]: "Intensity",
+    [resources.filter_intensity]: "Select Intensity...",
     [resources.filter_type]: "Type",
     [resources.filter_reset]: "Reset",
     [resources.filter_apply]: "Apply",
