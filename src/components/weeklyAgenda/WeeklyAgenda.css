@@ -47,12 +47,13 @@
   display: flex;
   border-radius: 1rem;
   border: 1px solid #ececec;
-  padding: 0.5rem 0.6rem;
+  padding: 0.7rem 1rem;
   background-color: #f9f9f9;
+  align-items: center;
 }
 
 .filters-button svg {
-  margin-right: 4px;
+  margin-right: 7px;
 }
 
 .filters-button:hover {
