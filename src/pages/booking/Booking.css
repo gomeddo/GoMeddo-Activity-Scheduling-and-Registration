@@ -52,12 +52,12 @@
   margin: 20px auto;
   margin-bottom: 20px;
   margin-bottom: 15px;
-  border-radius: 3rem;
-  padding: 8px;
+  border-radius: 1rem;
+  padding: 18px;
   background-color: #9bcfff;
-  width: 300px;
   color: #000;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .booking-form-inputs input {
