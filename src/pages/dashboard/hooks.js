@@ -56,6 +56,7 @@ export function useReservations(date) {
                         "City_Location__c",
                         "Center_Name__c",
                         "Name",
+                        "reservation_type_image__c"
                     ]);
 
                 const conditions = [];
@@ -166,6 +167,7 @@ export function useAgendaItems(reservations) {
             id: reservation.customProperties.get("Name"),
             name: reservation.customProperties.get("B25__Title__c"),
             room: reservation.customProperties.get("Room_Name__c"),
+            imageUrl: reservation.customProperties.get("reservation_type_image__c"),
             instructor: formatName(reservation.customProperties.get("Staff_Name__c")),
             time: `${new Date(
                 reservation.customProperties.get("B25__Start_Local_DateTime__c")

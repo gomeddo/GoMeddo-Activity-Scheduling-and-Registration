@@ -64,6 +64,7 @@ function Dashboard() {
                     id={item.id}
                     name={item.name}
                     room={item.room}
+                    imageUrl={item.imageUrl}
                     center={item.center}
                     location={item.location}
                     instructor={item.instructor}

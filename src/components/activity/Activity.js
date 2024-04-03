@@ -10,6 +10,7 @@ function Activity({
   name,
   time,
   room,
+  imageUrl,
   location,
   center,
   instructor,
@@ -29,7 +30,8 @@ function Activity({
         name: name,
         time: time,
         date: selectedDate,
-        reservation: reservation
+        reservation: reservation,
+        imageUrl: imageUrl
       }
     });
   };
@@ -47,7 +49,7 @@ function Activity({
     >
       <div className="class-details">
         <div>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6r1FOLe-puOsBH0pJKInAFWL0WQzMq0ayniDbhGF6eA&s"></img>
+          <img src={imageUrl} alt={name} style={{alignSelf: "center"}}/>
         </div>
         <div className="class-time">{time}</div>{" "}
         {/* Displaying the time of the class */}
