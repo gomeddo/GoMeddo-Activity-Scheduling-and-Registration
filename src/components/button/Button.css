@@ -1,22 +1,20 @@
 /* Button.css */
 
 .button {
-  background-color: #000000;
+  background-color: #ff620a;
   font-weight: 700;
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
+  font-size: 0.875rem;
   transition: all 0.3s;
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   word-wrap: break-word;
-  border-color: #000000;
+  border-color: #ff620a;
   border-width: 0px;
-  color: #ffffff;
 }
 
 .button:hover {
-  filter: brightness(1.30);
-  background-color: #ff620a;
-  color: #000000;
+  filter: brightness(1.25);
 }
 
 .button.disabled {
