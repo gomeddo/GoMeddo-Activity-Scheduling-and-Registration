@@ -10,7 +10,7 @@
   background-color: #f9f9f9;
   border: white;
   border-radius: 0.5rem;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-right: 3rem;
@@ -130,10 +130,6 @@
   padding-bottom: 1rem;
 }
 
-.booking-form-confirmed-class {
-  text-decoration: underline;
-}
-
 .booking-form-back-button {
   width: 200px;
   background-color: #e74c3c;
@@ -171,4 +167,77 @@
 
 body {
   padding-bottom: 2rem;
+}
+
+.booking-class-container {
+  display: flex;
+  /* justify-content: space-evenly; */
+  padding: 0.95rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color: #9bcfff;
+  margin: 4px;
+  gap: 5.2rem;
+}
+
+.booking-class-time {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  height: fit-content;
+  border-radius: 32px;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.booking-class-name {
+  font-weight: 750;
+  font-size: 1.2rem;
+  color: #000000;
+  padding-bottom: 0.2rem;
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 1.5rem;
+}
+
+.booking-class-date {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #000000;
+  padding-bottom: 0.2rem;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.booking-class-image {
+  width: 49%;
+}
+
+.booking-class-room-instructor {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: #00000066;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  justify-content: center;
+}
+
+.booking-class-location-center {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: #00000066;
+  font-weight: 500;
+  font-style: italic;
+  padding-bottom: 0.2rem;
+  text-align: center;
+  justify-content: center;
 }

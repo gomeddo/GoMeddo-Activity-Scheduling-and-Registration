@@ -8,9 +8,9 @@ import { buildReservationObj } from "./helpers.js";
 import useGoMeddo from "../../hooks/useGoMeddo.js";
 
 function Booking() {
-    const location = useLocation(); // Accessing current location
-    const { name, time, date } = location.state || {}; // Destructure name, time, and date from location state with fallback to empty object
-    const reservation = buildReservationObj(location.state.reservation); // Build reservation object using data from location state
+    const currentLocation = useLocation(); // Accessing current location
+    const { name, time, date, room, instructor, imageUrl, center, location } = currentLocation.state || {}; // Destructure name, time, and date from location state with fallback to empty object
+    const reservation = buildReservationObj(currentLocation.state.reservation); // Build reservation object using data from location state
     const [hasConfirmed, setHasConfirmed] = useState(false); // State variable for tracking confirmation status
     const [isLoading, setIsLoading] = useState(false); // State variable for tracking loading status
     const [opacity, setOpacity] = useState(0); // New state for controlling opacity
@@ -86,16 +86,38 @@ function Booking() {
                             <p>{t(resources.message_booking_confirmed_thankyou)}</p>
                             <p>{t(resources.message_booking_confirmed_confirmed)}</p>
                             <p className="booking-form-confirmed-class">
-                                {t(resources.message_booking_confirmed_class_date, {
-                                    name,
-                                    date: date?.toLocaleString("default", {
-                                        weekday: "long",
-                                        day: "numeric",
-                                        month: "long",
-                                        year: "numeric",
-                                    }),
-                                    time,
-                                })}
+
+                                <div class="booking-class-container">
+                                    <div class="booking-class-image">
+                                        <img src={imageUrl} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "0.5rem" }} />
+                                    </div>
+                                    <div style={{ lineHeight: "1.6rem" }}>
+                                        <div>
+                                            <div class="booking-class-name">
+                                                {name}
+                                                <br />
+                                                </div>
+                                                <div className="booking-class-date">
+                                                {date?.toLocaleString("default", {
+                                                    weekday: "long",
+                                                    day: "numeric",
+                                                    month: "long",
+                                                    year: "numeric",
+                                                })}
+                                            </div>
+                                            <div class="booking-class-time">
+                                                {time}
+                                            </div>
+                                        </div>
+                                        <div class="booking-class-room-instructor">
+                                            <span>{room}</span> <span> • </span> <span>{instructor}</span>
+                                        </div>
+                                        <div class="booking-class-location-center">
+                                            <span>{center}</span><span> | </span><span>{location}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </p>
                             <p>{t(resources.message_booking_confirmed_email)}</p>
                         </div>
