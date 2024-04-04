@@ -86,7 +86,7 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 0%;
-  gap: 0.5rem;
+  gap: 0.7rem;
   border-right: 2px solid #ececec;
   padding-right: 0.35rem;
   padding-left: 0.35rem;
