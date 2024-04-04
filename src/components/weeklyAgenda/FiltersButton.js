@@ -9,10 +9,6 @@ function FiltersButton() {
 
   const [isFilterPopupOpen, setFilterPopupOpen] = useState(false); // State variable for controlling filter window visibility
 
-  const handleClosePopup = () => { // Function to close the filter window
-    setFilterPopupOpen(false);
-  };
-
   const handleFilters = () => { // Function to handle filter button click
     console.log("Filters clicked");
     setFilterPopupOpen(true); // Opening the filter window

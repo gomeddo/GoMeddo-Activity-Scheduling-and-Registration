@@ -96,7 +96,7 @@ function Activity({
             <Button onClick={handleRouteChange}>
               {t(resources.button_book_class)}
             </Button>{" "}
-            {/* Rendering Button button with booking functionality */}
+            {/* Rendering button with booking functionality */}
           </div>
         )}
     </div>

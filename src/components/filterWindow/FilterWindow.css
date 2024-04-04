@@ -45,20 +45,6 @@
   border: 1px solid #ccc;
 }
 
-.filter-window-clickable-text {
-  font-size: 12px;
-}
-
-.under-plusCross-container {
-  padding-bottom: 30px;
-}
-
-
-div.filter-window-intensity {
-  height: 48px;
-  margin-top: 16px;
-}
-
 div.filter-window-types {
   height: 80px;
   margin-top: 16px;
@@ -158,13 +144,4 @@ select.filter-dropdown2 {
 .button-container {
   display: flex;
   align-items: center;
-}
-
-.icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  width: 20px;
-  height: auto;
 }

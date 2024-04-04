@@ -55,21 +55,6 @@
   }
 }
 
-.dashboard-error {
-  height: 100px;
-  text-align: center;
-  padding-top: 3rem;
-  color: #f40404;
-  animation: pulse 1s infinite;
-}
-
-.dashboard-error {
-  height: 100px;
-  text-align: center;
-  padding-top: 3rem;
-  color: #f40404;
-}
-
 .sections-container {
   display: flex;
   padding-top: 2rem;

@@ -12,14 +12,6 @@
   width: 12px;
 }
 
-.svg-container {
-  display: flex;
-  cursor: pointer;
-  background-color: #eeeeee;
-  padding: 4px 8px;
-  align-items: center;
-}
-
 div.svg-container svg {
   margin-right: 2px;
 }
