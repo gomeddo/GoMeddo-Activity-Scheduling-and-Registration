@@ -5,7 +5,7 @@ import { Reservation } from "@gomeddo/sdk";
  * 
  * @param {Object} obj - The input object; expects fields matching the Reservation attributes.
  * @returns {Reservation} - The new Reservation object.
- */  
+ */
 
 export function buildReservationObj(obj) {
     //Create a new Reservation object

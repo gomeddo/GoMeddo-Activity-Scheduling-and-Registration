@@ -90,7 +90,7 @@
 
 .book-button-container {
   padding-top: 0.70rem;
-  flex: 1 1 0%;
+  flex: 1 1 0;
   text-align: center;
   font-size: 1.25rem;
 }

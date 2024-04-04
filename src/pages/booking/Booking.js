@@ -96,8 +96,8 @@ function Booking() {
                                             <div class="booking-class-name">
                                                 {name}
                                                 <br />
-                                                </div>
-                                                <div className="booking-class-date">
+                                            </div>
+                                            <div className="booking-class-date">
                                                 {date?.toLocaleString("default", {
                                                     weekday: "long",
                                                     day: "numeric",

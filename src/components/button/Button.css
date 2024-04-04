@@ -10,11 +10,11 @@
   font-size: 0.65rem;
   word-wrap: break-word;
   border-color: #ff620a;
-  border-width: 0px;
+  border-width: 0;
 }
 
 .button:hover {
-  filter: brightness(1.25);
+  filter: brightness(1.30);
 }
 
 .button.disabled {

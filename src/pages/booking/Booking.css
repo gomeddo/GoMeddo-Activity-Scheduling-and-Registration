@@ -10,15 +10,14 @@
   background-color: #f9f9f9;
   border: white;
   border-radius: 0.5rem;
-  /* overflow-y: scroll; */
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-right: 3rem;
   padding-left: 3rem;
-  /* Transition effects for opacity and transform */
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  /* Initial scale set to slightly smaller than normal */
+  /* Transition effects for opacity and transform */
   transform: scale(0.95);
+  /* Initial scale set to slightly smaller than normal */
   opacity: 0;
 }
 
@@ -151,8 +150,8 @@
   font-size: 20px;
   font-weight: bolder;
   color: #f9f9f9;
-  /* Set background to transparent only when loading */
   background-color: transparent;
+  /* Set background to transparent only when loading */
 }
 
 .booking-form-loading-spinner {
@@ -171,7 +170,6 @@ body {
 
 .booking-class-container {
   display: flex;
-  /* justify-content: space-evenly; */
   padding: 0.95rem 1rem;
   border-radius: 0.5rem;
   transition: all 0.3s;
