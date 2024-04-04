@@ -31,7 +31,11 @@ function Activity({
         time: time,
         date: selectedDate,
         reservation: reservation,
-        imageUrl: imageUrl
+        imageUrl: imageUrl,
+        room: room,
+        instructor: instructor,
+        center: center,
+        location: location
       }
     });
   };
@@ -47,17 +51,27 @@ function Activity({
       className={`${classFull ? "class-container-full" : "class-container "} ${active ? "active" : ""
         }`} // Applying dynamic class names based on conditions
     >
-      <div className="class-details">
-        <div>
-          <img src={imageUrl} alt={name} style={{alignSelf: "center"}}/>
-        </div>
-        <div className="class-time">{time}</div>{" "}
-        {/* Displaying the time of the class */}
-      </div>
       <div className="class-info">
-        <div className="class-name">{name}</div>{" "}
-        {/* Displaying the name of the class */}
+        <div className="class-image">
+          <img src={imageUrl} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "0.5rem" }} />
+        </div>
         <div>
+          <div className="class-name">{name}
+            <div className="class-time">{time}</div>{" "}</div>{" "}
+
+          <div className="class-room-instructor">
+            <span>{room}</span> {/* Displaying the room */}
+            <span> | </span> {/* Separator */}
+            <span>{instructor}</span> {/* Displaying the instructor */}
+          </div>
+          <div className="class-location-center">
+            {" "}
+            {/* Displaying location and center */}
+            <span>{center}</span>
+            <span> | </span>
+            <span>{location}</span>
+          </div>
+
           {!classFull && ( // Displaying capacity information only if the class is not full
             <div className="class-location-size">
               {t(resources.label_capacity)}:&nbsp;<span> {attendees}</span>{" "}
@@ -75,24 +89,6 @@ function Activity({
             </div>
           )}
         </div>
-      </div>
-
-      <div className="class-info">
-        <div>
-          <div className="class-room-instructor">
-            <span>{room}</span> {/* Displaying the room */}
-            <span> • </span> {/* Separator */}
-            <span>{instructor}</span> {/* Displaying the instructor */}
-          </div>
-          <div className="class-location-center">
-            {" "}
-            {/* Displaying location and center */}
-            <span>{center}</span>
-            <span> | </span>
-            <span>{location}</span>
-          </div>
-        </div>
-
       </div>
       {active && // Conditionally rendering book button only if the class is active
         !classFull && (
