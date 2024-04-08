@@ -76,7 +76,7 @@
 }
 
 .agenda-item:hover {
-  background-color: #ff620a;
+  background-color: #8BC3FF;
 }
 
 .agenda-item-active {
@@ -85,13 +85,13 @@
 }
 
 .agenda-item-active:hover {
-  background-color: #ff620a;
+  background-color: #8BC3FF;
   filter: brightness(125%);
   color: #000000;
 }
 
 .agenda-item-inactive-today {
-  background-color: #9bcfff;
+  background-color: #7ab9f4;
 }
 
 .agenda-item-inactive-today:hover {

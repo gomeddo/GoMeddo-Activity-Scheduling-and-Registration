@@ -98,7 +98,7 @@ function Booking() {
                                                 })}
                                             </div>
                                             <div class="booking-class-time">
-                                                {time}
+                                                ({time})
                                             </div>
                                         </div>
                                         <div class="booking-class-room-instructor">
@@ -128,9 +128,6 @@ function Booking() {
                         <div className="booking-form-header">
                             <h2>{t(resources.label_booking_confirm_name, { name })}</h2>
                         </div>
-                        <div className="booking-form-map">
-                            {/* Embed map component or image here */}
-                        </div>
                         <div className="booking-form-time">
                             {date?.toLocaleString("default", {
                                 year: "numeric",
@@ -138,6 +135,9 @@ function Booking() {
                                 day: "numeric",
                             })}{" "}
                             - {time}
+                        </div>
+                        <div className="booking-form-map">
+                            {/* Embed map component or image here */}
                         </div>
                         <form onSubmit={handleSubmit}>
                             <div className="booking-form-inputs">
@@ -172,20 +172,22 @@ function Booking() {
                                     {t(resources.message_booking_permission)}
                                 </label>
                             </div>
-                            <div className="booking-form-actions">
-                                <button
-                                    type="button"
-                                    className="booking-form-button booking-form-cancel"
-                                    onClick={handleBackToDashboard}
-                                >
-                                    {t(resources.button_cancel)}
-                                </button>
-                                <button
-                                    type="submit"
-                                    className="booking-form-button booking-form-submit"
-                                >
-                                    {t(resources.button_confirm)}
-                                </button>
+                            <div className="booking-form-footer">
+                                <div className="booking-form-actions">
+                                    <button
+                                        type="button"
+                                        className="booking-form-button booking-form-cancel"
+                                        onClick={handleBackToDashboard}
+                                    >
+                                        {t(resources.button_cancel)}
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        className="booking-form-button booking-form-submit"
+                                    >
+                                        {t(resources.button_confirm)}
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </React.Fragment>
