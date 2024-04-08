@@ -81,9 +81,9 @@ function Booking() {
 
                                 <div class="booking-class-container">
                                     <div class="booking-class-image">
-                                        <img src={imageUrl} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "0.5rem" }} />
+                                        <img src={imageUrl} alt={name} />
                                     </div>
-                                    <div style={{ lineHeight: "1.6rem" }}>
+                                    <div className="booking-class-details">
                                         <div>
                                             <div class="booking-class-name">
                                                 {name}

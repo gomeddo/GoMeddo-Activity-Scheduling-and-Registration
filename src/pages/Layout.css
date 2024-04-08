@@ -66,6 +66,10 @@
   height: 25px;
 }
 
+.toggle-container span {
+  padding: 2px;
+}
+
 .toggle-active {
   background-color: #9bcfff;
   border-radius: 5rem;

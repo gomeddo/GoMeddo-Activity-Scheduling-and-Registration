@@ -53,7 +53,7 @@ function Activity({
     >
       <div className="class-info">
         <div className="class-image">
-          <img src={imageUrl} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "0.5rem" }} />
+          <img src={imageUrl} alt={name} />
         </div>
         <div>
           <div className="class-name">{name}

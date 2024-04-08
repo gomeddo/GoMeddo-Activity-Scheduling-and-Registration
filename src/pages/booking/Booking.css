@@ -239,3 +239,14 @@ body {
   text-align: center;
   justify-content: center;
 }
+
+booking-class-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+booking-class-details {
+  line-height: 1.6rem;
+}

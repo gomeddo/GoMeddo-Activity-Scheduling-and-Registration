@@ -60,14 +60,12 @@ function Layout() {
                         <span
                             className={isMapView ? "toggle-inactive" : "toggle-active"}
                             onClick={() => handleToggleMap(false)}
-                            style={{ padding: "2px" }}
                         >
                             <IconCalendar />
                         </span>
                         <span
                             className={isMapView ? "toggle-active" : "toggle-inactive"}
                             onClick={() => handleToggleMap(true)}
-                            style={{ padding: "2px" }}
                         >
                             <IconMapFill />
                         </span>
