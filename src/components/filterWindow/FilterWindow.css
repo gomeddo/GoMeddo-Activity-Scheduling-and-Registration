@@ -9,7 +9,7 @@
   font-size: 12px;
   display: flex;
   flex-direction: column;
-  height: 65%;
+  height: auto;
   z-index: 1;
 }
 
@@ -44,6 +44,7 @@
   border: 1px solid #ccc;
   flex-grow: 1;
   overflow: auto;
+  padding-bottom: 10px;
 }
 
 div.filter-window-types {
