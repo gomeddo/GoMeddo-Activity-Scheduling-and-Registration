@@ -136,6 +136,10 @@ select.filter-dropdown2 {
   background: #ffb488;
 }
 
+.footer-button-reset:hover {
+  background: rgb(96, 85, 111);
+}
+
 .button-with-icon {
   display: flex;
   align-items: center;
