@@ -34,7 +34,7 @@
 
 .booking-form-header h2 {
   text-align: center;
-  padding-bottom: 1rem;
+  padding-bottom: 0.3rem;
 }
 
 .booking-form-map {
@@ -57,11 +57,13 @@
   gap: 10px;
   justify-content: center;
   overflow: hidden;
-  padding: 6px 14px;
   position: relative;
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 8.5px;
+  padding-left: 8.5px;
+  padding-right: 8.5px;
+  padding-top: 8.5px;
+  padding-bottom:14px ;
   margin-bottom: 12px;
 }
 
@@ -129,7 +131,8 @@
   color: #000;
   border-color: #000000;
   border-radius: 20px;
-  border-width: 1px;
+  border-width: 0.9px;
+  border-style: solid;
 
 }
 
