@@ -33,7 +33,7 @@ const nl = {
     [resources.button_cancel]: "Annuleren",
     [resources.button_confirm]: "Bevestigen",
     [resources.filter_intensity]: "Selecteer Intensiteit...",
-    [resources.filter_type]: "Type",
+    [resources.filter_type]: "Type :",
     [resources.filter_reset]: "Opnieuw instellen",
     [resources.filter_apply]: "Toepassen",
 };

@@ -3,7 +3,6 @@
 .filter-window-container {
   width: 474px;
   position: fixed;
-  border: 2px solid #9bcfff;
   border-radius: 10px 10px 16px 16px;
   padding: 2px;
   font-size: 12px;
@@ -90,7 +89,7 @@ select.filter-dropdown2 {
 }
 
 .filter-label {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 16px;
 }
 
