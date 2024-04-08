@@ -33,18 +33,18 @@ export function useReservations(date) {
                 startOfDay.setSeconds(0);
                 startOfDay.setMilliseconds(0);
 
-                const previousDay = new Date(startOfDay);
-                previousDay.setDate(previousDay.getDate() - 1);
+                const startDate = new Date(startOfDay);
+                startDate.setDate(startDate.getDate() - 1);
 
-                const nextDay = new Date(startOfDay);
-                nextDay.setDate(nextDay.getDate() + 2);
+                const endDate = new Date(startOfDay);
+                endDate.setDate(endDate.getDate() + 2);
 
                 // Assuming buildReservationRequest and withStatus methods exist and work as expected
                 let request = gm
                     .buildReservationRequest()
                     .withStatus("Definite")
-                    .withStartDatetimeBefore(nextDay)
-                    .withEndDatetimeAfter(previousDay)
+                    .withStartDatetimeBefore(endDate)
+                    .withEndDatetimeAfter(startDate)
                     .includeAdditionalFields([
                         "B25__Title__c",
                         "B25__Start_Local_DateTime__c",
