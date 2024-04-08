@@ -42,10 +42,7 @@ function Booking() {
             setIsLoading(true); // Set loading to true when data submission starts
             reservation.addReservationContact(reservationContact);
             await gm.updateReservation(reservation);
-            console.log(reservation);
             setHasConfirmed(true);
-        } catch (error) {
-            console.log(error);
         } finally {
             setIsLoading(false); // Set loading to false after data submission completes
         }
