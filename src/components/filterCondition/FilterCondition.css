@@ -17,25 +17,37 @@ div.svg-container svg {
 }
 
 div.cross-box {
-  background-color: #e1f5fe;
-  color: #01579b;
+  background-color: #000;
+  color: #FFFFFF;
   border-radius: 16px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-size: 12px;
   height: 24px;
-  padding: 4px 8px 4px 4px;
+  padding: 8px 8px 8px 16px;
+  line-height: 21px;
   cursor: pointer;
+  flex-direction: row-reverse;
+  display: inline-flex;
+  justify-content: center;
+  gap: 7px;
 }
 
 div.plus-box {
-  background-color: #eeeeee;
-  color: #424242;
+  background-color: #FFFFFF;
+  color: #000000;
   border-radius: 16px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-size: 12px;
   height: 24px;
-  padding: 4px 8px 4px 4px;
+  padding: 8px 8px 8px 16px;
+  line-height: 21px;
   cursor: pointer;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 0.5px;
+  flex-direction: row-reverse;
+  gap: 10px;
+  justify-content: center;
 }

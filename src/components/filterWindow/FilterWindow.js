@@ -141,7 +141,7 @@ const FilterWindow = ({ onClose }) => {
                   <FilterCondition
                     key={index}
                     filterText={className}
-                    showCrossIcon={!classesFilter.includes(className)}
+                    showMinusIcon={!classesFilter.includes(className)}
                     handleFilterToggle={() => {
                       setClassesFilter((state) => {
                         if (state.includes(className)) {
