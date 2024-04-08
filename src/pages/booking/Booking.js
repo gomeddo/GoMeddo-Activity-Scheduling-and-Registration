@@ -6,6 +6,7 @@ import resources from "../../i18n/resources";
 import { SObject } from "@gomeddo/sdk";
 import { buildReservationObj } from "./helpers.js";
 import useGoMeddo from "../../hooks/useGoMeddo.js";
+import AppRoutes from "../../constants/AppRoutes";
 
 function Booking() {
     const currentLocation = useLocation(); // Accessing current location
@@ -48,15 +49,9 @@ function Booking() {
         }
     };
 
-    // Function to navigate to dashboard
-    const handleCancel = () => {
-        const path = `/dashboard`;
-        navigate(path);
-    };
-
     // Function to navigate back to dashboard after confirmation
     const handleBackToDashboard = () => {
-        const path = `/dashboard`;
+        const path = AppRoutes.dashboard;
         navigate(path);
     };
 
@@ -181,7 +176,7 @@ function Booking() {
                                 <button
                                     type="button"
                                     className="booking-form-button booking-form-cancel"
-                                    onClick={handleCancel}
+                                    onClick={handleBackToDashboard}
                                 >
                                     {t(resources.button_cancel)}
                                 </button>
