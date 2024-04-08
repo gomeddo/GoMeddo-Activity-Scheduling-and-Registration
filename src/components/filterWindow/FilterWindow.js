@@ -161,7 +161,7 @@ const FilterWindow = ({ onClose }) => {
       <div className="filter-window-footer">
         {/* Button to reset filters */}
         <button
-          className="footer-button button-with-icon"
+          className="footer-button-reset button-with-icon"
           onClick={onResetFilters}
         >
           <div className="button-container">

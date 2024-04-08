@@ -53,7 +53,7 @@ div.filter-window-types {
 }
 
 p {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .filter-plus-cross-container {
@@ -100,13 +100,25 @@ select.filter-dropdown2 {
   padding: 16px 32px;
   gap: 16px;
   text-align: right;
-  background-color: white;
+  background-color: #110622;
   border: 1px solid rgb(136, 136, 136);
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   display: flex;
   justify-content: flex-end;
   flex-shrink: 0;
+}
+
+.footer-button-reset{
+  height: 35px;
+  background: #110622;
+  color: #FFFFFF;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  justify-content: center;
+  padding: 0 15px;
 }
 
 .footer-button {
@@ -132,6 +144,9 @@ select.filter-dropdown2 {
   border: none;
   cursor: pointer;
   font-weight: 500;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgba(255, 255, 255, 0.40);
 }
 
 .button-without-icon {
