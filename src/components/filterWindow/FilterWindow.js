@@ -32,8 +32,8 @@ const FilterWindow = ({ onClose }) => {
 
   // To set the position of the filters below the button, we need to
   // manually calculate the top/right and set the position of the container.
-  const { top, right } = useMemo(() => {
-    const anchor = document.getElementById("filters-button"); // Getting the button element by ID
+  const position = useMemo(() => {
+    const anchor = document.getElementsByClassName("filters-container")[0]; // Getting the button element by ID
     if (!anchor) { // If button element doesn't exist, return default values
       return {
         top: undefined,
@@ -45,7 +45,7 @@ const FilterWindow = ({ onClose }) => {
     const windowWidth = window.innerWidth; // Getting the width of the window
 
     return {
-      top: rect.bottom + 8, // Setting the top position below the button
+      top: rect.bottom, // Setting the top position below the button
       right: windowWidth - rect.right, // Setting the right position
     };
   }, []);
@@ -69,7 +69,7 @@ const FilterWindow = ({ onClose }) => {
   };
 
   return (
-    <div className="filter-window-container" style={{ top: top, right: right }}> {/* Container for the filter window with dynamic positioning */}
+    <div className="filter-window-container" style={position}> {/* Container for the filter window with dynamic positioning */}
       <div className="filter-window-header">
         {t(resources.button_filters)}
         <IconWhiteCross className="close-icon" onClick={onClose} /> {/* Close icon */}
