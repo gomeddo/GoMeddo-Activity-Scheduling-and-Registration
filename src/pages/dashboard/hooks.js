@@ -156,8 +156,8 @@ export function useAgendaItems(reservations) {
                 header: `${timeOfDay} - ${timeOfDay === t(resources.label_morning)
                     ? "6:00am to 12:00pm"
                     : timeOfDay === t(resources.label_afternoon)
-                        ? "12:00pm to 6:00pm"
-                        : "6:00pm to 9:00pm"
+                        ? "12:00pm to 18:00pm"
+                        : "18:00pm to 21:00pm"
                     }`,
                 items: [],
             };
@@ -171,12 +171,12 @@ export function useAgendaItems(reservations) {
             instructor: formatName(reservation.customProperties.get("Staff_Name__c")),
             time: `${new Date(
                 reservation.customProperties.get("B25__Start_Local_DateTime__c")
-            ).toLocaleTimeString("en-US", {
+            ).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
             })} - ${new Date(
                 reservation.customProperties.get("B25__End_Local_DateTime__c")
-            ).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}`,
+            ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`,
             attendees: reservation.customProperties.get("Room_Capacity__c"),
             location: reservation.customProperties.get("City_Location__c"),
             center: reservation.customProperties.get("Center_Name__c"),
