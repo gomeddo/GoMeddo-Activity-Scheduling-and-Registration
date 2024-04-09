@@ -26,6 +26,7 @@ function Layout() {
                     <div className="toggle-container-language">
                         <IconGlobe />
                         <select
+                            value={i18n.language}
                             onChange={(e) => {
                                 i18n.changeLanguage(e.target.value);
                             }}
