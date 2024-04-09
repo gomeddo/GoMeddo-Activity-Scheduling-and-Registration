@@ -89,23 +89,20 @@ function Booking() {
                                                 {name}
                                                 <br />
                                             </div>
-                                            <div className="booking-class-date">
+                                            <div class="booking-class-time">
                                                 {date?.toLocaleString("default", {
                                                     weekday: "long",
                                                     day: "numeric",
                                                     month: "long",
                                                     year: "numeric",
-                                                })}
-                                            </div>
-                                            <div class="booking-class-time">
-                                                ({time})
+                                                })}, {time}
                                             </div>
                                         </div>
                                         <div class="booking-class-room-instructor">
-                                            <span>{room}</span> <span> • </span> <span>{instructor}</span>
+                                            <span>{room}</span> <span> / </span> <span>{instructor}</span>
                                         </div>
                                         <div class="booking-class-location-center">
-                                            <span>{center}</span><span> | </span><span>{location}</span>
+                                            <span className="class-center">{center}</span><span> | </span><span>{location}</span>
                                         </div>
                                     </div>
                                 </div>

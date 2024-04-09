@@ -63,7 +63,7 @@
   padding-left: 8.5px;
   padding-right: 8.5px;
   padding-top: 8.5px;
-  padding-bottom:14px ;
+  padding-bottom: 8.5px;
   margin-bottom: 12px;
 }
 
@@ -110,6 +110,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-bottom: 1rem;
 }
 
 .booking-form-button {
@@ -200,30 +201,30 @@ body {
   cursor: pointer;
   background-color: #9bcfff;
   margin: 4px;
-  gap: 5.2rem;
+  justify-content: space-between;
+  width: 490px;
+  gap: 49px;
 }
 
 .booking-class-time {
   background-color: gray;
+  width: fit-content;
   color: white;
   padding: 5px 10px;
-  text-align: center;
   text-decoration: none;
-  margin: 4px 2px;
   height: fit-content;
-  border-radius: 32px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
   font-weight: 650;
+  margin-bottom: 0.5rem;
 }
 
 .booking-class-name {
   font-weight: 750;
   font-size: 1.2rem;
   color: #000000;
-  padding-bottom: 0.2rem;
-  text-align: center;
-  text-decoration: underline;
-  padding-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .booking-class-date {
@@ -231,12 +232,10 @@ body {
   font-size: 0.8rem;
   color: #000000;
   padding-bottom: 0.2rem;
-  text-decoration: underline;
-  text-align: center;
 }
 
 .booking-class-image {
-  width: 49%;
+  width: 55%;
 }
 
 .booking-class-room-instructor {
@@ -244,11 +243,7 @@ body {
   gap: 0.5rem;
   font-size: 0.75rem;
   line-height: 1.25rem;
-  color: #00000066;
   font-weight: 500;
-  font-style: italic;
-  text-align: center;
-  justify-content: center;
 }
 
 .booking-class-location-center {
@@ -256,21 +251,25 @@ body {
   gap: 0.5rem;
   font-size: 0.75rem;
   line-height: 1.25rem;
-  color: #00000066;
   font-weight: 500;
-  font-style: italic;
   padding-bottom: 0.2rem;
-  text-align: center;
-  justify-content: center;
+}
+
+.class-center {
+  color: #000000;
+  font-weight: bold;
 }
 
 .booking-class-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .booking-class-details {
-  line-height: 1.6rem;
+  width: 64%;
 }
