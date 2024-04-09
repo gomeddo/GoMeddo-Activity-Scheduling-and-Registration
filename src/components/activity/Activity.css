@@ -1,7 +1,8 @@
 /* Activity.css */
 
 .class-container {
-  padding: 0.95rem 1rem;
+  display: flex;
+  justify-content: space-between;
   border-radius: 0.5rem;
   transition: all 0.3s;
   cursor: pointer;
@@ -34,82 +35,86 @@
   gap: 1rem;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   text-align: center;
 }
 
 .class-time {
   background-color: gray;
+  width: fit-content;
   color: white;
   padding: 5px 10px;
-  text-align: center;
   text-decoration: none;
-  margin: 4px 2px;
   height: fit-content;
-  border-radius: 32px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
   font-weight: 650;
+  margin-bottom: 0.5rem;
 }
 
 .class-name {
+  padding-top: 10px;
   font-weight: 750;
   font-size: 1.2rem;
   color: #000000;
-  padding-bottom: 0.2rem;
-  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .class-image {
-  width: 49%;
+  width: 33%;
+}
+
+.class-data {
+  width: 64%;
 }
 
 .class-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 .class-room-instructor {
   display: flex;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   line-height: 1.25rem;
-  color: #00000066;
   font-weight: 500;
-  font-style: italic;
-  text-align: center;
-  justify-content: center;
 }
 
 .class-location-center {
   display: flex;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   line-height: 1.25rem;
-  color: #00000066;
   font-weight: 500;
-  font-style: italic;
-  padding-bottom: 0.2rem;
-  text-align: center;
-  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.class-center {
+  color: #000000;
+  font-weight: bold;
+}
+
+.class-location-book-button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 .book-button-container {
-  padding-top: 0.70rem;
-  flex: 1 1 0;
-  text-align: center;
-  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .class-location-size {
   display: flex;
   gap: 0.2rem;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   line-height: 1.25rem;
-  font-weight: 550;
-  text-align: right;
-  justify-content: center;
+  padding-bottom: 10px;
 }
 
 .class-full {
