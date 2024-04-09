@@ -58,7 +58,7 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   padding-left: 8.5px;
   padding-right: 8.5px;
@@ -117,7 +117,7 @@
   padding: 10px;
   border-radius: 20px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -175,8 +175,7 @@
   font-size: 20px;
   font-weight: bolder;
   color: #f9f9f9;
-  background-color: transparent;
-  /* Set background to transparent only when loading */
+  background-color: transparent;  /* Set background to transparent only when loading */
 }
 
 .booking-form-loading-spinner {
@@ -195,15 +194,13 @@ body {
 
 .booking-class-container {
   display: flex;
-  padding: 0.95rem 1rem;
   border-radius: 0.5rem;
   transition: all 0.3s;
   cursor: pointer;
   background-color: #9bcfff;
   margin: 4px;
-  justify-content: space-between;
   width: 490px;
-  gap: 49px;
+  gap: 35px;
 }
 
 .booking-class-time {
@@ -225,6 +222,7 @@ body {
   color: #000000;
   margin-bottom: 0.5rem;
   text-align: left;
+  padding-top: 14px;
 }
 
 .booking-class-date {
@@ -266,10 +264,8 @@ body {
   object-fit: cover;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
 }
 
 .booking-class-details {
-  width: 64%;
+  width: 53%;
 }

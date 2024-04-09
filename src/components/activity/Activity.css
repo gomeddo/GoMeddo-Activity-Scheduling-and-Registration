@@ -79,18 +79,20 @@
 .class-room-instructor {
   display: flex;
   gap: 0.5rem;
-  font-size: 0.73rem;
+  /* font-size: 0.73rem; */
   line-height: 1.25rem;
   font-weight: 500;
+  font-size: 14px;
 }
 
 .class-location-center {
   display: flex;
   gap: 0.5rem;
-  font-size: 0.73rem;
+  /* font-size: 0.73rem; */
   line-height: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
+  font-size: 14px;
 }
 
 .class-center {
