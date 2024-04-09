@@ -5,10 +5,9 @@ import Logo from "../assets/GoMeddoLogo.png";
 import IconMapFill from "../components/icons/IconMapFill";
 import IconCalendar from "../components/icons/IconCalendar";
 import "./Layout.css";
-import IconEnglish from "../components/icons/IconEnglish";
-import IconGerman from "../components/icons/IconGerman";
+import IconGlobe from "../components/icons/IconGlobe";
+import Languages from "../constants/Languages";
 import { useTranslation } from "react-i18next";
-import IconDutch from "../components/icons/IconDutch";
 
 function Layout() {
     const { isMapView, handleToggleMap } = useMapView();
@@ -24,31 +23,19 @@ function Layout() {
             <div className="header-container">
                 {/* Placeholder div to keep the title centered */}
                 {!isBooking && (
-                    <div className="toggle-container">
-                        <span
-                            className={
-                                i18n.language === "en" ? "toggle-active" : "toggle-inactive"
-                            }
-                            onClick={() => i18n.changeLanguage("en")}
+                    <div className="toggle-container-language">
+                        <IconGlobe />
+                        <select
+                            onChange={(e) => {
+                                i18n.changeLanguage(e.target.value);
+                            }}
                         >
-                            <IconEnglish />
-                        </span>
-                        <span
-                            className={
-                                i18n.language === "de" ? "toggle-active" : "toggle-inactive"
-                            }
-                            onClick={() => i18n.changeLanguage("de")}
-                        >
-                            <IconGerman />
-                        </span>
-                        <span
-                            className={
-                                i18n.language === "nl" ? "toggle-active" : "toggle-inactive"
-                            }
-                            onClick={() => i18n.changeLanguage("nl")}
-                        >
-                            <IconDutch />
-                        </span>
+                            {Languages.map((language) => (
+                                <option key={language.code} value={language.code}>
+                                    {language.language}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 )}
                 <div className="logo-container">
