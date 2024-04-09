@@ -15,10 +15,16 @@
 }
 
 .class-container-full {
-  padding: 0.75rem 1rem;
+  background-color: #efefef;
+  display: flex;
+  justify-content: space-between;
   border-radius: 0.5rem;
   transition: all 0.3s;
-  background-color: #efefef;
+  cursor: pointer;
+  margin: 4px;
+  cursor: not-allowed;
+  font-weight: 700;
+
 }
 
 .class-container:hover {
@@ -117,6 +123,17 @@
   font-size: 0.6rem;
   line-height: 1.25rem;
   padding-bottom: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.class-full-container {
+  justify-content: space-evenly;
+  display: flex;
+  gap: 0.2rem;
+  font-size: 0.6rem;
+  line-height: 1.25rem;
+  padding-bottom: 5px;
+  margin-bottom: 0.5rem;
 }
 
 .class-full {

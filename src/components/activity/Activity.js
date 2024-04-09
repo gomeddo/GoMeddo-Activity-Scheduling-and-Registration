@@ -90,7 +90,7 @@ function Activity({
           </div>
         )}
         {classFull && ( // Displaying "Class Full" message if the class is full
-          <div className="class-location-size">
+          <div className="class-full-container">
             <span className="class-full">
               {t(resources.label_class_full)}{" "}
               {/* Displaying translated message for class full */}
