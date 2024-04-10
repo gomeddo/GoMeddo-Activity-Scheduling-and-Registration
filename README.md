@@ -1,5 +1,9 @@
 <h1 align="center">Book an Activity</h1>
 
+<p align="center">
+  <img src="./src/assets/Dashboard.png" alt="Dashboard" width="650" height="367">
+</p>
+
 ## High-Level Use Case
 This example provides a starting point for integrating *GoMeddo's* "**activity registration**" capabilities into your website using the Javascript SDK.
 
