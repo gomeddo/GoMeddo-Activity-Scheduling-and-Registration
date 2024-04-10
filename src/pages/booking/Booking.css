@@ -159,6 +159,7 @@
   background-color: #e74c3c;
   color: #000;
   cursor: pointer;
+  margin-right: 150px;
 }
 
 .booking-form-loading {
@@ -200,7 +201,7 @@ body {
   background-color: #9bcfff;
   margin: 4px;
   width: 490px;
-  gap: 27px;
+  gap: 15px;
 }
 
 .booking-class-time {
@@ -267,5 +268,5 @@ body {
 }
 
 .booking-class-details {
-  width: 53%;
+  width: 63%;
 }
