@@ -10,7 +10,7 @@ The example demonstrates this by allowing customers to book a gym class, while f
 ## Overview of User Interaction on the Frontend
 The dashboard of the application lists various activities available to be taken on different dates. Users can additionally filter the activities using the filter option provided on the UI. Once a user selects an activity from available activities the 'Book' button will be visible on the UI if the capacity of the activity is not full. Users will be then prompted to input the contact information and make their reservation for the selected activity.
 
-## Salesforce setup
+## GoMeddo setup
 
 - The activity itself is an existing **reservation** in *GoMeddo*.
 - The activity types are **reservation types** in *GoMeddo* with descriptions and images attached to them.
@@ -19,7 +19,8 @@ The dashboard of the application lists various activities available to be taken 
 - Both locations and staff have **availability**
 - The location where the activity happens is a **resource** in *GoMeddo*
 - **Custom Fields Creation**: To use and display information from other objects, We must introduce custom fields within the Salesforce reservation object, such as Center_Name__c, Room_Name__c, etc. These fields are essential for getting detailed information about each activity.
-- **API Key Requirement**: The application’s functionality hinges on obtaining an API key from *GoMeddo*, which is essential for accessing the SDK's features. The key is obtainable [here](https://welcome.booker25.com/configure/), where you'll also need to whitelist your domain to keep things running smoothly.
+- **Resource Details Setting:** Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
+- **API Key Requirement**: To access to the SDK’s functionalities, an API key from *GoMeddo* is required. For instructions on obtaining this key refer to [First time Set-up](https://gomeddo.atlassian.net/wiki/spaces/WID/pages/3353837569/First+time+Set-up). Remember to whitelist your domain as a part of the setup process.
 
 Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in Salesforce. For the booking system to accurately display available gym classes, each class must be created as a reservation within *GoMeddo*. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
 
@@ -46,3 +47,7 @@ Perform the following steps to run the project in a local environment.
 #### Similar use cases
 - Have your students sign up for sports activities
 - Have your patients sign up for group sessions
+- Have your student sign up for coding bootcamps.
+- Have your educators enrolled in professional development seminars.
+- Have your healthcare professionals enrolled in continuing education courses.
+- Have your students volunteer for peer mentoring programs.
