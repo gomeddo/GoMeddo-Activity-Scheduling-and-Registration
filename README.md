@@ -12,7 +12,7 @@ An activity has a certain **capacity**, a **staff member** and a **location**. Y
 The example demonstrates this by allowing customers to book a gym class, while focused on gym class bookings it demonstrates the process and structure needed for a range of activity booking scenarios.
 
 ## Overview of User Interaction on the Frontend
-The dashboard of the application lists various activities available to be taken on different dates. Users can additionally filter the activities using the filter option provided on the UI. Once a user selects an activity from available activities the 'Book' button will be visible on the UI if the capacity of the activity is not full. Users will be then prompted to input the contact information and make their reservation for the selected activity.
+The dashboard of the application lists various activities available which is filtered based on dates and time. Users can additionally filter the activities using the filter option provided on the UI. Once a user selects an activity from available activities the 'Book' button will be visible on the UI if the capacity of the activity is not full. Users will be then prompted to input the contact information and make their reservation for the selected activity.
 
 ## GoMeddo setup
 
