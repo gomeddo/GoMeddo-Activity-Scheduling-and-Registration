@@ -20,6 +20,7 @@ const resources = {
     message_booking_confirmed_email: "message_booking_confirmed_email",
     message_booking_confirmed_class_date: "message_booking_confirmed_class_date",
     message_booking_confirmed_back: "message_booking_confirmed_back",
+    message_apiKey_error: "message_apiKey_error",
     message_loading: "message_loading",
     message_booking_loading: "message_booking_loading",
     message_loading_error: "message_loading_error",

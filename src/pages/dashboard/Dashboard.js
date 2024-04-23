@@ -45,7 +45,7 @@ function Dashboard() {
             <div className="dashboard-loading-spinner"></div>
           </div>
         )}
-        {error && <div>{t(resources.message_loading_error)}{error.message}</div>}
+        {error && <div>{t(resources.message_loading_error)}</div>}
         {!loading && !error && (
           <div
             className={

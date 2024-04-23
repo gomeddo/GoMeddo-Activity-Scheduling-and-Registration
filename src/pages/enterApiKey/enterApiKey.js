@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./enterApiKey.css";
+import resources from "../../i18n/resources";
+import { useTranslation } from "react-i18next";
 
 function EnterApiKey() {
     const [apiKey, setApiKey] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
+    const { t } = useTranslation();
 
     const handleInputChange = (event) => {
         setApiKey(event.target.value);
@@ -15,7 +18,7 @@ function EnterApiKey() {
 
         // Validation (replace with your validation logic)
         if (apiKey.length !== 36) {
-            setErrorMessage("Invalid API key format. Please check and try again.");
+            setErrorMessage(t(resources.message_apiKey_error));
             return;
         }
 
