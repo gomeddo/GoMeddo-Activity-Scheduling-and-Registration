@@ -4,6 +4,16 @@
   <img src="./src/assets/Dashboard.png" alt="Dashboard" width="650" height="367">
 </p>
 
+# Get started with the GoMeddo JS SDK
+This project uses the [GoMeddo JS SDK](https://github.com/gomeddo/js-sdk) to implement an application that lets a user register for a gym class via [GoMeddo](https://gomeddo.com).
+
+
+[![Deploy with Vercel](https://vercel.com/button)]()
+
+## Demo
+
+You can find a demo [here](). 
+
 ## High-Level Use Case
 This example provides a starting point for integrating *GoMeddo's* "**activity registration**" capabilities into your website using the Javascript SDK.
 
@@ -43,7 +53,6 @@ Perform the following steps to run the project in a local environment.
  - Clone the code to a local repository
  - Install necessary dependencies and packages by running `npm install`
  - Create a file with the extension `.env.local` in the root folder
- - Add the API key from *GoMeddo* in the above file as a key-value pair using key `REACT_APP_GOMEDDO_API_KEY`
  - Start the local dev server using the command `npm run start`
 
 #### Link to Github and Wiki
