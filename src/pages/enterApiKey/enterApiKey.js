@@ -37,29 +37,9 @@ function EnterApiKey() {
             <meta charSet="utf-8" />
             <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="theme-color" content="#000000" />
-            <meta
-                name="description"
-                content="Web site created using create-react-app"
-            />
-            <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-            <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-            {/* <title>GoMeddo Booking Demo</title> */}
-            {/* <header>
-        <div>
-          <object data="%PUBLIC_URL%/gomeddo.svg" type="image/svg+xml" />
-          <h2>JS SDK Example</h2>
-        </div>
-        <a
-          className="view-on-github"
-          href="https://github.com/gomeddo/GoMeddo-Booking-Demo"
-        >
-          <img src="%PUBLIC_URL%/github.png" alt="github" />
-          View on GitHub
-        </a>
-      </header> */}
+            <title>GoMeddo Activity Scheduling & Registration</title>
             <main>
-                <section>
+                <section style={{padding: "5rem 0"}}>
                     <div>
                         <h1>GoMeddo Booking Demo</h1>
                         <p>
@@ -67,12 +47,12 @@ function EnterApiKey() {
                         </p>
                     </div>
                 </section>
-                <section>
+                <section style={{padding: "3rem 0"}}>
                     <div>
-                        <h2>Example: Book your demo online</h2>
+                        <h2>Example: Book your gym class online</h2>
                         <div id="sales-appointment" />
                         <form onSubmit={handleSubmit} id="config">
-                            <label htmlFor="apiKey" style ={{color:"white"}}>Enter API Key:</label>
+                            <label htmlFor="apiKey" style={{ color: "white", fontSize: "1.5rem"}}>Enter API Key:</label>
                             <input
                                 type="text"
                                 id="apiKey"
@@ -86,7 +66,7 @@ function EnterApiKey() {
                         </form>
                     </div>
                 </section>
-                <section>
+                <section style={{padding: "4rem 0"}}>
                     <div>
                         <h3>Installing the SDK</h3>
                         <h4>NPM</h4>
@@ -94,6 +74,7 @@ function EnterApiKey() {
                             {"          "}npm install @gomeddo/sdk{"\n"}
                             {"        "}
                         </pre>
+                        <br></br>
                         <h4>Yarn</h4>
                         <pre>
                             {"          "}yarn add @gomeddo/sdk{"\n"}
@@ -102,7 +83,15 @@ function EnterApiKey() {
                     </div>
                 </section>
             </main>
-            <footer></footer>
+            <footer>
+                <a
+                    className="view-on-github"
+                    href="https://github.com/gomeddo/GoMeddo-Activity-Scheduling-and-Registration"
+                >
+                    <img src="/github.png" alt="github" />
+                    View on GitHub
+                </a>
+            </footer>
         </div>
     );
 }
