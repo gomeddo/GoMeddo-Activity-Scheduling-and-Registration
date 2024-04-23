@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./enterApiKey.css";
+
 function EnterApiKey() {
     const [apiKey, setApiKey] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
@@ -30,8 +31,9 @@ function EnterApiKey() {
         // Clear the input field after successful submission (optional)
         setApiKey("");
     };
+
     return (
-        <>
+        <div className="enter-api-key">
             <meta charSet="utf-8" />
             <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,7 +72,7 @@ function EnterApiKey() {
                         <h2>Example: Book your demo online</h2>
                         <div id="sales-appointment" />
                         <form onSubmit={handleSubmit} id="config">
-                            <label htmlFor="apiKey">Enter API Key:</label>
+                            <label htmlFor="apiKey" style ={{color:"white"}}>Enter API Key:</label>
                             <input
                                 type="text"
                                 id="apiKey"
@@ -101,7 +103,7 @@ function EnterApiKey() {
                 </section>
             </main>
             <footer></footer>
-        </>
+        </div>
     );
 }
 
