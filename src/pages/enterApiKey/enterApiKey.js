@@ -44,9 +44,9 @@ function EnterApiKey() {
             <main>
                 <section style={{padding: "5rem 0"}}>
                     <div>
-                        <h1>GoMeddo Booking Demo</h1>
-                        <p>
-                            This page shows an example on how to implement the GoMeddo JS SDK
+                        <h1 style={{textAlign: "center", paddingBottom: "2rem"}}>GoMeddo Activity Scheduling & Registration Demo</h1>
+                        <p style={{textAlign: "center"}}>
+                            This page shows an example on how to implement the GoMeddo JS SDK into a activity scheduling and registration frontend.
                         </p>
                     </div>
                 </section>
@@ -55,7 +55,7 @@ function EnterApiKey() {
                         <h2>Example: Book your gym class online</h2>
                         <div id="sales-appointment" />
                         <form onSubmit={handleSubmit} id="config">
-                            <label htmlFor="apiKey" style={{ color: "white", fontSize: "1.5rem"}}>Enter API Key:</label>
+                            <label htmlFor="apiKey" style={{ color: "white", fontSize: "1.2rem"}}>Enter API Key:</label>
                             <input
                                 type="text"
                                 id="apiKey"
