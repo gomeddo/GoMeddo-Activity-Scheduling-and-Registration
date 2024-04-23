@@ -1,10 +1,37 @@
-import ApiKeyInput from "../../components/home/Home";
-import React from "react";
+import React, { useState } from "react";
 import "./enterApiKey.css";
 function EnterApiKey() {
+    const [apiKey, setApiKey] = useState("");
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    const handleInputChange = (event) => {
+        setApiKey(event.target.value);
+        setErrorMessage(null); // Clear any previous errors
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        // Validation (replace with your validation logic)
+        if (apiKey.length !== 36) {
+            setErrorMessage("Invalid API key format. Please check and try again.");
+            return;
+        }
+
+        // Ideally, you wouldn't store the API key in frontend code
+        // For illustrative purposes only:
+        console.log("API key entered:", apiKey);
+        //add to local storage
+        localStorage.setItem("goMeddoApiKey", apiKey);
+
+        // Redirect to dashboard after successful submission
+        window.location.href = "/dashboard";
+
+        // Clear the input field after successful submission (optional)
+        setApiKey("");
+    };
     return (
         <>
-            <ApiKeyInput />
             <meta charSet="utf-8" />
             <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,15 +69,18 @@ function EnterApiKey() {
                     <div>
                         <h2>Example: Book your demo online</h2>
                         <div id="sales-appointment" />
-                        <form id="config">
-                            <h3>Configuration</h3>
-                            <p>
-                                Remember to configure the url %PUBLIC_URL% under whitelisted
-                                domains in the welcome.gomeddo.com page.
-                            </p>
-                            <input placeholder="API Key" name="apiKey" />
-
-                            <button type="submit">Apply config</button>
+                        <form onSubmit={handleSubmit} id="config">
+                            <label htmlFor="apiKey">Enter API Key:</label>
+                            <input
+                                type="text"
+                                id="apiKey"
+                                name="apiKey"
+                                placeholder="Enter your API key"
+                                value={apiKey}
+                                onChange={handleInputChange}
+                            />
+                            {errorMessage && <p className="error-message">{errorMessage}</p>}
+                            <button type="submit">Submit</button>
                         </form>
                     </div>
                 </section>
@@ -65,134 +95,6 @@ function EnterApiKey() {
                         <h4>Yarn</h4>
                         <pre>
                             {"          "}yarn add @gomeddo/sdk{"\n"}
-                            {"        "}
-                        </pre>
-                    </div>
-                </section>
-                <section>
-                    <div>
-                        <h3>Getting timeslots for a specific resource and day</h3>
-                        <pre>
-                            {"          "}
-                            <code>import GoMeddo from '@gomeddo/sdk';</code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>const gm = new GoMeddo(apiKey);</code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>gm</code>
-                            {"\n"}
-                            {"          "}
-                            <code>{"  "}.buildResourceRequest()</code>
-                            {"\n"}
-                            {"          "}
-                            <code>{"  "}.includeAllResourcesAt(resourceId)</code>
-                            {"\n"}
-                            {"          "}
-                            <code>{"  "}.withAvailableSlotsBetween(</code>
-                            {"\n"}
-                            {"          "}
-                            <code>
-                                {"    "}new Date('&lt;%= (new Date()).getFullYear() %&gt;-&lt;%=
-                                (new Date()).getMonth()+1 %&gt;-&lt;%= (new Date()).getDate()
-                                %&gt;'),
-                            </code>
-                            {"\n"}
-                            {"          "}
-                            <code>
-                                {"    "}new Date('&lt;%= (new Date()).getFullYear() %&gt;-&lt;%=
-                                (new Date()).getMonth()+1 %&gt;-&lt;%= (new Date()).getDate() +
-                                1 %&gt;')
-                            </code>
-                            {"\n"}
-                            {"          "}
-                            <code>{"  "})</code>
-                            {"\n"}
-                            {"          "}
-                            <code>{"  "}.getResults()</code>
-                            {"\n"}
-                            {"          "}
-                            <code>
-                                {"  "}.then((resources) =&gt; /* Do something with the resource
-                                */);
-                            </code>
-                            {"\n"}
-                            {"        "}
-                        </pre>
-                    </div>
-                </section>
-                <section>
-                    <div>
-                        <h3>Creating a reservation</h3>
-                        <pre>
-                            {"          "}
-                            <code>
-                                import GoMeddo, {"{"} Reservation, Lead {"}"} from
-                                '@gomeddo/sdk';
-                            </code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>const gm = new GoMeddo(apiKey);</code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>const resource = resources[0];</code>
-                            {"\n"}
-                            {"          "}
-                            <code>const timeslots = resource.getTimeSlots();</code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>const reservation = new Reservation();</code>
-                            {"\n"}
-                            {"          "}
-                            <code>reservation.setResource(resource);</code>
-                            {"\n"}
-                            {"          "}
-                            <code>
-                                reservation.setStartDatetime(timeslots[0].startOfSlot);
-                            </code>
-                            {"\n"}
-                            {"          "}
-                            <code>reservation.setEndDatetime(timeslots[0].endOfSlot);</code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>const lead = new Lead(firstName, lastName, email);</code>
-                            {"\n"}
-                            {"          "}
-                            <code>reservation.setLead(lead);</code>
-                            {"\n"}
-                            {"          "}
-                            <code />
-                            {"\n"}
-                            {"          "}
-                            <code>gm</code>
-                            {"\n"}
-                            {"          "}
-                            <code>{"  "}.saveReservation(reservation)</code>
-                            {"\n"}
-                            {"          "}
-                            <code>
-                                {"  "}.then((response) =&gt; /* Do something with the response
-                                */);
-                            </code>
-                            {"\n"}
                             {"        "}
                         </pre>
                     </div>
