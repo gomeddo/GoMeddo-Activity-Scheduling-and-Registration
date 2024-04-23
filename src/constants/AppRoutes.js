@@ -8,7 +8,7 @@ const AppRoutes = {
 
     // The route for the booking page.
     booking: "/booking",
-}
+};
 
 // Exporting the AppRoutes object to make it accessible to other modules.
 export default AppRoutes;

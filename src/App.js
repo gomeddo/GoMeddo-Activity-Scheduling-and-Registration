@@ -6,6 +6,7 @@ import Layout from "./pages/Layout";
 import AppRoutes from "./constants/AppRoutes";
 import "./i18n/i18n";
 import { FilterProvider } from "./providers/FilterContext";
+import EnterApiKey from "./pages/enterApiKey/enterApiKey";
 
 //Function component representing the main application
 function App() {
@@ -20,7 +21,9 @@ function App() {
             {/* Main layout route */}
             <Route element={<Layout />} path={AppRoutes.root}>
               {/* Redirecting to dashboard by default */}
-              <Route element={<Navigate to={AppRoutes.dashboard} replace />} index />
+              <Route element={<Navigate to={AppRoutes.home} replace />} index />
+              {/* Route for the dashboard page */}
+              <Route element={<EnterApiKey />} path={AppRoutes.home} />
               {/* Route for the dashboard page */}
               <Route element={<Dashboard />} path={AppRoutes.dashboard} />
               {/* Route for the booking page */}

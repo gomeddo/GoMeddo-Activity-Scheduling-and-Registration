@@ -1,12 +1,27 @@
-import { useMemo } from "react";
-import GoMeddo from "@gomeddo/sdk"
+import { useState, useEffect, useMemo } from "react";
+import GoMeddo from "@gomeddo/sdk";
 
 export default function useGoMeddo() {
-    const apiKey = process.env.REACT_APP_GOMEDDO_API_KEY; // Retrieve the API key from environment variables
+    const [apiKey, setApiKey] = useState(""); // State variable to hold user-entered or localStorage API key
+    const [goMeddoInstance, setGoMeddoInstance] = useState(null); // State variable to hold GoMeddo instance
 
-    /* useMemo is used to memoize the GoMeddo instance. This ensures that the GoMeddo instance
-     is not recreated on every render unless the apiKey changes, which is specified as a dependency
-     in the dependency array [apiKey]. This optimization helps in avoiding unnecessary re-instantiations
-     and ensures that components using this hook do not unnecessarily re-render due to reference changes. */
+    // Fetch API key from localStorage on component mount
+    useEffect(() => {
+        const fetchApiKeyFromLocalStorage = () => {
+            try {
+                const storedApiKey = localStorage.getItem("goMeddoApiKey");
+                if (storedApiKey) {
+                    setApiKey(storedApiKey);
+                    console.log("API key fetched from localStorage:", storedApiKey);
+                }
+            } catch (error) {
+                console.error("Error fetching API key from localStorage:", error);
+            }
+        };
+
+        fetchApiKeyFromLocalStorage();
+    }, []); // Empty dependency array ensures it runs only on mount
+
+    // Create GoMeddo instance only when apiKey is available and valid
     return useMemo(() => new GoMeddo(apiKey), [apiKey]);
 }
