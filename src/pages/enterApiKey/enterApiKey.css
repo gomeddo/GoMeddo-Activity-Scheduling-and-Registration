@@ -1,0 +1,193 @@
+.enter-api-key html {
+  font-size: 10px;
+  font-family: sans-serif;
+  /* Add other scoped styles as needed */
+}
+
+.enter-api-key main,
+.enter-api-key header,
+.enter-api-key footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.enter-api-key header {
+  background: #16072d;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  height: 10rem;
+}
+
+.enter-api-key section {
+  padding: 10rem 0;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.enter-api-key section:nth-child(2n - 1) {
+  background: #f5f5f5;
+}
+
+.enter-api-key section>div,
+.enter-api-key header>div {
+  box-sizing: border-box;
+  padding: 0 4rem;
+  width: 120rem;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.enter-api-key header>div {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  padding-top: 3.8rem;
+  padding-bottom: 3.8rem;
+  padding-left: 6.4rem;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.enter-api-key header>div>object {
+  height: 2.4rem;
+}
+
+.enter-api-key section h2,
+.enter-api-key section h3 {
+  text-align: center;
+}
+
+.enter-api-key header h2 {
+  color: #fff;
+  line-height: 2rem;
+  font-size: 2rem;
+  margin: 0 4rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enter-api-key h1 {
+  font-size: 4.1rem;
+  line-height: 8rem;
+}
+
+.enter-api-key h2 {
+  font-size: 2rem;
+  line-height: 6rem;
+}
+
+.enter-api-key h3 {
+  font-size: 3rem;
+  line-height: 5rem;
+}
+
+.enter-api-key h4 {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-bottom: 0;
+}
+
+.enter-api-key p {
+  font-size: 1.2rem;
+  line-height: 3rem;
+}
+
+.enter-api-key pre {
+  font-family: monospace;
+  font-size: 1.3rem;
+  background: #000000;
+  color: #ffffff;
+  padding-left: 3.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 3.5rem;
+  border-radius: 0.4rem;
+  white-space: pre-line;
+  overflow-x: auto;
+}
+
+.enter-api-key pre code:before {
+  content: counter(listing) ".";
+  display: inline-block;
+  width: 4rem;
+}
+
+.enter-api-key pre code {
+  counter-increment: listing;
+  white-space: pre;
+}
+
+.enter-api-key .view-on-github {
+  display: flex;
+  background-color: #ff512f;
+  color: #000000;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: 1.6rem 6.6rem;
+  font-size: 1.4rem;
+  text-decoration: unset;
+  width: 100%;
+}
+
+.enter-api-key .view-on-github:hover {
+  background-color: #9bcfff;
+}
+
+.enter-api-key .view-on-github img {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(1);
+}
+
+.enter-api-key form#config {
+  display: grid;
+  gap: 3rem;
+  padding: 6.2rem 19.3rem;
+  border-radius: 0.4rem;
+  background-color: #16072d;
+  margin-top: 2rem;
+}
+
+.enter-api-key form#config[hidden] {
+  display: none;
+}
+
+.enter-api-key form#config h3,
+.enter-api-key form#config p {
+  color: #ffffff;
+}
+
+.enter-api-key form#config input,
+.enter-api-key form#config select {
+  border-radius: 2.4rem;
+  padding: 1.6rem 3.2rem;
+  font-size: 1.1rem;
+  border: none;
+}
+
+.enter-api-key input:focus-visible {
+  outline: 0.2rem solid #9bcfff;
+}
+
+.enter-api-key form#config button {
+  padding: 1.3rem 2rem;
+  line-height: 1rem;
+  border-radius: 2.4rem;
+  background-color: #9bcfff;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.enter-api-key #sales-appointment,
+.enter-api-key sales-appointment {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}

@@ -7,23 +7,29 @@ import "./Dashboard.css";
 import { useReservations, useAgendaItems } from "./hooks";
 import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
-
+import { useEffect } from "react";
 function Dashboard() {
   const { isMapView } = useMapView();
   const [selectedDate, handleSetSelectedDate] = useState(new Date());
+  const [showError, setShowError] = useState(false);
   const [selectedClass, handleSetSelectedClass] = useState(undefined);
   const { loading, error, reservations } = useReservations(selectedDate);
 
   const sections = useAgendaItems(reservations);
   const { t } = useTranslation();
-
   const handleDateChange = (newDate) => {
     handleSetSelectedDate(newDate);
   };
-
+  useEffect(() => {
+    if (!loading && sections.length === 0) {
+      const timeoutId = setTimeout(() => setShowError(true), 5000); // Set timeout for 10 seconds
+      return () => clearTimeout(timeoutId); // Cleanup function to clear timeout on unmount
+    }
+  }, [loading, sections, error]);
   return (
     <div className="dashboard-wrapper">
       {/* Optional map view, displayed only if isMapView is true */}
+
       {isMapView && <div className="dashboard-map" />}
       <div className="dashboard-container">
         {/* Weekly agenda selector */}
@@ -32,7 +38,7 @@ function Dashboard() {
           handleDaySelected={handleDateChange} // Update the agenda based on the selected date
         />
         {/* Container for each time section (Morning, Afternoon, Evening) */}
-        {loading && (
+        {((loading && sections.length === 0) || error) && !showError && (
           <div className="dashboard-loading">
             {t(resources.message_loading)}{" "}
             {selectedDate.toLocaleString("default", {
@@ -45,8 +51,10 @@ function Dashboard() {
             <div className="dashboard-loading-spinner"></div>
           </div>
         )}
-        {error && <div>{t(resources.message_loading_error)}{error.message}</div>}
-        {!loading && !error && (
+        {!loading && sections.length === 0 && showError && (
+          <div>{t(resources.message_loading_error)}</div>
+        )}
+        {!loading && sections.length > 0 && (
           <div
             className={
               isMapView ? "sections-container-stacked" : "sections-container"
