@@ -4,6 +4,16 @@
   <img src="./src/assets/Dashboard.png" alt="Dashboard" width="650" height="367">
 </p>
 
+# Get started with the GoMeddo JS SDK
+This project uses the [GoMeddo JS SDK](https://github.com/gomeddo/js-sdk) to implement an application that lets a user register for a gym class via [GoMeddo](https://gomeddo.com).
+
+
+[![Deploy with Vercel](https://vercel.com/button)]()
+
+## Demo
+
+You can find a demo [here](). 
+
 ## High-Level Use Case
 This example provides a starting point for integrating *GoMeddo's* "**activity registration**" capabilities into your website using the Javascript SDK.
 
