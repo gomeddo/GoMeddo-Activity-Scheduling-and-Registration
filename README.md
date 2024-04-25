@@ -12,7 +12,7 @@ This project uses the [GoMeddo JS SDK](https://github.com/gomeddo/js-sdk) to imp
 
 ## Demo
 
-You can find a demo [here](). 
+You can find a demo [here](https://gomeddo.github.io/GoMeddo-Activity-Scheduling-and-Registration/). 
 
 ## High-Level Use Case
 This example provides a starting point for integrating *GoMeddo's* "**activity registration**" capabilities into your website using the Javascript SDK.
