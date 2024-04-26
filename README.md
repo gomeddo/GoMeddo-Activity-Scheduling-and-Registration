@@ -10,9 +10,6 @@ This project uses the [GoMeddo JS SDK](https://github.com/gomeddo/js-sdk) to imp
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fgomeddo%2FGoMeddo-Activity-Scheduling-and-Registration&showOptionalTeamCreation=false)
 
-## Demo
-
-You can find a demo [here](https://gomeddo.github.io/GoMeddo-Activity-Scheduling-and-Registration). 
 
 ## High-Level Use Case
 This example provides a starting point for integrating *GoMeddo's* "**activity registration**" capabilities into your website using the Javascript SDK.
