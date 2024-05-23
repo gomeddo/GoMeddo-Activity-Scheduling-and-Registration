@@ -11,7 +11,7 @@ This project uses the [GoMeddo JS SDK](https://github.com/gomeddo/js-sdk) to imp
 
 ## Demo
 
-You can find a demo [here](https://gomeddo-activity-scheduling-and-registration.vercel.app/home).
+You can find a demo <a href="https://gomeddo-activity-scheduling-and-registration.vercel.app/home" target="_blank">here</a>.
 
 ## High-Level Use Case
 This example provides a starting point for integrating *GoMeddo's* "**activity registration**" capabilities into your website using the Javascript SDK.
