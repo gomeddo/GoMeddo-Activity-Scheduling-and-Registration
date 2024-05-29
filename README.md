@@ -26,19 +26,53 @@ The example demonstrates this by allowing customers to book a gym class, while f
 
 The dashboard of the application lists various activities available which is filtered based on dates and time. Users can additionally filter the activities using the filter option provided on the UI. Once a user selects an activity from available activities the 'Book' button will be visible on the UI if the capacity of the activity is not full. Users will be then prompted to input the contact information and make their reservation for the selected activity.
 
-## GoMeddo setup
+# Step-by-Step Guide to Setting Up The Example
 
-- The activity itself is an existing **reservation** in _GoMeddo_.
-- The activity types are **reservation types** in _GoMeddo_ with descriptions and images attached to them.
-- Visitors of the activity become contacts in _GoMeddo_ using **reservation contacts**.
-- Staff are the instructors.
-- Both locations and staff have **availability**.
-- The location where the activity happens is a **resource** in _GoMeddo_ with a specific **resource type**
-  - **City**: Fitness Centres are categorized by their location (e.g., Amsterdam).
-  - **Fitness Centre**: Within each city, specific fitness centres are identified (e.g., GymNow).
-  - **Room** (Intensity Levels): Rooms within each fitness centre are designated by intensity levels (e.g., Entry-Level Room).
-- **Custom Fields Creation**: To use and display information from other objects, We must introduce custom fields within the _GoMeddo_ reservation object, such as Center_Name**c, Room_Name**c, etc. These fields are essential for getting detailed information about each activity.
-- **Resource Details Setting:** Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
+### Define the Resource Hierarchy
+
+1. **Set Up Resources and Resource Types**:
+
+   - Define the hierarchical structure for your resources:
+     - **Organization** > **Country** > **City** > **Fitness Centre** > **Rooms**.
+   - Example:
+     - **Organization**: Your Organization
+     - **Country**: Netherlands
+     - **City**: Amsterdam
+     - **Fitness Centre**: FitZone
+     - **Room**: Entry Level Room
+   - Note: There can be multiple resources of the type "Room", "City", "Fitness Center" and "Country" .
+
+   ### Create Resource Types for Each Class
+
+2. **Create Resource Types**:
+
+   - Define a resource type for each class type (e.g., Pilates, Yoga).
+   - Create a custom image field for each class type and add an image representing the class.
+
+   ## Custom Fields Creation
+
+3. **Create Custom Fields Under the Reservation Object**:
+
+   - Add the following custom fields to provide detailed information about each activity:
+
+     - `Staff_Name__c` (Formula Field)
+     - `Room_Name__c` (Formula Field)
+     - `Room_Capacity__c` (Formula Field)
+     - `City_Location__c` (Formula Field)
+     - `Center_Name__c` (Formula Field)
+     - `reservation_type_image__c` (Custom Image Field)
+
+     ## Setting Up Staff and Creating Reservations
+
+4. **Create Staff Members**:
+
+   - Add staff members (instructors) who will be associated with the reservations.
+
+5. **Create Reservations**:
+   - Create reservations for the classes you want to display on the frontend.
+   - Ensure each reservation is linked to the appropriate resource types, staff, and other custom fields.
+
+**Resource Details Setting:** Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
 
 Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in _GoMeddo_. For the booking system to accurately display available gym classes, each class must be created as a reservation within _GoMeddo_. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
 
