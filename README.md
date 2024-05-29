@@ -51,7 +51,6 @@ Perform the following steps to run the project in a local environment.
 
  - Clone the code to a local repository
  - Install necessary dependencies and packages by running `npm install`
- - Create a file with the extension `.env.local` in the root folder
  - Start the local dev server using the command `npm run start`
 
 #### Link to Github and Wiki
