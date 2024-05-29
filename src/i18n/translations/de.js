@@ -37,6 +37,7 @@ const de = {
     [resources.filter_type]: "Typ :",
     [resources.filter_reset]: "Zurücksetzen",
     [resources.filter_apply]: "Anwenden",
+    [resources.label_unknown]: "Unbekannt"
 };
 
 export default de;

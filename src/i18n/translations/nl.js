@@ -37,6 +37,7 @@ const nl = {
     [resources.filter_type]: "Type :",
     [resources.filter_reset]: "Opnieuw instellen",
     [resources.filter_apply]: "Toepassen",
+    [resources.label_unknown]: "Onbekend"
 };
 
 export default nl;

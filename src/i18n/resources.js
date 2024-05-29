@@ -32,6 +32,7 @@ const resources = {
     filter_type: "filter_type",
     filter_reset: "filter_reset",
     filter_apply: "filter_apply",
+    label_unknown: "Unknown"
 };
 
 export default resources;

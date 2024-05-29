@@ -49,14 +49,14 @@ export function useReservations(date) {
                         "B25__Title__c",
                         "B25__Start_Local_DateTime__c",
                         "B25__End_Local_DateTime__c",
-                        "Staff_Name__c",
-                        "Room_Name__c",
-                        "Room_Capacity__c",
+                        "Staff_Name__c", //custom field
+                        "Room_Name__c", //custom field
+                        "Room_Capacity__c", //custom field
                         "B25LP__Capacity__c",
-                        "City_Location__c",
-                        "Center_Name__c",
+                        "City_Location__c", //custom field
+                        "Center_Name__c", //custom field
                         "Name",
-                        "reservation_type_image__c"
+                        "reservation_type_image__c", //custom field
                     ]);
 
                 const conditions = [];
@@ -144,6 +144,9 @@ export function useAgendaItems(reservations) {
 
     // Function to format instructor's name
     const formatName = (name) => {
+        if (!name) {
+            return t(resources.label_unknown);
+        }
         const [firstName, lastName] = name.split(" ");
         return `${firstName} ${lastName[0]}.`;
     };
@@ -162,7 +165,12 @@ export function useAgendaItems(reservations) {
                 items: [],
             };
         }
-        // Add reservation details to the corresponding time slot
+
+        const getCustomProperty = (property) => {
+            return (
+                reservation.customProperties.get(property) || t(resources.label_unknown)
+            );
+        };
         acc[timeOfDay].items.push({
             id: reservation.customProperties.get("Name"),
             name: reservation.customProperties.get("B25__Title__c"),
@@ -182,18 +190,22 @@ export function useAgendaItems(reservations) {
             center: reservation.customProperties.get("Center_Name__c"),
             spaces: reservation.customProperties.get("B25LP__Capacity__c"),
             start: new Date(reservation.customProperties.get("B25__Start_Local_DateTime__c")),
-            reservation: reservation
+            reservation: reservation,
         });
+
         return acc;
     }, {});
-
     // Sort reservations within each section based on start time
-    Object.values(sections).forEach(section => {
+    Object.values(sections).forEach((section) => {
         section.items.sort((a, b) => a.start - b.start);
     });
 
     // Return sections in the desired order
-    return [t(resources.label_morning), t(resources.label_afternoon), t(resources.label_evening)]
+    return [
+        t(resources.label_morning),
+        t(resources.label_afternoon),
+        t(resources.label_evening),
+    ]
         .map((timeOfDay) => sections[timeOfDay])
         .filter(Boolean);
 }
