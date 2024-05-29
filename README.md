@@ -27,17 +27,17 @@ The dashboard of the application lists various activities available which is fil
 
 - The activity itself is an existing **reservation** in *GoMeddo*.
 - The activity types are **reservation types** in *GoMeddo* with descriptions and images attached to them.
-- Visitors of the activity become contacts in Salesforce using **reservation contacts**.
+- Visitors of the activity become contacts in *GoMeddo* using **reservation contacts**.
 - Staff are the instructors.
 - Both locations and staff have **availability**.
 - The location where the activity happens is a **resource** in *GoMeddo* with a specific **resource type**
   - **City**: Fitness Centres are categorized by their location (e.g., Amsterdam).
   - **Fitness Centre**: Within each city, specific fitness centres are identified (e.g., GymNow).
   - **Room** (Intensity Levels): Rooms within each fitness centre are designated by intensity levels (e.g., Entry-Level Room).
-- **Custom Fields Creation**: To use and display information from other objects, We must introduce custom fields within the Salesforce reservation object, such as Center_Name__c, Room_Name__c, etc. These fields are essential for getting detailed information about each activity.
+- **Custom Fields Creation**: To use and display information from other objects, We must introduce custom fields within the *GoMeddo* reservation object, such as Center_Name__c, Room_Name__c, etc. These fields are essential for getting detailed information about each activity.
 - **Resource Details Setting:** Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
 
-Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in Salesforce. For the booking system to accurately display available gym classes, each class must be created as a reservation within *GoMeddo*. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
+Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in *GoMeddo*. For the booking system to accurately display available gym classes, each class must be created as a reservation within *GoMeddo*. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
 
 ## API Key Requirement
 
