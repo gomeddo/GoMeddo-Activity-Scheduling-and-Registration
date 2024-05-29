@@ -72,9 +72,10 @@ The dashboard of the application lists various activities available which is fil
    - Create reservations for the classes you want to display on the frontend.
    - Ensure each reservation is linked to the appropriate resource types, staff, and other custom fields.
 
-**Resource Details Setting:** Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
+Note:
 
-Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in _GoMeddo_. For the booking system to accurately display available gym classes, each class must be created as a reservation within _GoMeddo_. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
+- Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
+- Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in _GoMeddo_. For the booking system to accurately display available gym classes, each class must be created as a reservation within _GoMeddo_. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
 
 ## API Key Requirement
 
