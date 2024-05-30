@@ -26,7 +26,6 @@ const de = {
         "{{name}} am {{date}} um {{time}}",
     [resources.message_booking_confirmed_back]: "Zurück zum Stundenplan",
     [resources.message_loading]: "Stundenplan wird geladen für",
-    [resources.message_loading_error]: "Fehler beim Laden des Stundenplans: Der von Ihnen eingegebene API-Schlüssel ist ungültig.",
     [resources.message_booking_loading]: "Sichern Sie sich Ihren Platz...",
     [resources.message_apiKey_error]: "Ungültiges API-Schlüsselformat. Bitte überprüfen Sie es und versuchen Sie es erneut.",
     [resources.button_filters]: "Filter",

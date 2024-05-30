@@ -26,7 +26,6 @@ const en = {
         "{{name}} on {{date}} at {{time}}",
     [resources.message_booking_confirmed_back]: "Back to classes schedule",
     [resources.message_loading]: "Loading class schedule for",
-    [resources.message_loading_error]: "Error loading class schedule: The API Key you entered is invalid.",
     [resources.message_booking_loading]: "Securing Your Spot...",
     [resources.message_apiKey_error]: "Invalid API key format. Please check and try again.",
     [resources.button_filters]: "Filters",

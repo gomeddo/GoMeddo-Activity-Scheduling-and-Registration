@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMapView } from "../../providers/MapViewContext";
 import Activity from "../../components/activity/Activity";
 import Header from "../../components/header/Header";
@@ -7,11 +7,11 @@ import "./Dashboard.css";
 import { useReservations, useAgendaItems } from "./hooks";
 import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
 function Dashboard() {
   const { isMapView } = useMapView();
   const [selectedDate, handleSetSelectedDate] = useState(new Date());
   const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [selectedClass, handleSetSelectedClass] = useState(undefined);
   const { loading, error, reservations } = useReservations(selectedDate);
 
@@ -20,16 +20,23 @@ function Dashboard() {
   const handleDateChange = (newDate) => {
     handleSetSelectedDate(newDate);
   };
+
+  useEffect(() => {
+    if (error) {
+      setErrorMessage(error.message);
+    }
+  }, [error]);
+
   useEffect(() => {
     if (!loading && sections.length === 0) {
       const timeoutId = setTimeout(() => setShowError(true), 5000); // Set timeout for 10 seconds
       return () => clearTimeout(timeoutId); // Cleanup function to clear timeout on unmount
     }
   }, [loading, sections, error]);
+
   return (
     <div className="dashboard-wrapper">
       {/* Optional map view, displayed only if isMapView is true */}
-
       {isMapView && <div className="dashboard-map" />}
       <div className="dashboard-container">
         {/* Weekly agenda selector */}
@@ -52,7 +59,7 @@ function Dashboard() {
           </div>
         )}
         {!loading && sections.length === 0 && showError && (
-          <div>{t(resources.message_loading_error)}</div>
+          <div>{errorMessage ? `${errorMessage} Please try again later or check the console for more details.` : ''}</div>
         )}
         {!loading && sections.length > 0 && (
           <div
