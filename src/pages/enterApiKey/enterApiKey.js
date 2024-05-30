@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./enterApiKey.css";
 import resources from "../../i18n/resources";
 import { useTranslation } from "react-i18next";
@@ -7,6 +7,14 @@ function EnterApiKey() {
     const [apiKey, setApiKey] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
     const { t } = useTranslation();
+
+    useEffect(() => {
+        // Retrieve the API key from environment variables if available
+        const envApiKey = process.env.REACT_APP_API_KEY;
+        if (envApiKey) {
+            setApiKey(envApiKey);
+        }
+    }, []);
 
     const handleInputChange = (event) => {
         setApiKey(event.target.value);
@@ -50,7 +58,7 @@ function EnterApiKey() {
                         </p>
                     </div>
                 </section>
-                <section style={{padding: "3rem 0"}}>
+                <section style={{ padding: "3rem 0" }}>
                     <div>
                         <h2>Example: Book your gym class online</h2>
                         <div id="sales-appointment" />
