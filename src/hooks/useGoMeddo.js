@@ -7,19 +7,27 @@ export default function useGoMeddo() {
 
   // Fetch API key from localStorage on component mount
   useEffect(() => {
-    const fetchApiKeyFromLocalStorage = () => {
+    const fetchApiKeyFromEnvOrLocalStorage = () => {
       try {
+        const envApiKey = process.env.REACT_APP_API_KEY;
+
+        if (envApiKey) {
+          setApiKey(envApiKey);
+          console.log("API key fetched from env variables");
+          return;
+        }
+
         const storedApiKey = localStorage.getItem("goMeddoApiKey");
         if (storedApiKey) {
           setApiKey(storedApiKey);
-          console.log("API key fetched from localStorage:", storedApiKey);
+          console.log("API key fetched from localStorage");
         }
       } catch (error) {
-        console.error("Error fetching API key from localStorage:", error);
+        console.error("Error fetching API key:", error);
       }
     };
 
-    fetchApiKeyFromLocalStorage();
+    fetchApiKeyFromEnvOrLocalStorage();
   }, []); // Empty dependency array ensures it runs only on mount
 
   // Create GoMeddo instance only when apiKey is available and valid
