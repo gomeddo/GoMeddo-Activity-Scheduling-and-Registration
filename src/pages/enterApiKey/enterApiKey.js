@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 function EnterApiKey() {
     const [apiKey, setApiKey] = useState("");
+    const [showApiKey, setShowApiKey] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
     const { t } = useTranslation();
 
@@ -19,6 +20,10 @@ function EnterApiKey() {
     const handleInputChange = (event) => {
         setApiKey(event.target.value);
         setErrorMessage(null); // Clear any previous errors
+    };
+
+    const toggleApiKeyVisibility = () => {
+        setShowApiKey(!showApiKey);
     };
 
     const handleSubmit = async (event) => {
@@ -63,15 +68,23 @@ function EnterApiKey() {
                         <h2>Example: Book your gym class online</h2>
                         <div id="sales-appointment" />
                         <form onSubmit={handleSubmit} id="config">
-                            <label htmlFor="apiKey" style={{ color: "white", fontSize: "1.2rem"}}>Enter API Key:</label>
-                            <input
-                                type="text"
-                                id="apiKey"
-                                name="apiKey"
-                                placeholder="Enter your API key"
-                                value={apiKey}
-                                onChange={handleInputChange}
-                            />
+                            <label htmlFor="apiKey" style={{ color: "white", fontSize: "1.2rem"}}>
+                                Enter API Key:
+                            </label>
+                            <div style={{ display: "flex", alignItems: "center" }}>
+                                <input
+                                    type={showApiKey ? "text" : "password"}
+                                    style={{ width: "450px", marginRight: "10px" }}
+                                    id="apiKey"
+                                    name="apiKey"
+                                    placeholder="Enter your API key"
+                                    value={apiKey}
+                                    onChange={handleInputChange}
+                                />
+                                <button type="button" onClick={toggleApiKeyVisibility}>
+                                    {showApiKey ? "Hide" : "Show"}
+                                </button>
+                            </div>
                             {errorMessage && <p className="error-message">{errorMessage}</p>}
                             <button type="submit">Submit</button>
                         </form>
