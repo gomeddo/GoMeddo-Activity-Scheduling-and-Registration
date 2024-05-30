@@ -8,6 +8,7 @@ export default function useGoMeddo() {
   // Fetch API key from localStorage on component mount
   useEffect(() => {
     const fetchApiKeyFromEnvOrLocalStorage = () => {
+      console.log("Fetching API key from env variables or localStorage");
       try {
         const envApiKey = process.env.REACT_APP_API_KEY;
 
