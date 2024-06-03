@@ -42,11 +42,11 @@ The dashboard of the application lists various activities available which is fil
      - **Room**: Entry Level Room
    - Note: There can be multiple resources of the type "Room", "City" and "Fitness Center".
 
-   ### Create Resource Types for Each Class
+   ### Create Reservation Types for Each Class
 
-2. **Create Resource Types**:
+2. **Create Reservation Types**:
 
-   - Define a resource type for each class type (e.g., Pilates, Yoga).
+   - Define a reservation type for each class type (e.g., Pilates, Yoga).
    - Create a custom image field for each class type and add an image representing the class.
 
    ## Custom Fields Creation
@@ -70,7 +70,7 @@ The dashboard of the application lists various activities available which is fil
 
 5. **Create Reservations**:
    - Create reservations for the classes you want to display on the frontend.
-   - Ensure each reservation is linked to the appropriate resource types, staff, and other custom fields.
+   - Ensure each reservation is linked to the appropriate reservation types, staff, and other custom fields.
 
 Note:
 
