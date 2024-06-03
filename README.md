@@ -28,8 +28,6 @@ The dashboard of the application lists various activities available which is fil
 
 # Step-by-Step Guide to Setting Up The Example
 
-### Define the Resource Hierarchy
-
 1. **Set Up Resources and Resource Types**:
 
    - Define the hierarchical structure for your resources:
@@ -42,14 +40,10 @@ The dashboard of the application lists various activities available which is fil
      - **Room**: Entry Level Room
    - Note: There can be multiple resources of the type "Room", "City" and "Fitness Center".
 
-   ### Create Reservation Types for Each Class
-
 2. **Create Reservation Types**:
 
    - Define a reservation type for each class type (e.g., Pilates, Yoga).
    - Create a custom image field for each class type and add an image representing the class.
-
-   ## Custom Fields Creation
 
 3. **Create Custom Fields Under the Reservation Object**:
 
@@ -61,8 +55,6 @@ The dashboard of the application lists various activities available which is fil
      - `City_Location__c` (Formula Field)
      - `Center_Name__c` (Formula Field)
      - `reservation_type_image__c` (Custom Image Field)
-
-     ## Setting Up Staff and Creating Reservations
 
 4. **Create Staff Members**:
 
