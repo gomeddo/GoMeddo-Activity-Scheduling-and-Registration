@@ -40,7 +40,7 @@ The dashboard of the application lists various activities available which is fil
      - **City**: Amsterdam
      - **Fitness Centre**: FitZone
      - **Room**: Entry Level Room
-   - Note: There can be multiple resources of the type "Room", "City", "Fitness Center" and "Country" .
+   - Note: There can be multiple resources of the type "Room", "City" and "Fitness Center".
 
    ### Create Resource Types for Each Class
 
