@@ -49,11 +49,11 @@ The dashboard of the application lists various activities available which is fil
 
    - Add the following custom fields to provide detailed information about each activity:
 
-     - `Staff_Name__c` (Formula Field)
-     - `Room_Name__c` (Formula Field)
-     - `Room_Capacity__c` (Formula Field)
-     - `City_Location__c` (Formula Field)
-     - `Center_Name__c` (Formula Field)
+     - `Staff_Name__c` (Formula Text Field)
+     - `Room_Name__c` (Formula Text Field)
+     - `Room_Capacity__c` (Formula Number Field)
+     - `City_Location__c` (Formula Text Field)
+     - `Center_Name__c` (Formula ext Field)
      - `reservation_type_image__c` (Custom Image Field)
 
 4. **Create Staff Members**:
