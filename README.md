@@ -16,9 +16,9 @@ You can find a demo [here](https://gomeddo-activity-scheduling-and-registration.
 
 ## High-Level Use Case
 
-This example provides a starting point for integrating _GoMeddo's_ "**activity registration**" capabilities into your website using the Javascript SDK.
+This example provides a starting point for integrating _GoMeddo's_ "**Activity Registration**" capabilities into your website using the Javascript SDK.
 
-An activity has a certain **capacity**, a **staff member** and a **location**. Your customers can sign up for this activity.
+An activity has a certain **Capacity**, a **Staff Member** and a **Location**. Your customers can sign up for this activity.
 
 The example demonstrates this by allowing customers to book a gym class, while focused on gym class bookings it demonstrates the process and structure needed for a range of activity booking scenarios.
 
@@ -38,11 +38,11 @@ The dashboard of the application lists various activities available which is fil
      - **City**: Amsterdam
      - **Fitness Centre**: FitZone
      - **Room**: Entry Level Room
-   - Note: There can be multiple resources of the type "Room", "City" and "Fitness Center".
+   - Note: There can be multiple Resources of the type "Room", "City" and "Fitness Center".
 
 2. **Create Reservation Types**:
 
-   - Define a reservation type for each class type (e.g., Pilates, Yoga).
+   - Define a Reservation Type for each class type (e.g., Pilates, Yoga).
    - Create a custom image field for each class type and add an image representing the class.
 
 3. **Create Custom Fields Under the Reservation Object**:
@@ -58,16 +58,16 @@ The dashboard of the application lists various activities available which is fil
 
 4. **Create Staff Members**:
 
-   - Add staff members (instructors) who will be associated with the reservations.
+   - Add Staff Members (instructors) who will be associated with the reservations.
 
 5. **Create Reservations**:
-   - Create reservations for the classes you want to display on the frontend.
-   - Ensure each reservation is linked to the appropriate reservation types, staff, and other custom fields.
+   - Create Reservations for the classes you want to display on the frontend.
+   - Ensure each Reservation is linked to the appropriate Reservation Types, Staff, and other Custom Fields.
 
 Note:
 
 - Ensure that each resource in GoMeddo is marked as '**_isActive_**' and '**_Api Visible_**' to be displayed and available through the API.
-- Ensure that **resources**, **resources types**, **staff** and **reservation types** are set up in _GoMeddo_. For the booking system to accurately display available gym classes, each class must be created as a reservation within _GoMeddo_. This step is vital as the SDK relies on these existing **reservations** to present customers with real-time availability and booking options.
+- Ensure that **Resources**, **Resources Types**, **Staff** and **Reservation Types** are set up in _GoMeddo_. For the booking system to accurately display available gym classes, each class must be created as a reservation within _GoMeddo_. This step is vital as the SDK relies on these existing **Reservations** to present customers with real-time availability and booking options.
 
 ## API Key Requirement
 
