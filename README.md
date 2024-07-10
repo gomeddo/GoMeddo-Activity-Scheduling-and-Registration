@@ -85,7 +85,7 @@ Perform the following steps to run the project in a local environment.
 
 #### Link to Github and Wiki
 
-For further information on utilizing the GoMeddo Javascript SDK, visit [GoMeddo JS SDK wiki](https://github.com/GoMeddo/js-sdk/wiki).
+For further information on utilizing the GoMeddo Javascript SDK, visit [GoMeddo JS SDK wiki](https://github.com/GoMeddo/js-sdk/wiki) and to explore the frontend example GitHub repository [GoMeddo Activity Registration and Scheduling](https://github.com/gomeddo/GoMeddo-Activity-Scheduling-and-Registration).
 
 #### Similar use cases
 
