@@ -53,7 +53,7 @@ The dashboard of the application lists various activities available which is fil
      - `Room_Name__c` (Formula Text Field)
      - `Room_Capacity__c` (Formula Number Field)
      - `City_Location__c` (Formula Text Field)
-     - `Center_Name__c` (Formula ext Field)
+     - `Center_Name__c` (Formula Text Field)
      - `reservation_type_image__c` (Custom Image Field)
 
 4. **Create Staff Members**:
